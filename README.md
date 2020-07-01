@@ -13,16 +13,26 @@
 |encrypted_password|string|null: false|
 |send_name|string|null: false|
 |send_name_phonetic|string|null: false|
-|postal_code|string|null: false|
-|prefectures|string|null: false|
-|city|string|null: false|
-|address|string|null: false|
 |condominium_name|string||
 |phone number|string||
 
 ### Association
 - has_many :products
+- has_one :street_address
 - has_one :card
+
+
+## Street_addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|string|null: false|
+|prefectures|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|user|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
 
 
 ## Cardテーブル
@@ -51,20 +61,18 @@
 
 ### Association
 - has_many :product_images
-- has_many :product_categories
-- has_many :category, through: :product_categories
 - belongs_to :user
+- belongs_to :category
 
 
-## Product＿Categoryテーブル
+## Product_imageテーブル
 |Column|Type|Options|
 |------|----|-------|
+|main|string|null: false|
+|sub|string|null: false|
 |product|references|null: false, foreign_key: true|
-|category|references|null: false, foreign_key: true|
-
 ### Association
 - belongs_to :product
-- belongs_to :category
 
 
 ## Categoryテーブル
@@ -73,5 +81,4 @@
 |name|string|null: false|
 
 ### Association
-- has_many :product_categories
-- has_many :products, through: :product_categories
+- has_many :products
