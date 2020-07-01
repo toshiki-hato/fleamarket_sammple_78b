@@ -8,12 +8,12 @@
     %link{"data-turbolinks-track": "reload", href: "/assets/application-2e096b94f60fe4efbadc0b2fe0199ebc3f338134ada36d1d73b67e994e191614.css", media: "all", rel: "stylesheet"}/
     %script{"data-turbolinks-track": "reload", src: "/assets/application-26d056ac003f4e4f9d1ad389ac9e51f4f59d6236cc12a75b4ca86167f653c860.js"}
   %body
-    %header.pcHeader
-      .headerInner
-        .mainHeader
-          %h1.icon
+    .Header
+      .Header__inner
+        .Header__inner__mainheader
+          .icon
             %a{href: "/"}
-              = image_tag 'logo/logo.png'
+              = image_tag 'logo/logo.png',class: "logo.png"
           .searchBox
             %form{"accept-charset": "UTF-8", action: "#", method: "get"}
               %input{name: "utf8", type: "hidden", value: "✓"}/
