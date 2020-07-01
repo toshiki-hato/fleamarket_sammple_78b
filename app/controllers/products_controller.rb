@@ -3,10 +3,16 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product= Product.new
   end
 
   def create
-    Product.create(product_params)
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to root_url
+    else
+      render action: :new
+    end
   end
 
   private
@@ -19,5 +25,4 @@ class ProductsController < ApplicationController
                                     :send_from, 
                                     :lead_time)
   end
-  
 end
