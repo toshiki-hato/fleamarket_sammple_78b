@@ -94,3 +94,13 @@
             %button.style_button__3yWFH.common_fontFamily__3-3Si.style_primary__Mg3zL.style_medium__3wTQ5.style_fluid__3mdYA.style_legacy__2D0U0{:tabindex => "0", :type => "submit"} 出品する
             %button.style_button__3yWFH.common_fontFamily__3-3Si.style_defaultIntent__22709.style_medium__3wTQ5.style_fluid__3mdYA.style_legacy__2D0U0{:tabindex => "0", :type => "button"} 下書きに保存
             %a.style_textlink__iJYDm.common_fontFamily__3-3Si.sc-jxGEyO.eKaDLp{:href => "/jp/"} もどる
+  .Form
+    = form_with model: @product, local: true do |f|
+      = f.text_field :name
+      = f.text_field :description
+      = f.text_field :price
+      = f.text_field :status
+      = f.text_field :shipping_expenses
+      = f.text_field :send_from
+      = f.text_field :lead_time
+      = f.submit '出品する'
