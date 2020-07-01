@@ -3,26 +3,14 @@
     .Icon
       %a{href: "#"}
         = image_tag 'logo/logo.png', alt: "FURIMA"
-      .sc-caSCKo.OLMic
-        %form.sc-cqPOvA.kdnXmt{:action => "#"}
-          .sc-eAKXzc.iVOMD
-            .style_body__1OP1S
-              %div{:name => "photos"}
-                .style_formLabel__3wM81.common_fontFamily__3-3Si
-                  %label 出品画像
-                  %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-              %p.sc-ejGVNB.ieuBws.style_controls__B6nQm 最大10枚までアップロードできます
-              .sc-bYwvMP.kOnHwf.style_controls__B6nQm
-                .sc-feryYK.bPGNgJ{"data-test" => "sell-upload-container"}
-                  .sc-eLdqWK.cBKBqZ{:tabindex => "0"}
-                    .sc-iiUIRa.dPOcWZ
-                      %input.sc-hgRTRy.hExdOf{:accept => "image/png,image/jpeg", :autocomplete => "off", :multiple => "multiple", :style => "display: none;", :tabindex => "-1", :type => "file"}/
-                      %p.sc-iIHSe.bIEvxt
-                        ドラッグアンドドロップ
-                        %br>/
-                        またはクリックしてファイルをアップロード
-              .style_formerror__D6Ov0 画像がありません
-          %hr.style_divider__1tLu3.style_size1__3jc3t/
+      .Forms
+        %form
+          .Image
+            .Image__label
+              %label 出品画像
+               %span 必須
+            %p 最大10枚までアップロードできます
+          %hr
           .sc-eAKXzc.iVOMD
             .style_formgroup__3IPME.sc-iNhVCk.iucczz
               %div{:name => "name"}
