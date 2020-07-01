@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root to: 'products#index'
+  root 'items#index'
 end
