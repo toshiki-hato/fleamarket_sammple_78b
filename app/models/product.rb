@@ -1,8 +1,8 @@
 class Product < ApplicationRecord
-  #has_many :product_images
+  has_many :product_images
   #belongs_to :user
   #belongs_to :category
-  
+
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
