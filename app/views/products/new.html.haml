@@ -8,18 +8,17 @@
           .Image
             .Image__label
               %label 出品画像
-               %span 必須
+              %span 必須
             %p 最大10枚までアップロードできます
           %hr
-          .sc-eAKXzc.iVOMD
-            .style_formgroup__3IPME.sc-iNhVCk.iucczz
-              %div{:name => "name"}
-                .style_formLabel__3wM81.common_fontFamily__3-3Si
-                  %label 商品名
-                  %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-              .style_inputarea__1mtsA
-                %input{:autocomplete => "off", :name => "name", :placeholder => "40文字まで", :type => "text", :value => ""}/
-            .style_formgroup__3IPME.sc-iNhVCk.iucczz
+          .Product__nameandexplanation
+            .Product__name
+              .Product__name--label
+                %label 商品名
+                %span 必須
+              .Product__name--input
+                %input{autocomplete: "off", name: "name", placeholder: "40文字まで", type: "text", value: ""}
+            .Product__explanation--label
               .style_formLabel__3wM81.common_fontFamily__3-3Si
                 %label 商品の説明
                 %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
