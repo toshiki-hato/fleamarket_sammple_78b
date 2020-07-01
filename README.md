@@ -6,7 +6,7 @@
 |------|----|-------|
 |name|string|null: false|
 |phonetic|string|null: false|
-|birthday|string|null: false|
+|birthday|date|null: false|
 |nickname|string|null: false|
 |email|string|null: false,uniqueness: true |
 |password|string|null: false|
@@ -30,7 +30,7 @@
 |------|----|-------|
 |number|string|null: false|
 |name|string|null: false|
-|good_thru|string|null: false|
+|good_thru|date|null: false|
 |security_code|string|null: false|
 |user|references|null: false, foreign_key: true|
 
