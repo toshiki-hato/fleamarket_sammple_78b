@@ -5,29 +5,34 @@
         = image_tag 'logo/logo.png', alt: "FURIMA"
       .Forms
         %form
+        = form_with model: @product, local: true do |f|
           .Image
             .Image__label
               %label 出品画像
               %span 必須
             %p 最大10枚までアップロードできます
+            #image-box
+              = f.fields_for :product_images do |image|
+                .js-file_group{"data-index" => "#{image.index}"}
+                  = image.file_field :main, class: 'js-file'
+                  %span.js-remove 削除
           %hr
           .Product__nameandexplanation
             .Product__name
               .Product__name--label
                 %label 商品名
+                = f.text_field :name
                 %span 必須
-              .Product__name--input
-                %input{autocomplete: "off", name: "name", placeholder: "40文字まで", type: "text", value: ""}
-              
-
-
+              //.Product__name--input
+              //  %input{autocomplete: "off", name: "name", placeholder: "40文字まで", type: "text", value: ""}
             .Product__explanation--label
               .Product__explanation--title
                 %label 商品の説明
+                = f.text_field :description
                 %span 必須
-            .Product__explanation--input
-              %textarea{:name => "description", :placeholder => "", :rows => "7"}
-              %span> 
+            //.Product__explanation--input
+            //  %textarea{:name => "description", :placeholder => "", :rows => "7"}
+            //  %span> 
           %hr.Borderline
           .Product__details
             %p.Product__details--label 商品の詳細
@@ -50,10 +55,11 @@
                 %div{:name => "itemCondition"}
                   .Product__details--condition-label
                     %label 商品の状態
+                    = f.text_field :status
                     %span 必須
-                .Product__details--condition-selectbox
-                  .Product__details--condition-selectbutton
-                    %select{:name => "itemCondition"}
+                //.Product__details--condition-selectbox
+                //  .Product__details--condition-selectbutton
+                //    %select{:name => "itemCondition"}
           %hr.Borderline
             .Delivery
               %p.Delivery__label 配送について
@@ -61,39 +67,44 @@
                 %div{:name => "shippingPayer"}
                   .Delivery__fee--label
                     %label 配送料の負担
+                    = f.text_field :shipping_expenses
                     %span 必須
-                .Delivery__fee-selectbox
-                  %select{:name => "shippingPayer"}
+                //.Delivery__fee-selectbox
+                //  %select{:name => "shippingPayer"}
               .Delivery__area--select-field
                 %div{:name => "shippingFromArea"}
                   .Delivery__area--label
                     %label 発送元の地域
+                    = f.text_field :send_from
                     %span 必須
-                .Delivery__area-selectbox
-                  %select{:name => "shippingFromArea"}
+                //.Delivery__area-selectbox
+                //  %select{:name => "shippingFromArea"}
             .Shipping-days
               .Shipping-days__label
                 %label 発送までの日数
+                = f.text_field :lead_time
                 %span 必須
-            .Shipping-days__selectbox
-              %select{:name => "shippingDuration"}
+            //.Shipping-days__selectbox
+            //  %select{:name => "shippingDuration"}
           .Price
             %p.Price__range 価格（¥300〜9,999,999
             .Price__fields
               .Price__selling-price--field
                 .Price__selling-price--label
                   %label 販売価格
+                  %span.Price__yen-mark ¥
+                  = f.text_field :price
                   %span 必須
-                %span.Price__yen-mark ¥
-                .Price__selling-price--inputbace
-                  %input{:autocomplete => "off", :name => "price", :placeholder => "0", :type => "number", :value => ""}/
+                //.Price__selling-price--inputbace
+                //  %input{:autocomplete => "off", :name => "price", :placeholder => "0", :type => "number", :value => ""}/
               .Sales-fee{"data-test" => "fee-label"}
                 %div 販売手数料（10%）
               .Sales-profit__field
                 .Sales-profit__label 販売利益
                 %span{"data-test" => "total-value"} —
           .Editend-buttons
-            %button.sell-button{:tabindex => "0", :type => "submit"} 出品する
+            = f.submit '出品する'
+            //%button.sell-button{:tabindex => "0", :type => "submit"} 出品する
             %button.draft-butto{:tabindex => "0", :type => "button"} 下書きに保存
             %a.return-link{:href => "/jp/"} もどる
   .Form
