@@ -18,82 +18,84 @@
                 %span 必須
               .Product__name--input
                 %input{autocomplete: "off", name: "name", placeholder: "40文字まで", type: "text", value: ""}
+              
+
+
             .Product__explanation--label
-              .style_formLabel__3wM81.common_fontFamily__3-3Si
+              .Product__explanation--title
                 %label 商品の説明
-                %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-            %textarea.style_textarea__24aZZ.common_fontFamily__3-3Si.style_fluid__10CPG{:name => "description", :placeholder => "", :rows => "7"}
-            .style_counter__ofu-P.common_fontFamily__3-3Si.style_right__1Vw8k
-              %span> 0
-              \/1000
-          %hr.style_divider__1tLu3.style_size1__3jc3t/
-          .sc-eAKXzc.iVOMD
-            %p.sc-bfYoXt.fdNByB 商品の詳細
-            .style_formgroup__3IPME.sc-iNhVCk.iucczz
+                %span 必須
+            .Product__explanation--input
+              %textarea{:name => "description", :placeholder => "", :rows => "7"}
+              %span> 
+          %hr.Borderline
+          .Product__details
+            %p.Product__details--label 商品の詳細
+            .Product__details--select-field
               %div{:name => "categoryId"}
-                .style_formLabel__3wM81.common_fontFamily__3-3Si
+                .Product__details--category-label
                   %label カテゴリー
-                  %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-              .style_select__3R6W_.common_fontFamily__3-3Si.style_error__Ka39v.style_fluid__31br4
-                .style_selectarea__3ZX8E
+                  %span 必須
+              .Product__details--category-selectbase
+                .Product__details--category-selectbox 
                   %select{:name => "categoryId"}
-                .style_formerror__D6Ov0 選択してください
-              .style_formgroup__3IPME.sc-iNhVCk.iucczz
-                .style_formLabel__3wM81.common_fontFamily__3-3Si
+                .Product__details--category-selectcomment 選択してください
+              .Product__details--brand-inputbase
+                .Product__details--brand-label
                   %label ブランド
-                  %span.style_tag__xA80S.style_hint__3awFd.style_small__2vSa8.common_fontFamily__3-3Si 任意
-                .style_inputarea__1mtsA
+                  %span 任意
+                .Product__details--input
                   %input{:autocomplete => "off", :name => "brandName", :placeholder => "", :type => "text", :value => ""}/
-              .style_formgroup__3IPME.sc-iNhVCk.iucczz
+              .Product__details--condition-selectbase
                 %div{:name => "itemCondition"}
-                  .style_formLabel__3wM81.common_fontFamily__3-3Si
+                  .Product__details--condition-label
                     %label 商品の状態
-                    %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-                .style_select__3R6W_.common_fontFamily__3-3Si.style_fluid__31br4
-                  .style_selectarea__3ZX8E
+                    %span 必須
+                .Product__details--condition-selectbox
+                  .Product__details--condition-selectbutton
                     %select{:name => "itemCondition"}
-            .sc-eAKXzc.iVOMD
-              %p.sc-bfYoXt.fdNByB 配送について
-              .style_formgroup__3IPME.sc-iNhVCk.iucczz
+          %hr.Borderline
+            .Delivery
+              %p.Delivery__label 配送について
+              .Delivery__select-field
                 %div{:name => "shippingPayer"}
-                  .style_formLabel__3wM81.common_fontFamily__3-3Si
+                  .Delivery__fee--label
                     %label 配送料の負担
-                    %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-                .style_select__3R6W_.common_fontFamily__3-3Si.style_fluid__31br4
+                    %span 必須
+                .Delivery__fee-selectbox
                   %select{:name => "shippingPayer"}
-              .style_formgroup__3IPME.sc-iNhVCk.iucczz
+              .Delivery__area--select-field
                 %div{:name => "shippingFromArea"}
-                  .style_formLabel__3wM81.common_fontFamily__3-3Si
+                  .Delivery__area--label
                     %label 発送元の地域
-                    %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-                .style_selectarea__3ZX8E
+                    %span 必須
+                .Delivery__area-selectbox
                   %select{:name => "shippingFromArea"}
-            .style_formgroup__3IPME.sc-iNhVCk.iucczz
-              .style_formLabel__3wM81.common_fontFamily__3-3Si
+            .Shipping-days
+              .Shipping-days__label
                 %label 発送までの日数
-                %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-            .style_select__3R6W_.common_fontFamily__3-3Si.style_fluid__31br4
+                %span 必須
+            .Shipping-days__selectbox
               %select{:name => "shippingDuration"}
-          .sc-kkbgRg.kkvLhk
-            %p.sc-bfYoXt.fdNByB 価格（¥300〜9,999,999
-            .sc-jqIZGH.hSlHkq
-              .sc-gbzWSY.gDMvJo
-                .style_formLabel__3wM81.common_fontFamily__3-3Si
+          .Price
+            %p.Price__range 価格（¥300〜9,999,999
+            .Price__fields
+              .Price__selling-price--field
+                .Price__selling-price--label
                   %label 販売価格
-                  %span.style_tag__xA80S.style_attention__3ULCL.style_small__2vSa8.common_fontFamily__3-3Si 必須
-                %span.sc-jGxEUC.eIMhQq ¥
-                .style_textField__1jvsM.common_fontFamily__3-3Si.style_fluid__1h6iv.sc-hRmvpr.hUlRjm
-                  .style_inputarea__1mtsA
-                    %input{:autocomplete => "off", :name => "price", :placeholder => "0", :type => "number", :value => ""}/
-              .sc-jMMfwr.hNJeyH{"data-test" => "fee-label"}
+                  %span 必須
+                %span.Price__yen-mark ¥
+                .Price__selling-price--inputbace
+                  %input{:autocomplete => "off", :name => "price", :placeholder => "0", :type => "number", :value => ""}/
+              .Sales-fee{"data-test" => "fee-label"}
                 %div 販売手数料（10%）
-              .sc-gbzWSY.gDMvJo
-                .sc-jMMfwr.hNJeyH 販売利益
-                %span.sc-jdeSqf.dXqFLT{"data-test" => "total-value"} —
-          .sc-drlKqa.kDOsXs
-            %button.style_button__3yWFH.common_fontFamily__3-3Si.style_primary__Mg3zL.style_medium__3wTQ5.style_fluid__3mdYA.style_legacy__2D0U0{:tabindex => "0", :type => "submit"} 出品する
-            %button.style_button__3yWFH.common_fontFamily__3-3Si.style_defaultIntent__22709.style_medium__3wTQ5.style_fluid__3mdYA.style_legacy__2D0U0{:tabindex => "0", :type => "button"} 下書きに保存
-            %a.style_textlink__iJYDm.common_fontFamily__3-3Si.sc-jxGEyO.eKaDLp{:href => "/jp/"} もどる
+              .Sales-profit__field
+                .Sales-profit__label 販売利益
+                %span{"data-test" => "total-value"} —
+          .Editend-buttons
+            %button.sell-button{:tabindex => "0", :type => "submit"} 出品する
+            %button.draft-butto{:tabindex => "0", :type => "button"} 下書きに保存
+            %a.return-link{:href => "/jp/"} もどる
   .Form
     = form_with model: @product, local: true do |f|
       = f.text_field :name
