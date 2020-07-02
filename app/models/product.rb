@@ -11,4 +11,8 @@ class Product < ApplicationRecord
   validates :shipping_expenses, presence: true
   validates :send_from, presence: true
   validates :lead_time, presence: true
+
+  #子テーブルへのバリデーション
+  validates_associated :product_images
+  validates :product_images, presence: true
 end
