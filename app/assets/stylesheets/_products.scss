@@ -125,9 +125,9 @@
 }
 
 
-.main{
+.Main{
   background: #f8f8f8;
-  .topVisual {
+  .Topvisual {
     width: 100%;
     height: 560px;
     background-image: url(pict/bg-mainVisual-pict_pc.jpg);
@@ -138,25 +138,25 @@
     padding: 0 60px;
     display: flex;
     align-items: center;
-    .content {
+    &__content {
       max-width: 1280px;
       width: 100%;
       margin: 0 auto;
       padding: 35px 0 0 0;
-      .content__title {
+      &__title {
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
         font-size: 60px;
         line-height: 1.2;
         color: #fff;
       }
-      .content__text {
+      &__text {
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
         font-size: 18px;
         color: #fff;
         line-height: 1.77778;
         margin: 16px 0 0 0;
       }
-      .content__appbtn {
+      &__appbtn {
         display: flex;
         margin: 24px 0 0 0;
         .apple-btn{
@@ -176,15 +176,15 @@
         }
       }
     }
-    .picture {
+    .Picture {
       position: absolute;
       top: 0;
       right: 210px;
     }
   }
-  .chooseReason {
+  .ChooseReason {
     padding: 60px 20px;
-    .title {
+    .Title {
       text-align: center;
       font-size: 26px;
       line-height: 1.4;
@@ -193,23 +193,23 @@
       padding-bottom: 15px;
       position: relative;
     }
-    .lists {
+    .Lists {
       text-align: center;
       display: flex;
       max-width: 1020px;
       width: 100%;
       margin: 0 auto;
-      .list {
+      &__list {
         width: 30%;
         margin: 16px 5% 0 0;
         text-align: left;
         display: flex;
         flex-direction: column;
         align-items: center;
-        .list__picture{
+        &__picture{
           position: relative;
           margin-bottom: 20px;
-          .number {
+          &__number {
             display: inline-block;
             position: absolute;
             top: 0;
@@ -227,7 +227,7 @@
             vertical-align: bottom;
           }
         }
-        .list__text {
+        &__text {
           font-weight: bold;
           font-size: 24px;
           line-height: 50px;
@@ -236,7 +236,50 @@
             color: #3CCACE;
           }
         }
-        .list__description {
+        &__description {
+          font-size: 18px;
+          line-height: 1.5;
+          margin: 16px 0 0;
+        }
+      }
+      .List__last{
+        width: 30%;
+        margin: 16px 5% 0 0;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__picture{
+          position: relative;
+          margin-bottom: 20px;
+          &__number{
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 4%;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 5px 0 0;
+            padding: 10px 20px;
+            background-color: #3CCACE;
+            color: #fff;
+          }
+          img {
+            width: 100%;
+            vertical-align: bottom;
+          }
+        }
+        &__text {
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 50px;
+          margin: 0 0 0 2px;
+          span {
+            color: #3CCACE;
+          }
+        }
+        &__description {
           font-size: 18px;
           line-height: 1.5;
           margin: 16px 0 0;
@@ -244,31 +287,31 @@
       }
     }
   } 
-  .midleVisual {
+  .Midlevisual {
     background-image: url('pict/bg-topMiddleDl-pict.jpg');
     background-position: bottom right;
     height: 400px;
     background-size: cover;
     display: flex;
     align-items: center;
-    .midleVisual__inner {
+    .Midlevisual__inner {
       color: #fff;
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       text-align: left;
       max-width: 1040px;
       width: 100%;
       margin: 0 auto;
-      .title {
+      &__title {
         font-size: 27px;
         font-weight: bold;
         line-height: 1.4;
       }
-      .text {
+      &__text {
         font-size: 18px;
         margin: 20px 0 30px;
         line-height: 1.5;
       }
-      .appbtn {
+      &__appbtn {
         display: flex;
         a {
           margin-right: 10px;
@@ -283,7 +326,7 @@
   .Features {
     padding: 60px 100px;
     background-color: #fff;
-    .title {
+    .Title {
       font-size: 27px;
       text-align: center;
       margin: 0 0 40px;
@@ -292,19 +335,19 @@
       padding-bottom: 15px;
       position: relative;
     }
-    .items {
+    .Items {
       max-width: calc(1040px + 20px);
       width: 100%;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      .item {
+      &__item {
         display: flex;
         flex-direction: column;
         width: calc(1 / 3 * 100%);
         text-align: center;
         padding: 0 20px;
-        .item__img {
+        &__img {
           width: 70%;
           margin: 0 auto;
           line-height: 120px;
@@ -313,12 +356,12 @@
             vertical-align: bottom;
           }
         }
-        .item__subtitle {
+        &__subtitle {
           margin: 38px 0 10px;
           font-size: 19px;
           font-weight: bold;
         }
-        .item__description {
+        &__description {
           margin: 0 0 40px;
           font-size: 17px;
           font-weight: 200;
@@ -327,32 +370,35 @@
       }
     }
   }
-  .pickupProduct {
+  .Pickupproduct {
     padding: 80px 0 0;
     background-color: #f8f8f8;
     height: 100%;
-    .head {
+    &__head {
       text-align: center;
       font-size: 28px;
       line-height: 1.4;
       font-weight: bold;
     }
-    .productBox {
-      .productHead{
+    .Pickupproduct__productbox {
+      .Producthead{
         text-align: center;
         a{
           font-size: 24px;
           text-decoration: none;
           color: #3CCACE;
+          .title{
+            font-weight: bold;
+          }
         }
       }
     }
-    .productLists {
+    .Productlists {
       width: 780px;
       margin: 26px auto;
       display: flex;
       justify-content: space-around;
-      .productList {
+      .Productlist {
         width: 220px;
         display: inline-block;
         float: left;
@@ -417,26 +463,26 @@
   }
 }
 
-.bottomView{
+.Bottomview{
   background-image: url("pict/bg-appBanner-pict.jpg");
   padding: 100px 40px;
   position: relative;
   background-size: cover;
   background-position: center;
-  .inner{
+  .Inner{
     color: #fff;
     text-align: center;
-    .inner__title{
+    .Inner__title{
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       font-size: 24px;
       font-weight: bold;
       line-height: 1.4;
     }
-    .inner__text{
+    .Inner__text{
       font-size: 35px;
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
-    .inner__appbtn{
+    .Inner__appbtn{
       width: 100%;
       display: flex;
       justify-content: center;
@@ -467,16 +513,16 @@
 //   background-position: center;
 // }
 
-.footer{
+.Footer{
   padding: 60px 0;
   color: #fff;
   background-color: #272727;
   text-align: center;
-  .contents {
+  .Contents {
     max-width: 840px;
     margin: 0 auto;
     display: flex;
-    .content {
+    &__content {
       display: flex;
       flex-direction: column;
       width: calc(1 / 3 * 100%);
@@ -499,7 +545,7 @@
       }
     }
   }
-  .footer__logo{
+  .Footer__logo{
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
@@ -519,7 +565,7 @@ a:-webkit-any-link {
   color: -webkit-link;
   cursor: pointer;
   text-decoration: underline;
-  .purchaseBtn {
+  .Purchasebtn {
     width: 120px;
     background: #3CCACE;
     text-align: center;
@@ -528,7 +574,7 @@ a:-webkit-any-link {
     right: 32px;
     position: fixed;
     padding: 15px;
-    .purchaseBtn__text {
+    .Purchasebtn__text {
       color: #fff;
       display: block;
       font-size: 18px;
@@ -539,7 +585,7 @@ a:-webkit-any-link {
       width: 100%;
       vertical-align: bottom;
     }
-    .purchaseBtn__icon {
+    .Purchasebtn__icon {
       width: 60%;
     }
   }
