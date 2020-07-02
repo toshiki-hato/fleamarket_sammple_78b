@@ -2,15 +2,15 @@
   box-sizing: border-box;
 }
 
-.Header{
+.Header {
   padding: 0 60px;
-  .inner{
+  .inner {
     max-width: 1040px;
     width: 100%;
     min-height: 82px;
     margin: 0 auto;
     padding: 15px 0 0;
-    .mainheader{
+    .mainheader {
       position: relative;
       display: flex;
       align-items: center;
@@ -42,12 +42,9 @@
           }
         }
         .button_to {
-          
           .searchBox__btn{
             width: 36px;
             border: 0;
-            border: none;  /* 枠線を消す */
-            outline: none; /* クリックしたときに表示される枠線を消す */
             background: transparent;
             cursor: pointer;
             background-color: #3CCACE;
@@ -79,16 +76,21 @@
       .listsLeft {
         position: relative;
         display: flex;
-        .listsLeft__item--first{
-          text-decoration: none;
+        align-items: center;
+        .listsLeft__item--category{
+          padding-right: 30px;
+          a {
+            background-image: url(icon_category.svg);
+            text-decoration: none;
+            color: black;
+          }
+        }
+        .listsLeft__item--brand{
           padding: 0;
           a {
             background-image: url(icon_category.svg);
-          }
-          .brandsPulldown.displayNone{
-            position: absolute;
-            z-index: 1;
-            background-color: #fff;
+            text-decoration: none;
+            color: black;
           }
         }
       }

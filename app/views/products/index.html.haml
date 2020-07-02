@@ -16,8 +16,8 @@
       %ul.resultLists
     .nav
       %ul.listsLeft
-        %li.listsLeft__item--first
-          %a#catBtn{href: "#"} カテゴリー
+        %li.listsLeft__item--category
+          %a{href: "#"} カテゴリー
           .Tree.displayNone
             %ul.categoryTree
           -#     %li.categoryTree--item
@@ -46,8 +46,8 @@
           -#       %a#12{href: "#"} 自動車・オートバイ
           -#     %li.categoryTree--item
           -#       %a#13{href: "#"} その他
-        %li.listsLeft__item
-          %a#brandBtn{href: "#"} ブランド
+        %li.listsLeft__item--brand
+          %a{href: "#"} ブランド
           %ul.brandsPulldown.displayNone
       %ul.listsRight
         %li.listsRight__item.listsRight__item--login
