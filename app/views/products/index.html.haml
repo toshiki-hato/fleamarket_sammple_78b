@@ -9,11 +9,11 @@
     %script{"data-turbolinks-track": "reload", src: "/assets/application-26d056ac003f4e4f9d1ad389ac9e51f4f59d6236cc12a75b4ca86167f653c860.js"}
   %body
     .Header
-      .Header__inner
-        .Header__inner__mainheader
+      .inner
+        .mainheader
           .icon
             %a{href: "/"}
-              = image_tag 'logo/logo.png',class: "logo.png"
+              = image_tag 'logo/logo.png'
           .searchBox
             %form{"accept-charset": "UTF-8", action: "#", method: "get"}
               %input{name: "utf8", type: "hidden", value: "✓"}/
@@ -309,4 +309,4 @@
     %a{href: "#"}
       .purchaseBtn
         %span.purchaseBtn__text 出品する
-        = image_tag 'icon/icon_camera.png'
+        = image_tag 'icon/icon_camera.png', class: "purchaseBtn__icon"
