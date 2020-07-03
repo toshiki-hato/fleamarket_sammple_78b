@@ -6,6 +6,7 @@
       .Forms
         %form
         = form_with model: @product, local: true do |f|
+          = render 'layouts/error_messages', model: f.object
           .Image
             .Image__label
               %label 出品画像
