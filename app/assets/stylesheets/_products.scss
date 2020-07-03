@@ -1,0 +1,43 @@
+.Main{
+  background-color: #f8f8f8;
+  .Icon {
+    height: 128px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__detail {
+      height: 49px;
+      width: 185px;
+    }
+  }
+  .Underbody {
+    .Forms {
+      max-width: 700px;
+      margin: 0px auto;
+      .form-field {
+        background-color: white;
+        .Image {
+          padding: 40px;
+          &__label {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4em;
+            &--need {
+              margin-left: 8px;
+              background-color: #ff0211;
+              color: #fff;
+            }
+          } 
+          &__max {
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 1.4em;
+          }
+        }
+        .Borderline {
+          border: 1px solid #efefef;;
+        }
+      }
+    }
+  }
+}

@@ -36,6 +36,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'factory_bot_rails'
+  gem 'faker', "~> 2.8"
 end
 
 group :development do
@@ -72,4 +75,12 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
+gem 'fog-aws'
+
+<<<<<<< HEAD
 gem 'jquery-rails'
+=======
+gem 'jquery-rails'
+
+gem 'active_hash', '~> 2.3.0'
+>>>>>>> f4fcfc0e8143a47b8dda0b7460e3d6807e6e57fc

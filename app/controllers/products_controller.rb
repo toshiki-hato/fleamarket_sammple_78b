@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_url
     else
-      render action: :new
+      render "new"
     end
   end
 
@@ -25,6 +25,6 @@ class ProductsController < ApplicationController
                                     :shipping_expenses, 
                                     :send_from, 
                                     :lead_time,
-                                    product_images_attributes: [:main])
+                                    product_images_attributes: [:image])
   end
 end
