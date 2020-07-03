@@ -4,17 +4,17 @@
 
 .Header {
   padding: 0 60px;
-  .inner {
+  &--inner {
     max-width: 1040px;
     width: 100%;
     min-height: 82px;
     margin: 0 auto;
     padding: 15px 0 0;
-    .mainheader {
+    .Topheader {
       position: relative;
       display: flex;
       align-items: center;
-      .logo{
+      &__logo{
         padding-bottom: 10px;
         margin-right: 30px;
         border-radius: 4px;
@@ -27,7 +27,7 @@
           }
         }
       }
-      .searchBox {
+      &__searchBox {
         margin-left: auto;
         width: 100%;
         display: flex;
@@ -59,23 +59,23 @@
           }
         }
       }
-      .resultLists {
-        display: flex;
-        position: absolute;
-        right: 0;
-        top: 36px;
-        z-index: 2;
-      }
+      // .resultLists {
+      //   display: flex;
+      //   position: absolute;
+      //   right: 0;
+      //   top: 36px;
+      //   z-index: 2;
+      // }
     }
     .nav{
       font-size: 14px;
       display: flex;
       margin-bottom: 10px;
-      .listsLeft {
+      .Productlist {
         position: relative;
         display: flex;
         align-items: center;
-        .listsLeft__item--category{
+        &__category{
           padding-right: 30px;
           a {
             background-image: url(icon_category.svg);
@@ -83,7 +83,7 @@
             color: black;
           }
         }
-        .listsLeft__item--brand{
+        &__brand{
           padding: 0;
           a {
             background-image: url(icon_category.svg);
@@ -92,10 +92,10 @@
           }
         }
       }
-      .listsRight {
+      .Userlist {
         margin-left: auto;
         display: flex;
-        .listsRight__item.listsRight__item--login{
+        &__login{
           color: #333;
           line-height: 38px;
           padding: 0 0 0 16px;
@@ -107,7 +107,7 @@
             line-height: 32px;
           }
         }
-        .listsRight__item.listsRight__item--new{
+        &__new{
           color: #333;
           line-height: 38px;
           padding: 0 0 0 16px;
