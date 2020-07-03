@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_102818) do
     t.string "shipping_expenses", null: false
     t.string "send_from", null: false
     t.string "lead_time", null: false
+    t.string "order", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
