@@ -8,6 +8,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :shipping_expenses, null: false
       t.string :send_from, null: false
       t.string :lead_time, null: false
+      t.string :order, null: false
 
       t.timestamps
     end

@@ -41,7 +41,7 @@
               %div{:name => "categoryId"}
                 .Product__details--category-label
                   %label カテゴリー
-                  = f.collection_select :send_from, Category.all, :id, :name
+                  = f.collection_select :category_id, CategoryForm.all, :id, :name
                   %span 必須
               .Product__details--brand-inputbase
                 .Product__details--brand-label
@@ -90,6 +90,7 @@
                 .Sales-profit__label 販売利益
                 %span{"data-test" => "total-value"} —
           .Editend-buttons
+            = f.hidden_field :order, value: "出品中"
             = f.submit '出品する'
             %button.draft-butto{:tabindex => "0", :type => "button"} 下書きに保存
 

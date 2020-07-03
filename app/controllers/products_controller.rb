@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   def new
     @product= Product.new
     @product.product_images.new
+
   end
 
   def create
@@ -25,6 +26,8 @@ class ProductsController < ApplicationController
                                     :shipping_expenses, 
                                     :send_from, 
                                     :lead_time,
+                                    :category_id,
+                                    :order,
                                     product_images_attributes: [:image])
   end
 end
