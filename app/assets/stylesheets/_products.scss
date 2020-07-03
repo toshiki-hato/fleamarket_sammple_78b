@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
+
 .Main{
   background-color: #f8f8f8;
   .Icon {
@@ -22,16 +27,32 @@
             font-size: 14px;
             font-weight: 600;
             line-height: 1.4em;
-            &--need {
-              margin-left: 8px;
-              background-color: #ff0211;
-              color: #fff;
-            }
           } 
           &__max {
             margin-top: 16px;
             font-size: 14px;
             line-height: 1.4em;
+          }
+          &__field {
+            &--photo {
+              width: 620px;
+              height: 150px;
+              background-color: rgb(204, 204, 204);
+              border: 1px dashed #efefef;
+              margin-top: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              .icon {
+              }
+            }
+          }
+          &__box {
+            .js-file_group {
+              .js-file {
+                display: none;
+              }
+            }
           }
         }
         .Borderline {

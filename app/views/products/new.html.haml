@@ -6,18 +6,22 @@
     .Underbody
       .Forms
         %form
-        = form_with model: @product, local: true do |f|
+        = form_with model: @product, class: 'form-field', local: true do |f|
           = render 'layouts/error_messages', model: f.object
           .Image
             .Image__label
               %label 出品画像
               %span.Image__label--need 必須 
             %p.Image__max 最大10枚までアップロードできます
+            .Image__field
             #image-box
-              = f.fields_for :product_images do |image|
-                .js-file_group{"data-index" => "#{image.index}"}
-                  = image.file_field :image, class: 'js-file'
-                  %span.js-remove 削除
+            %label{class: 'Image__box'}
+              .Image__field--photo
+                = icon('fas', 'camera', class: 'icon-image')
+                = f.fields_for :product_images do |image|
+                  %label.js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :image, class: 'js-file'
+            //%span.js-remove 削除
           %hr.Borderline
           .Product__nameandexplanation
             .Product__name
