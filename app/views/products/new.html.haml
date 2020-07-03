@@ -36,7 +36,7 @@
               %div{:name => "categoryId"}
                 .Product__details--category-label
                   %label カテゴリー
-                  = f.collection_select :category, CategoryForm.all, :id, :name
+                  = f.collection_select :category_id, CategoryForm.all, :id, :name
                   %span 必須
               .Product__details--brand-inputbase
                 .Product__details--brand-label
