@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box; 
+}
+.information {
+  text-align: center;
+  background-color: #eee;
+  font-size: 26px;
+  height: 100vh;
+  width: 700px;
+  border: solid 1px ;
+  margin: 0 auto;
+  border: solid 1px;  
+  &__user {
+    background-color: white;
+  }
+  &__usersField {
+    margin: 0 auto;
+    width: 500px;
+    height: 100%;
+    .field1 {
+      padding-top: 40px;
+    }
+    .field2 {
+      padding-top: 40px;
+    }
+    .field3 {
+      padding-top: 40px;
+    }
+    .field4 {
+      padding-top: 40px  
+    }
+  }
+}

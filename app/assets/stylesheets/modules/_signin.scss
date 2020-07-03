@@ -1,0 +1,46 @@
+new-signin.scss
+* {
+  box-sizing: border-box; 
+}
+
+.contents {
+  text-align: center;
+  background-color: #eee;
+  font-size: 26px;
+  height: 100vh;
+  border: solid 1px;
+  label {
+    font: 1rem 'Fira Sans', sans-serif;
+  }
+}  
+  
+.mainField { 
+  margin: 0 auto;
+  background-color: white;
+  width: 400px;
+  height: 100%;
+  
+  .field1 {
+    padding-top: 40px;
+  }
+  .field2 {
+    padding-top: 40px;
+  }
+  .field3 {
+    padding-top: 40px;
+  }
+  .field4 {
+    padding-top: 40px  
+  }
+}
+
+.form {
+  input[submit="text"],
+  input[value="Log in"]{
+    background-color: red;
+    color: white;
+    width: 300px;
+    border: solid 1px;
+    margin-bottom: 40px;
+  }
+}

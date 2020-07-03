@@ -1,0 +1,40 @@
+//新規登録画面
+.information
+  %h2 新規会員登録
+  = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+    = devise_error_messages!
+    .__usersField
+      .field1
+        = f.label :ニックネーム
+        %br/
+        = f.text_field :nickname
+      .field2
+        = f.label :メールアドレス
+        %br/
+        = f.email_field :email
+      .field3
+        = f.label :パスワード
+        - if @validatable
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "off"
+      .field4
+        = f.label :パスワード (確認用)
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "off"
+    
+    .__personField
+      .field1
+        = f.label :生年月日
+        %br/
+        = f.text_field :birthday
+      .feild2
+        = f.label :氏名(苗字 + 名前)
+        %br/
+        = f.text_field :name
+    .__adress
+      .field1
+      -# .actions
+      -#   = f.submit "Sign up"
+
