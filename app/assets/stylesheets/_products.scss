@@ -374,6 +374,99 @@
     background-color: #f8f8f8;
     height: 100%;
     &__head {
+      
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    .Pickupproduct__productbox {
+      .Producthead{
+        text-align: center;
+        a{
+          font-size: 24px;
+          text-decoration: none;
+          color: #3CCACE;
+          .title{
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .Productlists {
+      width: 780px;
+      margin: 26px auto;
+      display: flex;
+      justify-content: space-around;
+      .Productlist {
+        width: 220px;
+        display: inline-block;
+        float: left;
+        a {
+          background-color: #fff;
+          display: inline-block;
+          .productList--img {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+            }
+          }
+          .productList--body {
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            .name {
+              overflow: hidden;
+              line-height: 1.5;
+              font-size: 16px;
+              text-align: left;
+            }
+            .price {
+              font-size: 16px;
+              ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                li{
+                  .fa {
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-size: inherit;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                  }
+                }
+              }
+              p {
+                font-size: 10px;
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .Pickupproduct-brand {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #f8f8f8;
+    height: 100%;
+    &__head {
       text-align: center;
       font-size: 28px;
       line-height: 1.4;
