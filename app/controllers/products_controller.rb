@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_url
     else
-      render action: :new
+      render "new"
     end
   end
 
