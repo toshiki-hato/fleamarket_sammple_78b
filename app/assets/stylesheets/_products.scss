@@ -4,7 +4,7 @@
 
 .Header {
   padding: 0 60px;
-  &--inner {
+  &__inner {
     max-width: 1040px;
     width: 100%;
     min-height: 82px;
@@ -59,13 +59,6 @@
           }
         }
       }
-      // .resultLists {
-      //   display: flex;
-      //   position: absolute;
-      //   right: 0;
-      //   top: 36px;
-      //   z-index: 2;
-      // }
     }
     .nav{
       font-size: 14px;
@@ -405,6 +398,7 @@
         a {
           background-color: #fff;
           display: inline-block;
+          text-decoration: none;
           .productList--img {
             width: 220px;
             height: 150px;
