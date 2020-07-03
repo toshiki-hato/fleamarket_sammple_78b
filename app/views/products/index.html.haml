@@ -8,9 +8,8 @@
         %form{action: "#", method: "get"}
           %input{name: "utf8", type: "hidden", value: ""}/
           %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}/
-        %form.button_to{action: "#", method: "post"}
-          %button{type: "submit"}
-            .searchBox__btn
+          %form.button{action: "#", method: "post"}
+            %button.button__to{type: "submit"}
               = image_tag 'icon/icon-search 1.png' ,alt: "serch"
           %input{name: "authenticity_token", type: "hidden"}/
       %ul.resultLists
@@ -277,14 +276,14 @@
         %li
           %a{href: "#"} ポイントに関する特約
     %li.Contents__content
-      %h2.Contens__content__head FURIMAを見る
+      %h2.Contents__content__head FURIMAを見る
       %ul
         %li
           %a{href: "#"} カテゴリー一覧
         %li
           %a{href: "#"} ブランド一覧
     %li.Contents__content
-      %h2.Contens__content__head ヘルプ＆ガイド
+      %h2.Contents__content__head ヘルプ＆ガイド
       %ul
         %li
           %a{href: "#"} FURIMAガイド

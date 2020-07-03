@@ -40,24 +40,22 @@
             height: 36px;
             padding: 0 0 0 5px;
           }
-        }
-        .button_to {
-          .searchBox__btn{
+          .button__to {
             width: 36px;
             border: 0;
-            background: transparent;
             cursor: pointer;
             background-color: #3CCACE;
             padding: 8px;
             img {
               width: 100%;
               vertical-align: bottom;
+              background-color: #3CCACE;
             }
-          }
-          .searchBox form input {
-            width: calc(100% - 26px);
-            height: 36px;
-            padding: 0 0 0 5px;
+            form input {
+              width: calc(100% - 26px);
+              height: 36px;
+              padding: 0 0 0 5px;
+            }
           }
         }
       }
@@ -284,7 +282,6 @@
         &__description {
           font-size: 18px;
           line-height: 1.5;
-          margin: 16px 0 0;
         }
       }
     }
@@ -474,17 +471,17 @@
   .Inner{
     color: #fff;
     text-align: center;
-    .Inner__title{
+    &__title{
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       font-size: 24px;
       font-weight: bold;
       line-height: 1.4;
     }
-    .Inner__text{
+    &__text{
       font-size: 35px;
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
-    .Inner__appbtn{
+    &__appbtn{
       width: 100%;
       display: flex;
       justify-content: center;
@@ -506,14 +503,6 @@
     }
   }
 }
-
-// .aside{
-//   background-image: url(/assets/bg-appBanner-pict-ce684a4….jpg);
-//   padding: 100px 40px;
-//   position: relative;
-//   background-size: cover;
-//   background-position: center;
-// }
 
 .Footer{
   padding: 60px 0;
@@ -576,7 +565,7 @@ a:-webkit-any-link {
     right: 32px;
     position: fixed;
     padding: 15px;
-    .Purchasebtn__text {
+    &__text {
       color: #fff;
       display: block;
       font-size: 18px;
