@@ -36,11 +36,8 @@
               %div{:name => "categoryId"}
                 .Product__details--category-label
                   %label カテゴリー
+                  = f.collection_select :send_from, Category.all, :id, :name
                   %span 必須
-              .Product__details--category-selectbase
-                .Product__details--category-selectbox 
-                  %select{:name => "categoryId"}
-                .Product__details--category-selectcomment 選択してください
               .Product__details--brand-inputbase
                 .Product__details--brand-label
                   %label ブランド
@@ -51,7 +48,7 @@
                 %div{:name => "itemCondition"}
                   .Product__details--condition-label
                     %label 商品の状態
-                    = f.text_field :status
+                    = f.collection_select :status, Status.all, :id, :name
                     %span 必須
           %hr.Borderline
             .Delivery
@@ -60,18 +57,18 @@
                 %div{:name => "shippingPayer"}
                   .Delivery__fee--label
                     %label 配送料の負担
-                    = f.text_field :shipping_expenses
+                    = f.collection_select :shipping_expenses, ShippingExpenses.all, :id, :name
                     %span 必須
               .Delivery__area--select-field
                 %div{:name => "shippingFromArea"}
                   .Delivery__area--label
                     %label 発送元の地域
-                    = f.text_field :send_from
+                    = f.collection_select :send_from, Prefecture.all, :id, :name
                     %span 必須
             .Shipping-days
               .Shipping-days__label
                 %label 発送までの日数
-                = f.text_field :lead_time
+                = f.collection_select :lead_time, LeadTime.all, :id, :name
                 %span 必須
           .Price
             %p.Price__range 価格（¥300〜9,999,999

@@ -78,3 +78,5 @@ gem 'mini_magick'
 gem 'fog-aws'
 
 gem 'jquery-rails'
+
+gem 'active_hash', '~> 2.3.0'
