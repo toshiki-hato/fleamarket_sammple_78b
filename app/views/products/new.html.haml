@@ -15,7 +15,7 @@
             #image-box
               = f.fields_for :product_images do |image|
                 .js-file_group{"data-index" => "#{image.index}"}
-                  = image.file_field :main, class: 'js-file'
+                  = image.file_field :image, class: 'js-file'
                   %span.js-remove 削除
           %hr
           .Product__nameandexplanation

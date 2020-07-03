@@ -25,6 +25,6 @@ class ProductsController < ApplicationController
                                     :shipping_expenses, 
                                     :send_from, 
                                     :lead_time,
-                                    product_images_attributes: [:main])
+                                    product_images_attributes: [:iamge])
   end
 end
