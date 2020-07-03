@@ -21,13 +21,6 @@ ActiveRecord::Schema.define(version: 2020_07_01_095133) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description", null: false
-    t.string "price", null: false
-    t.string "status", null: false
-    t.string "shipping_expenses", null: false
-    t.string "send_from", null: false
-    t.string "lead_time", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
