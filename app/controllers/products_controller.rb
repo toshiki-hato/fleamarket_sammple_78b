@@ -2,6 +2,9 @@ class ProductsController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def new
     @product= Product.new
     @product.product_images.new
@@ -15,6 +18,15 @@ class ProductsController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def edit
+  end
+
+  def update
+  end
+  
+  def destroy
   end
 
   private
