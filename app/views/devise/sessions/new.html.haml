@@ -1,4 +1,7 @@
 //ログイン
+.head
+  %a{href:"/"}
+    = image_tag"logo/logo.png", alt:"FURIMA", class: 'logo'
 .contents
   %h2 ログイン
   = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|  
@@ -17,4 +20,4 @@
           %br/
           = f.check_box :remember_me
       .form
-        = f.submit "Log in"
+        = f.submit "ログイン"
