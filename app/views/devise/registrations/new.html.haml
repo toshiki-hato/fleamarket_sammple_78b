@@ -1,0 +1,88 @@
+//新規登録画面
+.Body
+  .Top
+    %a{href:"/"}
+      = image_tag"logo/logo.png", alt:"FURIMA", class: 'logo'
+  .information
+    %h2 新規会員登録
+    %hr.Borderline
+    = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+      = devise_error_messages!
+      .information__userField
+        .field1
+          = f.label :ニックネーム
+          %br/
+          = f.text_field :nickname, class: 'fields'
+        .field2
+          = f.label :メールアドレス
+          %br/
+          = f.email_field :email, class: 'fields'
+        .field3
+          = f.label :パスワード
+          - if @validatable
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "off", class: 'fields'
+        .field4
+          = f.label :パスワード（確認用）
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "off", class: 'fields'
+      
+
+      .information__personField
+        .field1
+          = f.label :生年月日　必須
+          %br/
+          = f.date_field :birthday, class: 'input-person'
+        .field2
+          = f.label :お名前（全角）　必須
+          %br/
+          %input.input-default.half{name: "family_name", placeholder:"例)山田",type:"text",value:"", class: 'input-person'}/
+          %input.input-default.half{name: "first_name", placeholder:"例)太郎",type:"text",value:"", class: 'input-person'}/
+          %br/
+        .field3
+          = f.label :お名前カナ（全角）　必須
+          %br/
+          %input.input-default.half{phonetic: "family_name", placeholder:"例)ヤマダ",type:"text",value:"", class: 'input-person'}/
+          %input.input-default.half{phonetic: "first_name", placeholder:"例)タロウ",type:"text",value:"", class: 'input-person'}/
+          %br/
+      
+      .information__adressField
+        .field1
+          = f.label :送付先お名前　必須
+          %br/
+          %input.input-default.half{send_name: "family_name", placeholder:"例)山田",type:"text",value:"", class: 'input-person'}/
+          %input.input-default.half{send_name: "first_name", placeholder:"例)太郎",type:"text",value:"", class: 'input-person'}/
+          %br/
+        .field2
+          = f.label :送付先お名前カナ　必須
+          %br/
+          %input.input-default.half{send_name_phonetic: "family_name", placeholder:"例)ヤマダ",type:"text",value:"", class: 'input-person'}/
+          %input.input-default.half{send_name_phonetic: "first_name", placeholder:"例)タロウ",type:"text",value:"", class: 'input-person'}/
+          %br/
+        .field3
+          = f.label :都道府県　必須
+          %br/
+          = f.text_field :prefectures, class: 'input-address'
+        .field4
+          = f.label :市町村　必須
+          %br/
+          = f.text_field :city, class: 'input-address'
+        .field5
+          = f.label :番地　必須
+          %br/
+          = f.text_field :address, class: 'input-address'
+        .field6
+          = f.label :マンション名　ビル名
+          %br/ 
+          = f.text_field :condominium_name, class: 'input-address'
+        .field7
+          = f.label :電話番号
+          %br/
+          = f.number_field :phonenumber, class: 'input-address'
+        .actions
+          = f.submit "Sign up", class: 'submit'
+  
+  .Footer
+
