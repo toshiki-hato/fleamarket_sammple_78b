@@ -13,7 +13,7 @@
             .user-link__iconn
               = image_tag "", class:"user-link__icon"
           %h2.user-link__name
-            -# = @user.nickname
+            =current_user.nickname
           .user-link__number
             評価  ５  出品数  ８
       %section.notification-todo
