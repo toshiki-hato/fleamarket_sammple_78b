@@ -1,16 +1,29 @@
-new-signin.scss
 * {
   box-sizing: border-box; 
+}
+.head {
+  height: 128px;
+  line-height: 49px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  
+  .logo{
+    width: 185px;
+    height: 49px;
+    margin-right: 10px;
+  }
 }
 
 .contents {
   text-align: center;
-  background-color: #eee;
+  background-color: #f5f5f5;
   font-size: 26px;
   height: 100vh;
-  border: solid 1px;
   label {
-    font: 1rem 'Fira Sans', sans-serif;
+    font: 14px 'Fira Sans', sans-serif;
   }
 }  
   
@@ -36,7 +49,7 @@ new-signin.scss
 
 .form {
   input[submit="text"],
-  input[value="Log in"]{
+  input[value="ログイン"]{
     background-color: red;
     color: white;
     width: 300px;
