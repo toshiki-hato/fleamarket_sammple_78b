@@ -29,24 +29,32 @@
         = f.label :生年月日　必須
         %br/
         = f.date_field :birthday
-      .feild2
-        = f.label :お名前（苗字＋名前）　必須
+      .field2
+        = f.label :お名前（全角）　必須
         %br/
-        = f.text_field :name
+        %input.input-default.half{name: "family_name", placeholder:"例)山田",type:"text",value:""}/
+        %input.input-default.half{name: "first_name", placeholder:"例)太郎",type:"text",value:""}/
+        %br/
       .field3
         = f.label :お名前カナ（全角）　必須
         %br/
-        = f.text_field :phonetic
+        %input.input-default.half{phonetic: "family_name", placeholder:"例)ヤマダ",type:"text",value:""}/
+        %input.input-default.half{phonetic: "first_name", placeholder:"例)タロウ",type:"text",value:""}/
+        %br/
     
     .__adressField
       .field1
         = f.label :送付先お名前（苗字＋名前）　必須
         %br/
-        = f.text_field :send_name
+        %input.input-default.half{send_name: "family_name", placeholder:"例)ヤマダ",type:"text",value:""}/
+        %input.input-default.half{send_name: "first_name", placeholder:"例)タロウ",type:"text",value:""}/
+        %br/
       .field2
         = f.label :送付先お名前カナ　必須
         %br/
-        = f.text_field :send_name_phonetic
+        %input.input-default.half{send_name_phonetic: "family_name", placeholder:"例)ヤマダ",type:"text",value:""}/
+        %input.input-default.half{send_name_phonetic: "first_name", placeholder:"例)タロウ",type:"text",value:""}/
+        %br/
       .field3
         = f.label :都道府県　必須
         %br/
@@ -60,7 +68,7 @@
         %br/
         = f.text_field :address
       .field6
-        = f.label :マンション名
+        = f.label :マンション名　ビル名
         %br/ 
         = f.text_field :condominium_name
       .field7
