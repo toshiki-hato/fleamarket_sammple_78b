@@ -84,6 +84,6 @@ gem 'jquery-rails'
 
 gem 'active_hash', '~> 2.3.0'
 
-gem 'font-awesome-sass'
-
 gem 'ancestry'
+
+gem 'font-awesome-sass'
