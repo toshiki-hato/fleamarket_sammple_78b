@@ -19,10 +19,17 @@
     .Forms {
       max-width: 700px;
       margin: 0px auto;
+      &__Submit{
+        background-color: red;
+        color: white;
+        border: none;
+        width: 360px;
+        height: 40px;
+      }
       .form-field {
+        padding: 40px;
         background-color: white;
         .Image {
-          padding: 40px;
           &__label {
             font-size: 14px;
             font-weight: 600;
@@ -58,28 +65,136 @@
         .Borderline {
           border: 1px solid #efefef;;
         }
-        .Product__nameandexplanation {
-          padding: 40px;
-          .Product__name {
-            &--label {
-              &--field {
-              }
-              .item-name {
-                width: 620px;
-                height: 48px;
-              }
-            }
-          }
-          .Product__explanation {
-            &--label {
-              .Product__item--field {
-                .item-explanation {
-                  width: 620px;
-                  height: 48px;
-                }
-              }
-            }
-          }
+        
+        .Product__name--label {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4em;
+            margin: 40px 0 20px 0;
+        }
+        .Product__name--field{
+          width: 100%;
+          height: 40px;
+        }
+        .Product__explanation--label {
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+
+        .Product__details--label{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+
+        .Product__details--category-label{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+        .Product__details--brand-label{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+        .Product__details--condition-label{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+        .Delivery__label{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+        .Delivery__fee--label{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+        .Delivery__area--select-field{
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin: 40px 0 20px 0;
+        }
+        .Shipping-days__label{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+        .Price__range{
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin: 40px 0 20px 0;
+        }
+        .Price__selling-price--field{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+        }
+        .Price__selling-price--label{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+        .Price__input--field{
+          height: 40px;
+        }
+
+        .Sales-fee{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+        .Sales-profit__label{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+          margin: 40px 0 20px 0;
+        }
+
+
+
+
+        
+
+        
+
+        .Product__explanation--field{
+          width: 100%;
+          height: 150px;
+        }
+
+        .Product__details--input--field{
+          width: 100%;
+          height: 40px;
+        }
+
+        .Product__details--category--field{
+          width: 100%;
+          height: 40px;
+        }
+        .Editend-buttons{
+          display: flex;
+          justify-content: center;
+        }
+        .Back{
+          display: flex;
+          justify-content: center;
         }
       }
     }
