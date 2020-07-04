@@ -58,6 +58,29 @@
         .Borderline {
           border: 1px solid #efefef;;
         }
+        .Product__nameandexplanation {
+          padding: 40px;
+          .Product__name {
+            &--label {
+              &--field {
+              }
+              .item-name {
+                width: 620px;
+                height: 48px;
+              }
+            }
+          }
+          .Product__explanation {
+            &--label {
+              .Product__item--field {
+                .item-explanation {
+                  width: 620px;
+                  height: 48px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -27,13 +27,15 @@
             .Product__name
               .Product__name--label
                 %label 商品名
-                = f.text_field :name
                 %span 必須
+                .Product__name--field
+                = f.text_field :name, class: 'item-name'
             .Product__explanation
               .Product__explanation--label
                 %label 商品の説明
-                = f.text_field :description
                 %span 必須
+                .Product__item--field
+                = f.text_field :description, class: 'item-explanation'
           %hr.Borderline
           .Product__details
             %p.Product__details--label 商品の詳細
