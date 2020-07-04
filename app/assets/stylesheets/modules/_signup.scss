@@ -1,6 +1,14 @@
 * {
   box-sizing: border-box; 
 }
+.header{
+  height: 128px;
+  width: 185px;
+  line-height: 49px;
+  .logo{
+    height: 80px;
+  }
+}
 .information {
   text-align: center;
   background-color: #eee;
