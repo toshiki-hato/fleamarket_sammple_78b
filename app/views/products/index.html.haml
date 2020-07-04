@@ -1,8 +1,8 @@
 - @products.each do |product|
   = product.name
   = product.price
-  = product.product_images do |image|
-    = image.image
+  - product.product_images.each do |image|
+    = image_tag image.image.url
 .Top
   = render "header"
   = render "main"
