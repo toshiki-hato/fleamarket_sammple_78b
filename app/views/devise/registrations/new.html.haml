@@ -1,8 +1,11 @@
 //新規登録画面
 .body
   .Top
+    %a{href:"/"}
+      = image_tag"logo/logo.png", alt:"FURIMA", class: 'logo'
   .information
     %h2 新規会員登録
+    %hr.Borderline
     = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
       = devise_error_messages!
       .information__userField
@@ -80,5 +83,6 @@
           = f.number_field :phonenumber, class: 'input-address'
         .actions
           = f.submit "Sign up", class: 'submit'
+  
   .footer
 
