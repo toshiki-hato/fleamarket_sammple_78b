@@ -1,0 +1,59 @@
+// トップの商品一覧
+.Productlists {
+  width: 780px;
+  margin: 26px auto;
+  display: flex;
+  justify-content: space-around;
+  .Productlist {
+    width: 220px;
+    display: inline-block;
+    float: left;
+    margin: 0px auto;
+    width: 1020px;
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      background-color: #fff;
+      display: inline-block;
+      text-decoration: none;
+      display: flex;
+      }
+      .ProductList--body {
+        background-color: white;
+        color: #333;
+        padding: 16px;
+        .Name {
+          overflow: hidden;
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: left;
+        }
+        .Price {
+          font-size: 16px;
+          ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            li {
+              .fa {
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+              }
+            }
+          }
+          p {
+            font-size: 10px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+.product{
+  max-width: 100%;
+}
