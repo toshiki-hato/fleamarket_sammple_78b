@@ -1,7 +1,7 @@
 #productEx
   .Main
     .Icon
-      = link_to image_tag('logo/logo.png', alt: "FURIMA", class: 'Icon__detail')
+      = link_to image_tag('logo/logo.png', alt: "FURIMA", class: 'Icon__detail'),root_path
     .Underbody
       .Forms
         %form
@@ -87,5 +87,6 @@
           .Editend-buttons
             = f.hidden_field :order, value: "出品中"
             = f.submit '出品する', class: 'Forms__Submit'
+
           .Back もどる
 
