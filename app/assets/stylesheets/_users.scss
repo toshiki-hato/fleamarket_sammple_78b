@@ -77,13 +77,20 @@
       }
       .mypage-nav-list-setting{
         .mypage-nav-list-setting-item {
-          color: white;
-          background-color: #3CCACE;
-          width: 280px;
-          height: 685px;
-          list-style-type : none;
-          padding:5px 10px;
-          border-bottom:1px solid;
+          position: relative;
+          display: block;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+          text-decoration: none;
+          border: solid 1px #eee;
+          // .fa-fa-chevron-right{
+          //   position: absolute;
+          //   top: 50%;
+          //   right: 16px;
+          //   color: black;
+          // }
         }
       }
     }
