@@ -14,12 +14,9 @@
             %p.Image__max 最大10枚までアップロードできます
             .Image__field
             #image-box
-            %label{class: 'Image__box'}
-              .Image__field--photo
-                //= icon('fas', 'camera', class: 'icon-image')
-                = f.fields_for :product_images do |image|
-                  %label.js-file_group{"data-index" => "#{image.index}"}
-                    = image.file_field :image, class: 'js-file'
+              = f.fields_for :product_images do |image|
+                %label.js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :image, class: 'js-file'
           %hr.Borderline
           .Product__nameandexplanation
             .Product__name
