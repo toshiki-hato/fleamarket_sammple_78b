@@ -24,4 +24,6 @@ class User < ApplicationRecord
   validates :send_first_name_phonetic, {format: { with: VALID_SEND_FIRST_NAME_PHONETIC_REGEX }}
   VALID_SEND_LAST_NAME_PHONETIC_REGEX = /\A[ぁ-んー－]+\z/
   validates :send_last_name_phonetic, {format: { with: VALID_SEND_FIRST_NAME_PHONETIC_REGEX }}
+
+  has_one :credit_card
 end

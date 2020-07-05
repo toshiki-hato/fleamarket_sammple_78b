@@ -11,7 +11,7 @@
           発送元・お届け先住所変更
           -# = icon('fas', 'fa-chevron-right')
       %li
-        = link_to "#" , class: "mypage-nav-list-setting-item" do
+        = link_to new_user_credit_card_path(current_user), class: "mypage-nav-list-setting-item" do
           クレジットカード登録
           -# = icon('fas', 'fa-chevron-right')
       %li
@@ -27,7 +27,7 @@
           電話番号の確認
           -# = icon('fas', 'fa-chevron-right')
       %li
-        = link_to "/users/sign_out(.:format)" , class: "mypage-nav-list-setting-item" do
+        = link_to destroy_user_session_path, method: :delete , class: "mypage-nav-list-setting-item" do
           ログアウト
           -# = icon('fas', 'fa-chevron-right')
 
