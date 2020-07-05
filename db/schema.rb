@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_102818) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
-    t.index ["category_id"], name: "index_Products_on_category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   add_foreign_key "product_images", "products"
