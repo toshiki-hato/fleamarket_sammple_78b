@@ -3,6 +3,7 @@
 - @product.product_images.each do |image|
   = image_tag image.image.url
 = @product.price
+= @product.description
 = @product.category.name
 = @product.status
 = @product.shipping_expenses
