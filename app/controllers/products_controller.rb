@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @post = Product.find(params[:id])
   end
 
   def new
