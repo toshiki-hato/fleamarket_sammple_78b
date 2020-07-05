@@ -41,15 +41,15 @@
           = f.label :お名前（全角）
           %span.form-require 必須
           %br/
-          %input.input-default.half{last_name: "last_name", placeholder:"例)山田",type:"text",value:"", class: 'input-person'}/
-          %input.input-default.half{first_name: "first_name", placeholder:"例)太郎",type:"text",value:"", class: 'input-person'}/
+          = f.text_field :last_name, class: 'input-person'
+          = f.text_field :first_name, class: 'input-person'
           %br/
         .field3
           = f.label :お名前カナ（全角）
           %span.form-require 必須
           %br/
-          %input.input-default.half{last_name_phonetic: "last_name", placeholder:"例)ヤマダ",type:"text",value:"", class: 'input-person'}/
-          %input.input-default.half{first_name_phonetic: "first_name", placeholder:"例)タロウ",type:"text",value:"", class: 'input-person'}/
+          = f.text_field :last_name_phonetic, class: 'input-person'
+          = f.text_field :first_name_phonetic, class: 'input-person'
           %br/
       
       .information__adressField
@@ -57,15 +57,15 @@
           = f.label :送付先お名前
           %span.form-require 必須
           %br/
-          %input.input-default.half{send_last_name: "last_name", placeholder:"例)山田",type:"text",value:"", class: 'input-person'}/
-          %input.input-default.half{send_first_name: "first_name", placeholder:"例)太郎",type:"text",value:"", class: 'input-person'}/
+          = f.text_field :send_last_name, class: 'input-person'
+          = f.text_field :send_first_name, class: 'input-person'
           %br/
         .field2
           = f.label :送付先お名前カナ
           %span.form-require 必須
           %br/
-          %input.input-default.half{send_last_name_phonetic: "last_name", placeholder:"例)ヤマダ",type:"text",value:"", class: 'input-person'}/
-          %input.input-default.half{send_first_name_phonetic: "first_name", placeholder:"例)タロウ",type:"text",value:"", class: 'input-person'}/
+          = f.text_field :send_last_name_phonetic, class: 'input-person'
+          = f.text_field :send_first_name_phonetic, class: 'input-person'
           %br/
         .field3
           = f.label :郵便番号
