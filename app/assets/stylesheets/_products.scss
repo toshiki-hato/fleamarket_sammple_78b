@@ -1,3 +1,187 @@
-// Place all the styles related to the products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+
+@mixin clearfix() {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin: 40px 0 20px 0;
+}
+
+
+//商品出品ページ
+.Main {
+  background-color: #f8f8f8;
+
+  .Icon {
+    height: 128px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__detail {
+      height: 49px;
+      width: 185px;
+    }
+  }
+
+  .Underbody {
+    .Forms {
+      max-width: 700px;
+      margin: 0px auto;
+
+      &__Submit {
+        background-color: red;
+        color: white;
+        border: none;
+        width: 360px;
+        height: 40px;
+      }
+
+      .form-field {
+        padding: 40px;
+        background-color: white;
+
+        .Image {
+          &__label {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4em;
+          }
+
+          &__max {
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 1.4em;
+          }
+
+          &__field {
+            &--photo {
+              width: 620px;
+              height: 150px;
+              background-color: rgb(204, 204, 204);
+              border: 1px dashed #efefef;
+              margin-top: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+
+          &__box {
+            .js-file_group {
+              .js-file {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.Borderline {
+  border: 1px solid #efefef;
+  ;
+}
+
+.Product__name--label {
+  @include clearfix();
+}
+
+.Product__name--field {
+  width: 100%;
+  height: 40px;
+}
+
+.Product__explanation--label {
+  @include clearfix();
+}
+
+.Product__details--label {
+  @include clearfix();
+}
+
+.Product__details--category-label {
+  @include clearfix();
+}
+
+.Product__details--brand-label {
+  @include clearfix();
+}
+
+.Product__details--condition-label {
+  @include clearfix();
+}
+
+.Delivery__label {
+  @include clearfix();
+}
+
+.Delivery__fee--label {
+  @include clearfix();
+}
+
+.Delivery__area--select-field {
+  @include clearfix();
+}
+
+.Shipping-days__label {
+  @include clearfix();
+}
+
+.Price__range {
+  @include clearfix();
+}
+
+.Price__selling-price--field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.Price__selling-price--label {
+  @include clearfix();
+}
+
+.Price__input--field {
+  height: 40px;
+}
+
+.Sales-fee {
+  @include clearfix();
+}
+
+.Sales-profit__label {
+  @include clearfix();
+}
+
+.Product__explanation--field {
+  width: 100%;
+  height: 150px;
+}
+
+.Product__details--input--field {
+  width: 100%;
+  height: 40px;
+}
+
+.Product__details--category--field {
+  width: 100%;
+  height: 40px;
+}
+
+.Editend-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.Back {
+  display: flex;
+  justify-content: center;
+}
+
+

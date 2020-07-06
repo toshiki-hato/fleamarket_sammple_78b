@@ -1,24 +1,84 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# DB設計
+## Userテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|phonetic|string|null: false|
+|birthday|date|null: false|
+|nickname|string|null: false|
+|email|string|null: false,uniqueness: true |
+|password|string|null: false|
+|encrypted_password|string|null: false|
+|send_name|string|null: false|
+|send_name_phonetic|string|null: false|
+|condominium_name|string||
+|phone number|string||
 
-Things you may want to cover:
+### Association
+- has_many :products
+- has_one :street_address
+- has_one :card
 
-* Ruby version
 
-* System dependencies
+## Street_addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|string|null: false|
+|prefectures|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|user|references|null: false, foreign_key: true|
 
-* Configuration
+### Association
+- belongs_to :user
 
-* Database creation
 
-* Database initialization
+## Cardテーブル
+|Column|Type|Options|
+|------|----|-------|
+|number|string|null: false|
+|name|string|null: false|
+|good_thru|date|null: false|
+|security_code|string|null: false|
+|user|references|null: false, foreign_key: true|
 
-* How to run the test suite
+### Association
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Productテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|description|text|null: false|
+|price|string|null: false|
+|status|string|null: false|
+|shipping_expenses|string|null: false|
+|send_from|string|null: false|
+|lead_time|string|null: false|
 
-* ...
+### Association
+- has_many :product_images
+- belongs_to :user
+- belongs_to :category
+
+
+## Product_imageテーブル
+|Column|Type|Options|
+|------|----|-------|
+|main|string|null: false|
+|sub|string|null: false|
+|product|references|null: false, foreign_key: true|
+### Association
+- belongs_to :product
+
+
+## Categoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many :products

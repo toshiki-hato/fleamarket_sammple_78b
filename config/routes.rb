@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :index, :show] do
     resources :credit_card, only: :new
   end
-  
+  resources :products
 end

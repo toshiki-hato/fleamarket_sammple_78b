@@ -1,0 +1,6 @@
+//商品詳細ページ
+= @product.name
+= @product.price
+= @product.category.name
+- @product.product_images.each do |image|
+  = image_tag image.image.url

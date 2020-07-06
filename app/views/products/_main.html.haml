@@ -1,0 +1,162 @@
+.Main
+  %section.Topvisual
+    .Topvisual__content
+      %h2.Topvisual__content__title
+        %br/
+        人生を変えるフリマアプリ
+      %p.Topvisual__content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br/
+        フリマアプリです
+      .Topvisual__content__appbtn
+        = link_to image_tag('logo/app-store.png'),class: ".apple-btn"
+        = link_to image_tag('logo/google-play.png'),class: ".google-btn"
+    .Picture
+  %section.ChooseReason
+    %h2.Title
+      FURIMAが選ばれる3つの理由
+    %ul.Lists
+      %li.Lists__list
+        .Lists__list__picture
+          %span.Lists__list__picture__number 1
+          = image_tag 'pict/pict-reason-01.jpg'
+        %h3.Lists__list__text
+          %span 3分
+          ですぐに出品
+        %p.Lists__list_description
+          スマホで入力するだけで簡単に出品できる！
+      %li.Lists__list
+        .Lists__list__picture
+          %span.Lists__list__picture__number 2
+          = image_tag 'pict/pict-reason-02.jpg'
+        %h3.Lists__list__text
+          %span シンプル
+          で使いやすい
+        %p.List__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.List__last
+        .List__last__picture
+          %span.List__last__picture__number 3
+          = image_tag 'pict/pict-reason-03.jpg'
+        %h3.List__last__text
+          手数料
+          %span 業界最安
+        %p.List__last__description
+          最大3%でお得に出品&amp;購入！
+  %section.Midlevisual
+    .Midlevisual__inner
+      %h2.Midlevisual__inner__title 会員数日本一位
+      %p.Midlevisual__inner__text
+        FURIMAは、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        ほしかったあの商品に出会えるかもしれません。
+      .Midlevisual__inner__appbtn
+        = link_to image_tag('logo/app-store.png')
+        = link_to image_tag('logo/google-play.png')
+  %section.Features
+    %h2.Title FURIMAの特徴
+    .Items
+      %section.Items__item
+        %figure.Items__item__img
+          = image_tag 'icon/icon-01.png'
+        %h3.Item__item__subtitle 簡単に売り買いできる
+        %p.Item__item__description
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.Items__item
+        %figure.Items__item__img
+          = image_tag 'icon/icon-03.png'
+        %h3.Item__item__subtitle 売上金は即日振込みに対応
+        %p.Item__item__description
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %section.Items__item
+        %figure.Items__item__img
+          = image_tag 'icon/icon-04.png'
+        %h3.Item__item__subtitle 様々な支払いに対応
+        %p.Item__item__description
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  %section.Pickupproduct
+    %h2.Pickupproduct__head ピックアップカテゴリー
+    .Pickupproduct__productbox
+      .Producthead
+        = link_to '新規投稿商品', "#",class:".title"
+      .Productlists
+        .Productlists__productlist
+          = link_to "/products" ,class: "lists"do
+            - @products.each do |product|
+              .Product-categoly
+                %figure.Product-categoly__product
+                  -# .image
+                  - product.product_images.each do |image|
+                    -# = image_tag image.image.url
+                  .ProductList--body
+                    .ProductList--body__name
+                      = product.name
+                    .ProductList--body__price
+                      %ul
+                        = product.price
+                        円
+                        %li
+                          = icon('fas fa-star', class: 'likeIcon')
+                          0
+                      %p (税込
+                      = product.order
+  %section.Pickupproduct-brand
+    %h2.Pickupproduct__head ピックアップブランド
+    .Pickupproduct__productbox
+      .Producthead
+        = link_to 'アーカイバ', "#",class:".title"
+      .Productlists
+        .Productlist
+          = link_to "/products" do
+            %figure.ProductList--img
+              = image_tag ''
+            .ProductList--body
+              %h3.Name ee
+              .Price
+                %ul
+                  %li 1000円
+                  %li
+                    = icon('fas fa-star', class: 'likeIcon')
+                    0
+                %p (税込)
+        .Productlist
+          = link_to "/products" do
+            %figure.ProductList--img
+              = image_tag ''
+            .ProductList--body
+              %h3.Name product3
+              .Price
+                %ul
+                  %li 30000円
+                  %li
+                    = icon('fas fa-star', class: 'likeIcon')
+                    0
+                %p (税込)
+        .Productlist
+          = link_to "/products" do
+            %figure.ProductList--img
+              = image_tag ''
+            .ProductList--body
+              %h3.Name product2
+              .Price
+                %ul
+                  %li 20000円
+                  %li
+                    = icon('fas fa-star', class: 'likeIcon')
+                    0
+                %p (税込)
+        .Productlist
+          = link_to "/products" do
+            %figure.ProductList--img
+              = image_tag ''
+            .ProductList--body
+              %h3.Name product1
+              .Price
+                %ul
+                  %li 10000円
+                  %li
+                    = icon('fas fa-star', class: 'likeIcon')
+                    1
+                %p (税込)
