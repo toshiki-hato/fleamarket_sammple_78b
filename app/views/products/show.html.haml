@@ -11,18 +11,30 @@
       .price
       %br/
       = @product.description
-      .description
       %br/
       .table
         .tbody
-          = @product.category.name
           %tr
-            %thカテゴリー
+            %th カテゴリー
+              = @product.category.name  
+          %td
           %br/
-          = @product.status
-          %br
-          = @product.shipping_expenses
+          %tr
+            %th 商品の状態
+          %td
+            = @product.status
           %br/
-          = @product.send_from
-          %br
-          = @product.lead_time
+          %tr
+            %th 配送料の負担
+              = @product.shipping_expenses
+          %td
+          %br/
+          %tr
+            %th 配送元の地域
+              = @product.send_from
+          %td
+          %br/
+          %tr
+            %th 配送日の目安
+              = @product.lead_time
+          %td
