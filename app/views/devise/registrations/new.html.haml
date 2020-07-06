@@ -44,15 +44,15 @@
           = f.label :お名前（全角）
           = f.label :*, class: "Prerequisite" 
           %br/
-          = f.text_field :last_name, class: 'input-person'
-          = f.text_field :first_name, class: 'input-person'
+          = f.text_field :last_name, placeholder: "苗字", class: 'input-person'
+          = f.text_field :first_name, placeholder: "名前", class: 'input-person'
           %br/
         .field3
           = f.label :お名前ふりがな
           = f.label :*, class: "Prerequisite" 
           %br/
-          = f.text_field :last_name_phonetic, class: 'input-person'
-          = f.text_field :first_name_phonetic, class: 'input-person'
+          = f.text_field :last_name_phonetic, placeholder: "みょうじ", class: 'input-person'
+          = f.text_field :first_name_phonetic, placeholder: "なまえ", class: 'input-person'
           %br/
       
       .information__adressField
@@ -60,15 +60,15 @@
           = f.label :送付先お名前
           = f.label :*, class: "Prerequisite" 
           %br/
-          = f.text_field :send_last_name, class: 'input-person'
-          = f.text_field :send_first_name, class: 'input-person'
+          = f.text_field :send_last_name, placeholder: "苗字", class: 'input-person'
+          = f.text_field :send_first_name, placeholder: "名前", class: 'input-person'
           %br/
         .field2
           = f.label :送付先ふりがな
           = f.label :*, class: "Prerequisite" 
           %br/
-          = f.text_field :send_last_name_phonetic, class: 'input-person'
-          = f.text_field :send_first_name_phonetic, class: 'input-person'
+          = f.text_field :send_last_name_phonetic, placeholder: "みょうじ", class: 'input-person'
+          = f.text_field :send_first_name_phonetic, placeholder: "なまえ", class: 'input-person'
           %br/
         .field3
           = f.label :郵便番号
