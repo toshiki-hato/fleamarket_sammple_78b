@@ -7,6 +7,8 @@ $fields-top:  40px;
   margin-left: 178px;
   margin-right: 178px;
 }
+//@mixin form-require {
+  
 
 
 .Body {
@@ -55,6 +57,9 @@ $fields-top:  40px;
       }
       .field3 {
         padding-top: $fields-top;
+        .form-require{
+          
+        }
       }
       .field4 {
         padding-top: $fields-top;
@@ -93,6 +98,9 @@ $fields-top:  40px;
         padding-top: $fields-top;
       }
       .field7 {
+        padding-top: $fields-top;
+      }
+      .field8 {
         padding-top: $fields-top;
       }
       .actions {

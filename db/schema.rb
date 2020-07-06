@@ -31,8 +31,7 @@ ActiveRecord::Schema.define(version: 2020_07_04_161733) do
     t.date "birthday", null: false
     t.string "nickname", null: false
     t.string "email", null: false
-    t.string "password", null: false
-    t.string "encrypted_password", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "send_first_name", null: false
     t.string "send_last_name", null: false
     t.string "send_first_name_phonetic", null: false

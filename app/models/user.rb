@@ -4,6 +4,22 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :first_name,              presence: true
+  validates :last_name,              presence: true
+  validates :first_name_phonetic,              presence: true
+  validates :last_name_phonetic,              presence: true
+  validates :birthday,              presence: true
+  validates :nickname,              presence: true
+  validates :email,              presence: true, uniqueness: true
+  validates :send_first_name,              presence: true
+  validates :send_last_name,              presence: true
+  validates :send_first_name_phonetic,              presence: true
+  validates :send_last_name_phonetic,              presence: true
+  validates :postal_code,              presence: true
+  validates :prefectures,              presence: true
+  validates :city,              presence: true
+  validates :address,              presence: true
+
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, {format: { with: VALID_EMAIL_REGEX }}
