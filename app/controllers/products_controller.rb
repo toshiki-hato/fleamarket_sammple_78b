@@ -30,6 +30,9 @@ class ProductsController < ApplicationController
   end
   
   def destroy
+    product = Product.find(params[:id])
+    product.product_images.find(prams[:id])
+    product.destroy
   end
 
   private
