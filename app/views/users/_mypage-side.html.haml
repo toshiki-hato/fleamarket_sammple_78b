@@ -1,0 +1,26 @@
+.side-content
+  %nav.mypage-nav
+    %h3.mypage-nav-head-setting 設定
+    %ul.mypage-nav-list-setting
+      %li
+        = link_to "#" , class: "mypage-nav-list-setting-item" do
+          プロフィール
+      %li
+        = link_to "#" , class: "mypage-nav-list-setting-item" do
+          発送元・お届け先住所変更
+      %li
+        = link_to new_user_credit_card_path(current_user), class: "mypage-nav-list-setting-item" do
+          クレジットカード登録
+      %li
+        = link_to "#" , class: "mypage-nav-list-setting-item" do
+          メール/パスワード
+      %li
+        = link_to "#" , class: "mypage-nav-list-setting-item" do
+          本人情報
+      %li
+        = link_to "#" , class: "mypage-nav-list-setting-item" do
+          電話番号の確認
+      %li
+        = link_to destroy_user_session_path, method: :delete , class: "mypage-nav-list-setting-item" do
+          ログアウト
+          

@@ -1,0 +1,13 @@
+.Mypage
+  -# = render "products/header"
+  -# = render "products/bottomview_footer"
+  .mypage_a  
+    %main.mypage-contents.clearfix
+      = render "mypage-side"
+      .main-content
+        .logout
+          .logout-content
+            = link_to "/users/logout" , class: "mypage-nav-list-setting-item" do
+              ログアウト
+
+-#  =link_to destrac
