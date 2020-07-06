@@ -10,14 +10,17 @@
       .information__userField
         .field1
           = f.label :ニックネーム
+          = f.label :"*(必須条件)", class: "Prerequisite" 
           %br/
           = f.text_field :nickname, class: 'fields'
         .field2
           = f.label :メールアドレス
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.email_field :email, class: 'fields'
         .field3
           = f.label :パスワード
+          = f.label :*, class: "Prerequisite" 
           %span.form-require 
           - if @validatable
             %em
@@ -26,6 +29,7 @@
           = f.password_field :password, autocomplete: "off", class: 'fields'
         .field4
           = f.label :パスワード（確認用）
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.password_field :encrypted_password, autocomplete: "off", class: 'fields'
       
@@ -33,19 +37,19 @@
       .information__personField
         .field1
           = f.label :生年月日
-          %span.form-require 必須
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.date_field :birthday, class: 'input-person'
         .field2
           = f.label :お名前（全角）
-          %span.form-require 必須
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.text_field :last_name, class: 'input-person'
           = f.text_field :first_name, class: 'input-person'
           %br/
         .field3
-          = f.label :お名前カナ（全角）
-          %span.form-require 必須
+          = f.label :お名前ふりがな
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.text_field :last_name_phonetic, class: 'input-person'
           = f.text_field :first_name_phonetic, class: 'input-person'
@@ -54,36 +58,36 @@
       .information__adressField
         .field1
           = f.label :送付先お名前
-          %span.form-require 必須
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.text_field :send_last_name, class: 'input-person'
           = f.text_field :send_first_name, class: 'input-person'
           %br/
         .field2
-          = f.label :送付先お名前カナ
-          %span.form-require 必須
+          = f.label :送付先ふりがな
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.text_field :send_last_name_phonetic, class: 'input-person'
           = f.text_field :send_first_name_phonetic, class: 'input-person'
           %br/
         .field3
           = f.label :郵便番号
-          %span.form-require 必須
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.number_field :postal_code, class: 'input-address'
         .field4
           = f.label :都道府県
-          %span.form-require 必須
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.text_field :prefectures, class: 'input-address'
         .field5
           = f.label :市町村
-          %span.form-require 必須
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.text_field :city, class: 'input-address'
         .field6
           = f.label :番地
-          %span.form-require 必須
+          = f.label :*, class: "Prerequisite" 
           %br/
           = f.text_field :address, class: 'input-address'
         .field7
