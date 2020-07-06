@@ -1,6 +1,28 @@
 //商品詳細ページ
-= @product.name
-= @product.price
-= @product.category.name
-- @product.product_images.each do |image|
-  = image_tag image.image.url
+.Wrapper
+  .body
+    .box
+      = @product.name
+      .name
+      - @product.product_images.each do |image|
+        = image_tag image.image.url
+      %br/
+      = @product.price
+      .price
+      %br/
+      = @product.description
+      .description
+      %br/
+      .table
+        .tbody
+          = @product.category.name
+          %tr
+            %thカテゴリー
+          %br/
+          = @product.status
+          %br
+          = @product.shipping_expenses
+          %br/
+          = @product.send_from
+          %br
+          = @product.lead_time
