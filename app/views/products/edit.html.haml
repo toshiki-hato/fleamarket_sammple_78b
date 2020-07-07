@@ -87,4 +87,6 @@
           .Back
             = link_to "もどる", root_path
           .Destroy
-            = link_to '削除', product_path(@product.id), method: :delete
+            -if user_signed_in? && current_user.id == @product.user_id
+              = link_to '削除', product_path(@product.id), method: :delete
+            
