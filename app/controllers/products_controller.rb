@@ -24,9 +24,19 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @product.product_images.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
+    @product.product_images.find(params[:id])
+    @product.update(update_params)
+    if @product.update(update_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
   
   def destroy
@@ -47,5 +57,18 @@ class ProductsController < ApplicationController
                                     :category_id,
                                     :order,
                                     product_images_attributes: [:image])
-  end
+    end
+
+  def update_params
+    params.require(:product).permit(:name,
+                                    :description, 
+                                    :price, 
+                                    :status, 
+                                    :shipping_expenses, 
+                                    :send_from, 
+                                    :lead_time,
+                                    :category_id,
+                                    :order,
+                                    [product_images_attributes: [:image, :id ]])
+    end
 end
