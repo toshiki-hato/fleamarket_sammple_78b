@@ -24,15 +24,21 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @product.product_images.find(params[:id])
   end
 
   def update
   end
   
   def destroy
-    product = Product.find(params[:id])
-    product.product_images.find(prams[:id])
-    product.destroy
+    @product = Product.find(params[:id])
+    @products = @product.product_images.find(params[:id])
+    @products.destroy
+    @product.destroy
+
+    redirect_to root_url
+
   end
 
   private

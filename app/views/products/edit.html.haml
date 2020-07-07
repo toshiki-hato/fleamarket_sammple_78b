@@ -1,1 +1,90 @@
-//商品編集ページ
+#productEx
+  .Main
+    .Icon
+      = link_to image_tag('logo/logo.png', alt: "FURIMA", class: 'Icon__detail'), root_path
+    .Underbody
+      .Forms
+        %form
+        = form_with model: @product, class: 'form-field', local: true do |f|
+          = render 'layouts/error_messages', model: f.object
+          .Image
+            .Image__label
+              %label 出品画像
+              %span.Image__label--need 必須 
+            %p.Image__max 最大10枚までアップロードできます
+            .Image__field
+            #image-box
+              = f.fields_for :product_images do |image|
+                %label.js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :image, class: 'js-file'
+          %hr.Borderline
+          .Product__nameandexplanation
+            .Product__name
+              .Product__name--label
+                %label 商品名
+                %span 必須
+              = f.text_field :name, class: 'Product__name--field'
+            .Product__explanation
+              .Product__explanation--label
+                %label 商品の説明
+                %span 必須
+              = f.text_area :description, class: 'Product__explanation--field'
+          %hr.Borderline
+          .Product__details
+            %p.Product__details--label 商品の詳細
+            .Product__details--select-field
+              .Product__details--category-label
+                %label カテゴリー
+                %span 必須
+              = f.collection_select :category_id, CategoryForm.all, :id, :name,{}, {class: "Product__details--category--field"}
+              .Product__details--brand-inputbase
+                .Product__details--brand-label
+                  %label ブランド
+                  %span 任意
+                .Product__details--input
+                  %input{name: "brandName", placlder: "", type: "text", class: 'Product__details--input--field'}
+              .Product__details--condition-selectbase
+                %div{:name => "itemCondition"}
+                  .Product__details--condition-label
+                    %label 商品の状態
+                    %span 必須
+                  = f.collection_select :status, Status.all, :id, :name ,{}, {class: "Product__details--category--field"}   
+          %hr.Borderline
+            .Delivery
+              %p.Delivery__label 配送について
+              .Delivery__select-field
+                .Delivery__fee--label
+                  %label 配送料の負担
+                  %span 必須
+                = f.collection_select :shipping_expenses, ShippingExpenses.all, :id, :name,{}, {class: "Product__details--category--field"}
+              .Delivery__area--select-field
+                %label 発送元の地域
+                %span 必須
+              = f.collection_select :send_from, Prefecture.all, :id, :name,{}, {class: "Product__details--category--field"}
+            .Shipping-days
+              .Shipping-days__label
+                %label 発送までの日数
+                %span 必須
+              = f.collection_select :lead_time, LeadTime.all, :id, :name,{}, {class: "Product__details--category--field"}
+          .Price
+            %p.Price__range 価格（¥300〜9,999,999)
+            .Price__fields
+              .Price__selling-price--field
+                .Price__selling-price--label
+                  %label 販売価格
+                  %span 必須
+                .Price__yen
+                  %span.Price__yen-mark ¥
+                  = f.text_field :price, class: 'Price__input--field'
+              .Sales-fee
+                %div 販売手数料（10%）
+              .Sales-profit__field
+                .Sales-profit__label 販売利益
+                %span —
+          .Editend-buttons
+            = f.hidden_field :order, value: "出品中"
+            = f.submit '出品する', class: 'Forms__Submit'
+          .Back
+            = link_to "もどる", root_path
+          .Destroy
+            = link_to '削除', product_path(@product.id), method: :delete
