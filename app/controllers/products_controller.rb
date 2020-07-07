@@ -32,6 +32,9 @@ class ProductsController < ApplicationController
   def destroy
   end
 
+  def buy
+  end
+
   private
   def product_params
     params.require(:product).permit(:name,

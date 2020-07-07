@@ -1,0 +1,40 @@
+.Body
+  .Top
+    = link_to image_tag("logo/logo.png", alt:"FURIMA", class: 'logo'), root_path
+  .Buy-main 
+    .Buy-main__buy-item
+      .Buy-main__buy-item__head 購入内容の確認
+      .Buy-item
+        .Buy-item__image
+          画像
+        .Buy-item__details
+          .Buy-item__details__title
+            タイトル
+          .Buy-item__details__money
+            送料込み(税込)
+      .Buy-content
+        .Buy-content__box
+          支払い金額
+          .Buy-content
+            .Buy-content__money
+              金額
+        .Buy-content__box
+          支払方法
+          .Buy-content
+            .Buy-content__credit
+              クレジット情報
+              %br カード番号など
+        .Buy-content__box
+          配送先
+          .Buy-content
+            .Buy-content__postal-code
+              郵便番号
+            .Buy-content__address
+            都道府県
+            市町村
+            番地
+            マンション
+            .Buy-content__name
+              苗字
+              名前
+          = submit_tag("購入する", class:"Purchase-btn")
