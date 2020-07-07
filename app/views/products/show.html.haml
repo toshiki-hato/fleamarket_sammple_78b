@@ -1,40 +1,234 @@
+-# //商品詳細ページ
+-# .Wrapper
+-#   .body
+-#     .box
+-#       = @product.name
+-#       .name
+-#       - @product.product_images.each do |image|
+-#         = image_tag image.image.url
+-#       %br/
+-#       = @product.price
+-#       .price
+-#       %br/
+-#       = @product.description
+-#       %br/
+-#       .table
+-#         .tbody
+-#           //- @products.each do |product|
+
+-#           -# %tr
+-#           -#   %th カテゴリー
+-#           -#   %td
+-#           .table_line
+-#             .category.name カテゴリー
+-#           = @product.category.name  
+-#           -# %br/
+          
+-#              %tr
+-#           -#   %th 商品の状態
+-#           -# %td
+-#           .table_line
+-#             .status 商品の状態
+-#           = @product.status
+-#           -# %br/
+
+-#           -# %tr
+-#           -#   %th 配送料の負担
+-#           -# %td
+-#           .table_line
+-#             .shipping_expenses 配送料の負担
+-#           = @product.shipping_expenses
+-#           -# %br/
+
+-#           -# %tr
+-#           -#   %th 配送元の地域
+-#           -# %td        
+-#           .table_line
+-#             .send_from 配送元の地域
+-#           = @product.send_from
+-#           -# %br/
+
+-#           -# %tr
+-#           -#   %th 配送元の地域
+-#           -# %td          
+-#           .table_line
+-#             .lead_time 配送日の目安
+-#           = @product.lead_time
+-#           -# %br/
+
+
+
+
 //商品詳細ページ
+-# .Wrapper
+-#   .body
+-#     .box
+-#       = @product.name
+-#       .name
+-#       - @product.product_images.each do |image|
+-#         = image_tag image.image.url
+-#       %br/
+-#       = @product.price
+-#       .price
+-#       %br/
+-#       = @product.description
+-#       %br/
+-#       .table
+-#         .tbody
+-#           - @products.each do |product|
+-#           %tr
+-#             %th
+-#               .category.name カテゴリー
+-#             %td 
+-#           %br/
+-#           %tr
+-#             %th 商品の状態
+-#             %td
+          
+-#             .status 商品の状態
+-#             = @product.status
+-#           -# %br/
+-#           -# %tr
+-#           -#   %th 商品の状態
+-#           -# %td
+          
+-#             .shipping_expenses 配送料の負担
+-#             = @product.shipping_expenses
+-#           -# %br/
+-#           -# %tr
+-#           -#   %th 配送元料の負担
+-#           -# %td
+          
+          
+-#             .send_from 配送元の地域
+-#             = @product.send_from
+-#           -# %br/
+-#           -# %tr
+-#           -#   %th 配送元の地域
+-#           -# %td
+          
+          
+-#             .lead_time 配送日の目安
+-#             = @product.lead_time
+-#           -# %br/
+-#           -# %tr
+-#           -#   %th 配送日の目安
+-#           -# %td
+
+
+
+-# .Wrapper
+-#   .body
+-# .table
+-#   %tbody
+-#     %tr
+-#       %th 出品者
+-#       %td ss
+-#     %tr
+-#       %th カテゴリー
+-#       %td
+-#         %a{href: "#"} ベビー・キッズ
+-#         %br/
+-#         %a{href: "#"} ベビー服(男の子用)  ~95cm
+-#         %br/
+-#         %a{href: "#"} アウター
+-#     %tr
+-#       %th ブランド
+-#       %td
+-#     %tr
+-#       %th 商品のサイズ
+-#       %td
+-#     %tr
+-#       %th 商品の状態
+-#       %td 新品/未使用
+-#     %tr
+-#       %th 配送料の負担
+-#       %td 送料込み（出品者負担）
+-#     %tr
+-#       %th 発送元の地域
+-#       %td
+-#         %a{href: "#"} 北海道
+-#     %tr
+-#       %th 発送日の目安
+-#       %td 1-2日で発送
+
+
+
 .Wrapper
   .body
     .box
-      = @product.name
-      .name
-      - @product.product_images.each do |image|
-        = image_tag image.image.url
-      %br/
-      = @product.price
-      .price
-      %br/
-      = @product.description
-      %br/
-      .table
-        .tbody
-          %tr
-            %th カテゴリー
-              = @product.category.name  
-          %td
-          %br/
-          %tr
-            %th 商品の状態
-          %td
-            = @product.status
-          %br/
-          %tr
-            %th 配送料の負担
-              = @product.shipping_expenses
-          %td
-          %br/
-          %tr
-            %th 配送元の地域
-              = @product.send_from
-          %td
-          %br/
-          %tr
-            %th 配送日の目安
-              = @product.lead_time
-          %td
+      .main
+        .product-details__page
+          -# .product-details__page__head
+          -#   .product-details__page__main
+          %h1.product-name
+            =@product.name
+
+          -@product.product_images.each do |image|
+            = image_tag image.image.url
+
+          %h2.production-price  
+            =@product.price
+            (税込)送料込み
+          .product-description
+            =@product.description
+          //.product-details__page__main__content.clearfix
+          .production-detail_main
+            -#.product-details__page__main__content__image
+              -# =image_tag(@product.images[0].product_image.url)
+              -# -if @product.buyer_id.present?
+              -#   .items-box_photo__sold
+              -#     .items-box_photo__sold__inner SOLD
+              -# -if @product.reservation_email.present?
+              -#   .items-box_photo__reserved
+              -#     .items-box_photo__reserved__inner Reserved
+              -# .owl-dots
+              -#   .owl-dot
+              -#     .owl-dot-inner
+              -#     .owl-dot-inner
+              -#     .owl-dot-inner
+              -#     .owl-dot-inner
+            %table.product-details__page__main__content__right
+              %tbody
+                %tr
+                  %th 出品者
+                  %td
+                    -# %div
+                    -#   .product-user-ratings
+                    -#     %i.fa.fa-grin.icon-good
+                    -#     %span
+                    -#       = @good_count
+                    -#   .product-user-ratings
+                    -#     %i.fa.fa-meh.icon-normal
+                    -#     %span
+                    -#       = @normal_count
+                    -#   .product-user-ratings
+                    -#     %i.fa.fa-frown.icon-bad
+                    -#     %span
+                    -#       = @bad_count
+                %tr
+                  %th カテゴリー
+                  %td 
+                    =@product.category.name  
+                %tr
+                  %th ブランド
+                  %td 
+                %tr
+                  %th 商品のサイズ
+                  %td
+                %tr
+                  %th 商品の状態
+                  %td 
+                    =@product.status
+                %tr
+                  %th 配送料の負担
+                  %td
+                    =@product.shipping_expenses
+                %tr
+                  %th 配送元地域
+                  %td
+                    =@product.send_from
+                %tr
+                  %th 発送の目安
+                  %td 
+                    =@product.lead_time
