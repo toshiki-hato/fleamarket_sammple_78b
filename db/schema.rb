@@ -21,11 +21,9 @@ ActiveRecord::Schema.define(version: 2020_07_04_161733) do
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "number", null: false
-    t.string "name", null: false
-    t.date "good_thru", null: false
-    t.string "security_code", null: false
     t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_credit_cards_on_user_id"

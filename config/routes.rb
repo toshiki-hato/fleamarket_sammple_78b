@@ -9,4 +9,11 @@ Rails.application.routes.draw do
       get :buy
     end
   end
+  resources :credit_card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'credit_card#show'
+      post 'pay', to: 'credit_card#pay'
+      post 'delete', to: 'credit_card#delete'
+    end
+  end
 end
