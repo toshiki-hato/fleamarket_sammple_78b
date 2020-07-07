@@ -8,8 +8,7 @@ class CreditCardController < ApplicationController
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
-    Payjp.api_key = "sk_test_ab0c6b4c6a7775c81f3cb584"
-
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -19,7 +18,7 @@ class CreditCardController < ApplicationController
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
       ) #念の為metadataにuser_idを入れましたがなくてもOK
-      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, credit_card_id: customer.default_card)
+      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "show"
       else
@@ -41,7 +40,7 @@ class CreditCardController < ApplicationController
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
-    card = Credit_card.where(user_id: current_user.id).first
+    card = CreditCard.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new" 
     else
