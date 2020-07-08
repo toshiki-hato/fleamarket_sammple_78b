@@ -163,17 +163,31 @@
           -#   .product-details__page__main
           %h1.product-name
             =@product.name
+          .item-detailsbox
+            .item-detailsbox__image
+              %ul
+                %li
+                  %ul
+                    %li
+                  %ul
+                    %li
+                  %ul
+                    %li
+                  %ul
+                    %li                              
+              -@product.product_images.each do |image|
+                = image_tag image.image.url
 
-          -@product.product_images.each do |image|
-            = image_tag image.image.url
-
-          %h2.production-price  
+          .product-price  
+            %span
             =@product.price
-            (税込)送料込み
+            .product-price__detail
+              %span（税込）
+              %span 送料込み
           .product-description
             =@product.description
           //.product-details__page__main__content.clearfix
-          .production-detail_main
+          .production-detail__main
             -#.product-details__page__main__content__image
               -# =image_tag(@product.images[0].product_image.url)
               -# -if @product.buyer_id.present?
