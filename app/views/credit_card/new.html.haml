@@ -3,7 +3,7 @@
   .head
     = link_to image_tag("logo/logo.png", alt:"FURIMA", class: 'logo'), root_path
   .Card
-    = form_tag("#", method: :post, id: "charge-form", class: "form",name: "inputForm") do
+    = form_tag("pay_credit_card_index_path", method: :post, id: "charge-form", class: "form",name: "inputForm") do
       .form__upper
         .form__upper__title
           クレジットカード情報入力
