@@ -83,8 +83,8 @@
         = link_to '新規投稿商品', "#",class:".title"
       .Productlists
         .Productlists__productlist
-          = link_to "/products" ,class: "lists"do
-            - @products.each do |product|
+          - @products.each do |product|
+            = link_to product_path(product) ,class: "lists" do
               .Product-categoly
                 %figure.Product-categoly__product
                   -# .image

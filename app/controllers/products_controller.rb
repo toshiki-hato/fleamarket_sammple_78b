@@ -9,9 +9,12 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product= Product.new
-    @product.product_images.new
-
+    if user_signed_in?
+      @product= Product.new
+      @product.product_images.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -47,5 +50,6 @@ class ProductsController < ApplicationController
                                     :category_id,
                                     :order,
                                     product_images_attributes: [:image])
+                              .merge(user_id: current_user.id)
   end
 end

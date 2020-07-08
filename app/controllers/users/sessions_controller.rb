@@ -14,10 +14,12 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
-
+  #  def destroy
+  #   redirect_to root_path
+  #  end
+  def after_sign_out_path_for(resource)
+    redirect_to root_path
+  end 
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
