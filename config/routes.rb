@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+  get 'purchase/done'
   devise_for :users
   root to: 'products#index'
   resources :users, only: [:edit, :update, :index, :show] do
@@ -6,7 +8,9 @@ Rails.application.routes.draw do
   end
   resources :products do
     collection do
-      get :buy
+      get 'buy'
+      post 'pay'
+      get 'done'
     end
   end
   resources :credit_card, only: [:new, :show] do
@@ -16,4 +20,5 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_card#delete'
     end
   end
+  
 end
