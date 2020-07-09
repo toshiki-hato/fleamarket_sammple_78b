@@ -8,7 +8,7 @@
 |phonetic|string|null: false|
 |birthday|date|null: false|
 |nickname|string|null: false|
-|email|string|null: false,uniqueness: true |
+|email|string|null: false,uniqueness: true|
 |password|string|null: false|
 |encrypted_password|string|null: false|
 |send_name|string|null: false|
