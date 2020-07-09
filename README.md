@@ -53,11 +53,15 @@
 |------|----|-------|
 |name|string|null: false|
 |description|text|null: false|
-|price|string|null: false|
+|price|integer|null: false|
 |status|string|null: false|
 |shipping_expenses|string|null: false|
 |send_from|string|null: false|
 |lead_time|string|null: false|
+|order|string||
+|buyer_id|integer||
+|user|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :product_images
@@ -68,9 +72,9 @@
 ## Product_imageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|main|string|null: false|
-|sub|string|null: false|
+|image|string|null: false|
 |product|references|null: false, foreign_key: true|
+
 ### Association
 - belongs_to :product
 
