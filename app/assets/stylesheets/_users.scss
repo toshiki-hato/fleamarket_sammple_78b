@@ -1,0 +1,137 @@
+.head {
+  height: 128px;
+  line-height: 49px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.Mypage{
+  background-color: #f5f5f5;
+  .side-content {
+    width: 280px;
+    height: 1252px;
+    margin: 0 40px 0 0;
+    float: left;
+    display: block;
+    padding: 0;
+    .mypage-nav {
+      width: 280px;
+      height: 220px;
+      background-color: #3CCACE;
+      .mypage-nav-head-setting {
+        width: 280px;
+        color: #333;
+        margin: 40px 0 0;
+        font-size: 16px;
+        background-color: #f5f5f5;
+      }
+      .mypage-nav-list-setting{
+        .mypage-nav-list-setting-item {
+          position: relative;
+          display: block;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+          text-decoration: none;
+          border: solid 1px #eee;
+        }
+      }
+    }
+  }
+}
+
+.mypage-a {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  padding-left: 40px;
+  &__clearfix {
+    width: 1020px;
+    height: 1252px;
+    padding: 0 0 40px 0;
+    display: block;
+    border-style: solid;
+    border-width: 0;
+    margin:0 auto;
+  }
+}
+
+.main-content {
+  width: 700px;
+  float: right;
+  position: relative;
+  margin-top: 60px;
+  background-color: white;
+  .logout{
+    width: 600px;
+    height: 100px;
+    background-color: white;
+    &__box{
+      margin-left: 160px;
+      padding-top: 25px;
+      &__btn{
+        background-color: #3CCACE;
+        border: honeydew;
+        width: 343px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  .logout-btn{
+    color: white;
+    text-decoration: none;
+  }
+  .user {
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    background-image: image-url("user-bg.jpg");
+    .user-link {
+      position: relative;
+      text-align: center;
+      margin: 0;
+      &__icon {
+        border-radius: 150px;
+        width: 60px;
+        height: 60px;
+      }
+      &__name {
+        font-size: 16px;
+        line-height: 1;
+        color: #333;
+        margin: 8px 0 0;
+      }
+      &__number {
+        font-size: 16px;
+        line-height: 1;
+        color: #333;
+        font-weight: 600;
+        margin: 8px 0 0;
+      }
+    }
+  }
+}
+
+.Profile{
+  margin: 20px;
+  &__title{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+}
+
+.Prerequisite{
+  color: red;
+}
+
