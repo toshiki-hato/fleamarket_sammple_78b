@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, except: [:index, :new, :create]
 
   def index
     @products = Product.all.includes(:product_images).limit(4)
@@ -9,9 +10,8 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product= Product.new
+    @product = Product.new
     @product.product_images.new
-
   end
 
   def create
@@ -19,26 +19,21 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_url
     else
-      render "new"
+      render :new
     end
   end
 
   def edit
-    @product = Product.find(params[:id])
-    @product.product_images.find(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
-    @product.product_images.find(params[:id])
-    @product.update(update_params)
-    if @product.update(update_params)
+    if @product.update(product_params)
       redirect_to root_path
     else
-      render :edit
+      render "edit"
     end
   end
-  
+
   def destroy
   end
 
@@ -56,19 +51,10 @@ class ProductsController < ApplicationController
                                     :lead_time,
                                     :category_id,
                                     :order,
-                                    product_images_attributes: [:image])
+                                    product_images_attributes: [:image, :_destroy, :id])
     end
 
-  def update_params
-    params.require(:product).permit(:name,
-                                    :description, 
-                                    :price, 
-                                    :status, 
-                                    :shipping_expenses, 
-                                    :send_from, 
-                                    :lead_time,
-                                    :category_id,
-                                    :order,
-                                    [product_images_attributes: [:image, :id ]])
+    def set_product
+      @product = Product.find(params[:id])
     end
 end
