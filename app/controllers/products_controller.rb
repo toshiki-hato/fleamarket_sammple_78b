@@ -33,11 +33,16 @@ class ProductsController < ApplicationController
   end
   
   def destroy
-    @product.destroy
-
-    flash[:notice] = "削除が完了しました。"
-    redirect_to root_url
-
+    @product = Product.find(params[:id])
+    if @product.user_id == current_user.id
+      if @product.destroy
+        flash[:notice] = "削除が完了しました。"
+        redirect_to root_url
+      else
+        flash[:notice] = "削除できませんでした。"
+        redirect_to root_url
+      end
+    end
   end
 
   def buy
