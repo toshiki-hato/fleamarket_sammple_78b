@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show,:edit, :destroy]
 
   def index
     @products = Product.all.includes(:product_images).limit(4).shuffle
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -33,6 +33,13 @@ class ProductsController < ApplicationController
   end
   
   def destroy
+    if @product.user_id == current_user.id && @product.destroy
+      flash[:notice] = "削除が完了しました。"
+      redirect_to root_url
+    else
+      flash[:notice] = "削除できませんでした。"
+      redirect_to root_url
+    end
   end
 
   def buy
@@ -51,5 +58,9 @@ class ProductsController < ApplicationController
                                     :order,
                                     product_images_attributes: [:image])
                               .merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
