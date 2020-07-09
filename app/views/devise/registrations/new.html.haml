@@ -1,0 +1,105 @@
+//新規登録画面
+.Body
+  .Top
+    = link_to image_tag("logo/logo.png", alt:"FURIMA", class: 'logo'), root_path
+  .information
+    %h2 新規会員登録
+    %hr.Borderline
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .information__userField
+        .field1
+          = f.label :ニックネーム
+          = f.label :"*(必須条件)", class: "Prerequisite" 
+          %br/
+          = f.text_field :nickname, class: 'fields'
+        .field2
+          = f.label :メールアドレス
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.email_field :email, class: 'fields'
+        .field3
+          = f.label :パスワード
+          = f.label :*, class: "Prerequisite" 
+          %span.form-require 
+          - if @validatable
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "off", class: 'fields'
+        .field4
+          = f.label :パスワード（確認用）
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.password_field :encrypted_password, autocomplete: "off", class: 'fields'
+      
+
+      .information__personField
+        .field1
+          = f.label :生年月日
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.date_field :birthday, class: 'input-person'
+        .field2
+          = f.label :お名前（全角）
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.text_field :last_name, placeholder: "苗字", class: 'input-person'
+          = f.text_field :first_name, placeholder: "名前", class: 'input-person'
+          %br/
+        .field3
+          = f.label :お名前ふりがな
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.text_field :last_name_phonetic, placeholder: "みょうじ", class: 'input-person'
+          = f.text_field :first_name_phonetic, placeholder: "なまえ", class: 'input-person'
+          %br/
+      
+      .information__adressField
+        .field1
+          = f.label :送付先お名前
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.text_field :send_last_name, placeholder: "苗字", class: 'input-person'
+          = f.text_field :send_first_name, placeholder: "名前", class: 'input-person'
+          %br/
+        .field2
+          = f.label :送付先ふりがな
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.text_field :send_last_name_phonetic, placeholder: "みょうじ", class: 'input-person'
+          = f.text_field :send_first_name_phonetic, placeholder: "なまえ", class: 'input-person'
+          %br/
+        .field3
+          = f.label :郵便番号
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.number_field :postal_code, class: 'input-address'
+        .field4
+          = f.label :都道府県
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.text_field :prefectures, class: 'input-address'
+        .field5
+          = f.label :市町村
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.text_field :city, class: 'input-address'
+        .field6
+          = f.label :番地
+          = f.label :*, class: "Prerequisite" 
+          %br/
+          = f.text_field :address, class: 'input-address'
+        .field7
+          = f.label :マンション名ビル名
+          %br/ 
+          = f.text_field :condominuium_name, class: 'input-address'
+        .field8
+          = f.label :電話番号
+          %br/
+          = f.number_field :phone_number, class: 'input-address'
+        .actions
+          = f.submit "Sign up", class: 'submit'
+  
+  .Footer
+

@@ -1,0 +1,49 @@
+.Mypage
+  .head
+    = link_to image_tag("logo/logo.png", alt:"FURIMA", class: 'logo'), root_path
+  .mypage-a  
+  %main.mypage-a__clearfix
+    = render "mypage-side"
+    .main-content
+      .user
+        .user-link
+          %figure
+            .user-link__iconn
+              = image_tag "icon/mypage.jpg", class:"user-link__icon"
+          %h2.user-link__name
+            =current_user.nickname
+          .user-link__number
+            評価  ５  出品数  ８
+      .Profile
+        .Profile__title
+          プロフィール
+        .Profile__sentence
+          はじめまして！
+          %br
+          プロフィールをご覧いただきありがとうございます。
+          %br
+          モンゴルに住んでいるフン・ビシと申します。皆さんからは、ノホイと言われています。
+          普段は会社員をしている6０代女性です。
+          雑誌や本、使わなくなった洋服やバッグ、アクセサリーなどの不用品を出品しています。
+          %br
+          自宅にペット・喫煙者はおりませんので、匂いが心配な方も安心してご購入いただけます＾＾
+          %br
+          基本的に仕事中はコメントをお返しすることができません。
+          平日だと２０時以降の返信が多くなります。
+          %br
+          水濡れ防止のためビニール×封筒などで二重包装
+          壊れやすい商品はプチプチで梱包しております。
+          %br
+          発送方法は、らくらくフリマ便（匿名配送）がメインです。
+          %br
+          時間指定が可能な商品の場合、ご購入後にメッセージにてご希望をお伺いいたします。
+          %br
+          商品はすべて送料込みで出品しています。
+          即購入が可能ですが、不明な点があればコメントでご質問ください。
+          %br
+          トラブル防止のため、専用出品や取り置きはお断りさせていただきます。
+          気持ちの良いお取引ができるよう、ご協力をお願いします。
+          %br
+          最後までご覧いただきありがとうございました！
+          %br
+          よろしくお願いいたします☆

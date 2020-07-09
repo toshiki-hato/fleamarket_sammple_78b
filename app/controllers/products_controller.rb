@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
+
   def index
-    @products = Product.all.includes(:product_images).limit(4)
+    @products = Product.all.includes(:product_images).limit(4).shuffle
   end
 
   def show
@@ -8,9 +9,12 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product= Product.new
-    @product.product_images.new
-
+    if user_signed_in?
+      @product= Product.new
+      @product.product_images.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -31,6 +35,9 @@ class ProductsController < ApplicationController
   def destroy
   end
 
+  def buy
+  end
+
   private
   def product_params
     params.require(:product).permit(:name,
@@ -43,5 +50,6 @@ class ProductsController < ApplicationController
                                     :category_id,
                                     :order,
                                     product_images_attributes: [:image])
+                              .merge(user_id: current_user.id)
   end
 end
