@@ -1,7 +1,11 @@
+require 'carrierwave/storage/abstract'
+require 'carrierwave/storage/file'
+require 'carrierwave/storage/fog'
 require '/storage/abstract'
 require '/storage/file'
 require '/storage/fog'
 
+CarrierWave.configure do |config|
 .configure do |config|
   if Rails.env.development? || Rails.env.test?
     config.storage = :file
