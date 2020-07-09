@@ -48,6 +48,9 @@
             font-size: 14px;
             font-weight: 600;
             line-height: 1.4em;
+            span{
+              color: #df3131;
+            }
           }
 
           &__max {
@@ -89,6 +92,9 @@
 
 .Product__name--label {
   @include clearfix();
+  span{
+    color: #df3131;
+  }
 }
 
 .Product__name--field {
@@ -98,6 +104,9 @@
 
 .Product__explanation--label {
   @include clearfix();
+  span{
+    color: #df3131;
+  }
 }
 
 .Product__details--label {
@@ -106,14 +115,23 @@
 
 .Product__details--category-label {
   @include clearfix();
+  span{
+    color: #df3131;
+  }
 }
 
 .Product__details--brand-label {
   @include clearfix();
+  span{
+    color: #df3131;
+  }
 }
 
 .Product__details--condition-label {
   @include clearfix();
+  span{
+    color: #df3131;
+  }
 }
 
 .Delivery__label {
@@ -122,14 +140,23 @@
 
 .Delivery__fee--label {
   @include clearfix();
+  span{
+    color: #df3131;
+  }
 }
 
 .Delivery__area--select-field {
   @include clearfix();
+  span{
+    color: #df3131;
+  }
 }
 
 .Shipping-days__label {
   @include clearfix();
+  span{
+    color: #df3131;
+  }
 }
 
 .Price__range {
@@ -145,6 +172,9 @@
 
 .Price__selling-price--label {
   @include clearfix();
+  span{
+    color: #df3131;
+  }
 }
 
 .Price__input--field {
@@ -177,11 +207,16 @@
 .Editend-buttons {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
 }
 
 .Back {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+  .back-btn{
+    text-decoration: none ;
+  }
 }
 
 

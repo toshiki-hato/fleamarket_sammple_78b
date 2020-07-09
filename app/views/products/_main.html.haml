@@ -83,13 +83,12 @@
         = link_to '新規投稿商品', "#",class:".title"
       .Productlists
         .Productlists__productlist
-          = link_to "/products" ,class: "lists"do
-            - @products.each do |product|
+          - @products.each do |product|
+            = link_to product_path(product) ,class: "lists" do
               .Product-categoly
                 %figure.Product-categoly__product
-                  -# .image
                   - product.product_images.each do |image|
-                    -# = image_tag image.image.url
+                    = image_tag image.image.url
                   .ProductList--body
                     .ProductList--body__name
                       = product.name
@@ -108,55 +107,55 @@
       .Producthead
         = link_to 'アーカイバ', "#",class:".title"
       .Productlists
-        .Productlist
-          = link_to "/products" do
-            %figure.ProductList--img
-              = image_tag ''
-            .ProductList--body
-              %h3.Name ee
-              .Price
-                %ul
-                  %li 1000円
-                  %li
-                    = icon('fas fa-star', class: 'likeIcon')
-                    0
-                %p (税込)
-        .Productlist
-          = link_to "/products" do
-            %figure.ProductList--img
-              = image_tag ''
-            .ProductList--body
-              %h3.Name product3
-              .Price
-                %ul
-                  %li 30000円
-                  %li
-                    = icon('fas fa-star', class: 'likeIcon')
-                    0
-                %p (税込)
-        .Productlist
-          = link_to "/products" do
-            %figure.ProductList--img
-              = image_tag ''
-            .ProductList--body
-              %h3.Name product2
-              .Price
-                %ul
-                  %li 20000円
-                  %li
-                    = icon('fas fa-star', class: 'likeIcon')
-                    0
-                %p (税込)
-        .Productlist
-          = link_to "/products" do
-            %figure.ProductList--img
-              = image_tag ''
-            .ProductList--body
-              %h3.Name product1
-              .Price
-                %ul
-                  %li 10000円
-                  %li
-                    = icon('fas fa-star', class: 'likeIcon')
-                    1
-                %p (税込)
+        -# .Productlist
+        -#   = link_to "/products" do
+        -#     %figure.ProductList--img
+        -#       = image_tag ''
+        -#     .ProductList--body
+        -#       %h3.Name ee
+        -#       .Price
+        -#         %ul
+        -#           %li 1000円
+        -#           %li
+        -#             = icon('fas fa-star', class: 'likeIcon')
+        -#             0
+        -#         %p (税込)
+        -# .Productlist
+        -#   = link_to "/products" do
+        -#     %figure.ProductList--img
+        -#       = image_tag ''
+        -#     .ProductList--body
+        -#       %h3.Name product3
+        -#       .Price
+        -#         %ul
+        -#           %li 30000円
+        -#           %li
+        -#             = icon('fas fa-star', class: 'likeIcon')
+        -#             0
+        -#         %p (税込)
+        -# .Productlist
+        -#   = link_to "/products" do
+        -#     %figure.ProductList--img
+        -#       = image_tag ''
+        -#     .ProductList--body
+        -#       %h3.Name product2
+        -#       .Price
+        -#         %ul
+        -#           %li 20000円
+        -#           %li
+        -#             = icon('fas fa-star', class: 'likeIcon')
+        -#             0
+        -#         %p (税込)
+        -# .Productlist
+        -#   = link_to "/products" do
+        -#     %figure.ProductList--img
+        -#       = image_tag ''
+        -#     .ProductList--body
+        -#       %h3.Name product1
+        -#       .Price
+        -#         %ul
+        -#           %li 10000円
+        -#           %li
+        -#             = icon('fas fa-star', class: 'likeIcon')
+        -#             1
+        -#         %p (税込)
