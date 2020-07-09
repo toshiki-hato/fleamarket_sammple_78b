@@ -155,16 +155,16 @@
 
 
 .Wrapper
-  .body
-    .box
-      .main
-        .product-details__page
+  .Body
+    .Main
+      .Box
+        .Product-details__form
           -# .product-details__page__head
           -#   .product-details__page__main
-          %h1.product-name
+          %h1.Product-name
             =@product.name
-          .item-detailsbox
-            .item-detailsbox__image
+          .Item-descriptionbox
+            .Item-descriptionbox__image
               %ul
                 %li
                   %ul
@@ -176,18 +176,19 @@
                   %ul
                     %li                              
               -@product.product_images.each do |image|
-                = image_tag image.image.url
+                =image_tag image.image.url
 
-          .product-price  
-            %span
-            =@product.price
-            .product-price__detail
+          .Product-price
+            ¥
+            %span=@product.price
+            .Product-price__description
               %span（税込）
-              %span 送料込み
-          .product-description
+              %span (送料込み)
+
+          .Product-description__box
             =@product.description
           //.product-details__page__main__content.clearfix
-          .production-detail__main
+          .Product-description__main
             -#.product-details__page__main__content__image
               -# =image_tag(@product.images[0].product_image.url)
               -# -if @product.buyer_id.present?
@@ -202,7 +203,7 @@
               -#     .owl-dot-inner
               -#     .owl-dot-inner
               -#     .owl-dot-inner
-            %table.product-details__page__main__content__right
+            %table.Product-description__table
               %tbody
                 %tr
                   %th 出品者
@@ -246,3 +247,5 @@
                   %th 発送の目安
                   %td 
                     =@product.lead_time
+
+  .footer                  
