@@ -31,7 +31,7 @@
 
       &__descriptionbox {
         margin: 16px 0 0;
-        &__image {
+        &__body {
           object-fit: cover;
           height: 346px;
           ul {
@@ -44,6 +44,9 @@
             width: 560px;
             align-items: center;
             margin: 0 auto;
+            img{
+              height: 300px;
+            }
           }
         }
       }    
@@ -100,4 +103,8 @@
 .footer {
   width: 100%;
   height: 150px;
+}
+
+.as{
+  height: 300px;
 }

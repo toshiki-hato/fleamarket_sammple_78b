@@ -8,21 +8,24 @@
           %h1.Product__name
             =@product.name
           .Product__descriptionbox
-            .Product__descriptionbox__image
+            .Product__descriptionbox__body
               %ul
-                -@product.product_images.each do |image|
-                  =image_tag image.image.url
-                %li 
-                  %ul
-                    %li
-                  %ul
-                    %li
-                  %ul
-                    %li
-                  %ul
-                    %li
-              -@product.product_images.each do |image|
-                =image_tag image.image.url
+                %li
+                  -@product.product_images.each do |image|
+                    =image_tag image.image.url
+              
+            -#       %ul
+            -#         %li
+            -#           -@product.product_images.each do |image|
+            -#             =image_tag image.image.url
+            -#       %ul
+            -#         %li
+            -#           -@product.product_images.each do |image|
+            -#             =image_tag image.image.url
+            -#       %ul
+            -#         %li
+            -#       %ul
+            -#         %li
 
           .Product__price
             ¥
