@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+  get 'purchase/done'
   devise_for :users
   root to: 'products#index'
   get '/users/logout', to: 'users#logout'
@@ -6,8 +8,10 @@ Rails.application.routes.draw do
     resources :credit_card, only: :new
   end
   resources :products do
-    collection do
-      get :buy
+    member do
+      get 'buy'
+      post 'pay'
+      get 'done'
     end
   end
   resources :credit_card, only: [:new, :show] do
@@ -17,4 +21,5 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_card#delete'
     end
   end
+  
 end
