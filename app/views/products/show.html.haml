@@ -1,9 +1,76 @@
-//商品詳細ページ
-= @product.name
-= @product.price
-= @product.category.name
-- @product.product_images.each do |image|
-  = image_tag image.image.url
+.Wrapper
+  .Top
+    = render "header"
+  .Body
+    .Main
+      .Product
+        .Product__form
+          %h1.Product__name
+            =@product.name
+          .Product__descriptionbox
+            .Product__descriptionbox__body
+              %ul
+                %li
+                  -@product.product_images.each do |image|
+                    =image_tag image.image.url
+              
+            -#       %ul
+            -#         %li
+            -#           -@product.product_images.each do |image|
+            -#             =image_tag image.image.url
+            -#       %ul
+            -#         %li
+            -#           -@product.product_images.each do |image|
+            -#             =image_tag image.image.url
+            -#       %ul
+            -#         %li
+            -#       %ul
+            -#         %li
+
+          .Product__price
+            ¥
+            %span=@product.price
+            .Product__price__description
+              %span（税込）
+              %span (送料込み)
+
+          .Product-description__box
+            =@product.description
+          .Product-description__main
+            %table.Product-description__table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td
+                %tr
+                  %th カテゴリー
+                  %td 
+                    =@product.category.name  
+                %tr
+                  %th ブランド
+                  %td 
+                %tr
+                  %th 商品のサイズ
+                  %td
+                %tr
+                  %th 商品の状態
+                  %td 
+                    =@product.status
+                %tr
+                  %th 配送料の負担
+                  %td
+                    =@product.shipping_expenses
+                %tr
+                  %th 配送元地域
+                  %td
+                    =@product.send_from
+                %tr
+                  %th 発送の目安
+                  %td 
+                    =@product.lead_time
+
+  .footer                  
+
 
 #show
   - if user_signed_in? && current_user.id == @product.user_id

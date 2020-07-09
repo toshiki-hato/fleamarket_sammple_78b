@@ -5,21 +5,19 @@
   display: flex;
   justify-content: space-around;
   &__productlist {
-    float: left;
-    margin: 0px auto;
     width: 1020px;
     display: flex;
-    flex-wrap: wrap;
-    .lists{
-      display: flex;
-    }
   }
 }
 .Product-categoly{
+  width: 220px;
   &__product{
-    width: 220px;
+    width: 210px;
     display: inline-block;
-    float: left;
+    img{
+      width: 210px;
+      height: 180px;
+    }
     .ProductList--body {
       background-color: white;
       color: #333;
