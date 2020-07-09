@@ -36,12 +36,9 @@ class ProductsController < ApplicationController
   
   def destroy
     @product = Product.find(params[:id])
-    @products = @product.product_images.find(params[:id])
-    @products.destroy
     @product.destroy
 
     flash[:notice] = "削除が完了しました。"
-    
     redirect_to root_url
 
   end
