@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all.includes(:product_images).limit(4).shuffle
+    @products = Product.all.includes(:product_images).limit(4)
   end
 
   def show
@@ -9,12 +9,9 @@ class ProductsController < ApplicationController
   end
 
   def new
-    if user_signed_in?
-      @product= Product.new
-      @product.product_images.new
-    else
-      redirect_to root_path
-    end
+    @product= Product.new
+    @product.product_images.new
+
   end
 
   def create
@@ -38,9 +35,9 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   def buy
-    card = CreditCard.find(user_id: current_user.id).first
+    card = CreditCard.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
-    @product = Product.find(1)
+    @product = Product.find(params[:id])
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to new_credit_card_path
@@ -57,7 +54,7 @@ class ProductsController < ApplicationController
     card = CreditCard.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-    :amount => Product.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    :amount => Product.find(1).price, #支払金額を入力（itemテーブル等に紐づけても良い）
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
   )
@@ -76,6 +73,5 @@ class ProductsController < ApplicationController
                                     :category_id,
                                     :order,
                                     product_images_attributes: [:image])
-                              .merge(user_id: current_user.id)
   end
 end
