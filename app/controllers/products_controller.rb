@@ -33,14 +33,12 @@ class ProductsController < ApplicationController
   end
   
   def destroy
-    if @product.user_id == current_user.id
-      if @product.destroy
-        flash[:notice] = "削除が完了しました。"
-        redirect_to root_url
-      else
-        flash[:notice] = "削除できませんでした。"
-        redirect_to root_url
-      end
+    if @product.user_id == current_user.id && @product.destroy
+      flash[:notice] = "削除が完了しました。"
+      redirect_to root_url
+    else
+      flash[:notice] = "削除できませんでした。"
+      redirect_to root_url
     end
   end
 
