@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show,:edit, :destroy]
 
   def index
     @products = Product.all.includes(:product_images).limit(4)
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -27,15 +27,12 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
-    @product.product_images.find(params[:id])
   end
 
   def update
   end
   
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
 
     flash[:notice] = "削除が完了しました。"
@@ -59,5 +56,9 @@ class ProductsController < ApplicationController
                                     :order,
                                     product_images_attributes: [:image])
                               .merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
