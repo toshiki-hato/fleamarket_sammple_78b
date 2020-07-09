@@ -9,9 +9,12 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product= Product.new
-    @product.product_images.new
-
+    if user_signed_in?
+      @product= Product.new
+      @product.product_images.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
