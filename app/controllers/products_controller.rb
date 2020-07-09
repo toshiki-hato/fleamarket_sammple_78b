@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:edit, :destroy]
 
   def index
-    @products = Product.all.includes(:product_images).limit(4)
+    @products = Product.all.includes(:product_images).limit(4).shuffle
   end
 
   def show

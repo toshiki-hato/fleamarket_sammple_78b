@@ -1,13 +1,11 @@
 .Mypage
-  -# = render "products/header"
-  -# = render "products/bottomview_footer"
-  .mypage_a  
-    %main.mypage-contents.clearfix
+  .head
+    = link_to image_tag("logo/logo.png", alt:"FURIMA", class: 'logo'), root_path
+  .mypage-a  
+    %main.mypage-a__clearfix
       = render "mypage-side"
       .main-content
         .logout
-          .logout-content
-            = link_to "/users/logout" , class: "mypage-nav-list-setting-item" do
-              ログアウト
-
--#  =link_to destrac
+          .logout__box
+            .logout__box__btn
+              = link_to "ログアウト", destroy_user_session_path, method: :delete,class:"logout-btn"
