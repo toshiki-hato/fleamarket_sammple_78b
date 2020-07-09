@@ -33,7 +33,6 @@ class ProductsController < ApplicationController
   end
   
   def destroy
-    @product = Product.find(params[:id])
     if @product.user_id == current_user.id
       if @product.destroy
         flash[:notice] = "削除が完了しました。"
