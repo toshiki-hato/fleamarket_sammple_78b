@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
       @product= Product.new
       @product.product_images.new
     else
-      redirect_to root_path
+      redirect_to new_user_session_path
     end
   end
 
