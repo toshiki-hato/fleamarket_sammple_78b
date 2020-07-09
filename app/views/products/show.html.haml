@@ -10,7 +10,9 @@
           .Product__descriptionbox
             .Product__descriptionbox__image
               %ul
-                %li
+                -@product.product_images.each do |image|
+                  =image_tag image.image.url
+                %li 
                   %ul
                     %li
                   %ul
