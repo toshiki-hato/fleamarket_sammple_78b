@@ -76,5 +76,6 @@ class ProductsController < ApplicationController
                                     :category_id,
                                     :order,
                                     product_images_attributes: [:image])
+                            .merge(user_id: current_user.id)
   end
 end
