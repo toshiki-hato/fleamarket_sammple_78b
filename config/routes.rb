@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'purchase/index'
-  get 'purchase/done'
   devise_for :users
   root to: 'products#index'
   get '/users/logout', to: 'users#logout'

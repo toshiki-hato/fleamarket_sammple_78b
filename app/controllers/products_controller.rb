@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_card, except: [:buy, :pay]
 
   def index
     @products = Product.all.includes(:product_images).limit(4).shuffle
@@ -51,7 +52,6 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   def buy
-    card = CreditCard.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     @product = Product.find(params[:id])
     if card.blank?
@@ -69,12 +69,11 @@ class ProductsController < ApplicationController
   end
 
   def pay
-    card = CreditCard.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-    :amount => Product.find(1).price, #支払金額を入力（itemテーブル等に紐づけても良い）
-    :customer => card.customer_id, #顧客ID
-    :currency => 'jpy', #日本円
+    amount: Product.find(1).price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: card.customer_id, #顧客ID
+    currency: 'jpy', #日本円
   )
   redirect_to action: 'done' #完了画面に移動
   end
@@ -108,5 +107,8 @@ class ProductsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+  def set_card
+    card = CreditCard.where(user_id: current_user.id).first
   end
 end

@@ -38,5 +38,7 @@
 -#   #card_token
 -#   = submit_tag "追加する", id: "token_submit"
 
+ # 上記コメントアウトは今後スクリプトからNewのページ遷移に変更予定のため
+
 = form_tag(action: :pay, method: :post) do
   %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_9c125a68657dbbb541788e64"}
