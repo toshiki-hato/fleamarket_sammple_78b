@@ -3,16 +3,19 @@ class ProductsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @products = Product.all.includes(:product_images).limit(4)
+    @products = Product.all.includes(:product_images).limit(4).shuffle
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
-    @product = Product.new
-    @product.product_images.new
+    if user_signed_in?
+      @product= Product.new
+      @product.product_images.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -36,6 +39,13 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    if @product.user_id == current_user.id && @product.destroy
+      flash[:notice] = "削除が完了しました。"
+      redirect_to root_url
+    else
+      flash[:notice] = "削除できませんでした。"
+      redirect_to root_url
+    end
   end
 
   def buy
@@ -53,14 +63,14 @@ class ProductsController < ApplicationController
                                     :category_id,
                                     :order,
                                     product_images_attributes: [:image, :_destroy, :id])
-    end
+                             .merge(user_id: current_user.id)
+  end
 
-    def set_product
-      @product = Product.find(params[:id])
-    end
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    def move_to_index
-      redirect_to action: :index unless user_signed_in?
-    end
-
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
 end
