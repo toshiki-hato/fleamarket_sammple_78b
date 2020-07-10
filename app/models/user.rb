@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :products
-  has_many :credit_cards
 
   validates :first_name,              presence: true
   validates :last_name,              presence: true

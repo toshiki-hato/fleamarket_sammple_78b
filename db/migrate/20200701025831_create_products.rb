@@ -9,8 +9,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :send_from, null: false
       t.string :lead_time, null: false
       t.string :order, null: false
-      t.references :user, foreign_key: { to_table: :users }
-      t.references :buyer, foreign_key: { to_table: :users }
+
       t.timestamps
     end
   end
