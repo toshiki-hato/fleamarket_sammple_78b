@@ -46,10 +46,12 @@ ActiveRecord::Schema.define(version: 2020_07_09_033140) do
     t.string "send_from", null: false
     t.string "lead_time", null: false
     t.string "order", null: false
+    t.bigint "user_id"
+    t.bigint "buyer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
-    t.bigint "user_id"
+    t.index ["buyer_id"], name: "index_products_on_buyer_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -89,4 +91,6 @@ ActiveRecord::Schema.define(version: 2020_07_09_033140) do
 
   add_foreign_key "credit_cards", "users"
   add_foreign_key "product_images", "products"
+  add_foreign_key "products", "users"
+  add_foreign_key "products", "users", column: "buyer_id"
 end

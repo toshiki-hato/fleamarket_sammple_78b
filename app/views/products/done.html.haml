@@ -1,3 +1,6 @@
 %h2 購入が完了しました！
-%p Apple MacBook Pro 13インチ
-%p ¥135,000(送料込み)
+= @product.name
+%br
+= @product.price
+%br
+= link_to "ホームページへ", products_path

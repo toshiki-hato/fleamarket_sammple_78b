@@ -44,6 +44,8 @@ class ProductsController < ApplicationController
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to new_credit_card_path
+    elsif @product.order == "購入済"
+      redirect_to root_path
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得
@@ -62,6 +64,14 @@ class ProductsController < ApplicationController
     :currency => 'jpy', #日本円
   )
   redirect_to action: 'done' #完了画面に移動
+  end
+
+  def done
+    @product = Product.find(params[:id])
+    @product.order = "購入済"
+    @product.buyer_id = current_user.id
+    @product.save
+
   end
 
   private
