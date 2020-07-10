@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :products do
     member do
       get 'buy'
-      post 'pay'
       get 'done'
+    end
+    collection do
+      post 'pay'
     end
   end
   resources :credit_card, only: [:new, :show] do
