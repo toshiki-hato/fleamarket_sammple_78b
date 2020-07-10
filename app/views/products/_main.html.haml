@@ -87,8 +87,7 @@
             = link_to product_path(product) ,class: "lists" do
               .Product-categoly
                 %figure.Product-categoly__product
-                  - product.product_images.each do |image|
-                    = image_tag image.image.url
+                  = image_tag product.product_images.first.image.url
                   .ProductList--body
                     .ProductList--body__name
                       = product.name
