@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
+  before_action :set_product, except: [:index, :new, :create]
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @products = Product.all.includes(:product_images).limit(4)
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -13,7 +14,7 @@ class ProductsController < ApplicationController
       @product= Product.new
       @product.product_images.new
     else
-      redirect_to root_path
+      redirect_to new_user_session_path
     end
   end
 
@@ -22,7 +23,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_url
     else
-      render "new"
+      render :new
     end
   end
 
@@ -30,9 +31,21 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render "edit"
+    end
   end
-  
+
   def destroy
+    if @product.user_id == current_user.id && @product.destroy
+      flash[:notice] = "削除が完了しました。"
+      redirect_to root_url
+    else
+      flash[:notice] = "削除できませんでした。"
+      redirect_to root_url
+    end
   end
 
   require 'payjp'
@@ -85,7 +98,15 @@ class ProductsController < ApplicationController
                                     :lead_time,
                                     :category_id,
                                     :order,
-                                    product_images_attributes: [:image])
-                            .merge(user_id: current_user.id)
+                                    product_images_attributes: [:image, :_destroy, :id])
+                             .merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 end
