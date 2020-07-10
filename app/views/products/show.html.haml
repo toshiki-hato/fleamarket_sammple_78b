@@ -1,3 +1,4 @@
+
 .Wrapper
   .Top
     = render "header"
@@ -19,12 +20,15 @@
           %h1.Product__name
             =@product.name
           .Product__descriptionbox
-            .Product__descriptionbox__body
-              %ul
+            .photo__box
+              %ul.photo__innner
                 %li
-                  -@product.product_images.each do |image|
-                    =image_tag image.image.url
-              
+                  = image_tag @product.product_images.first.image.url, class: "main__image"
+                  %ul
+                    -@product.product_images.each do |image|
+                      %li
+                        =image_tag image.image.url, class: "image__list"
+                          
             -#       %ul
             -#         %li
             -#           -@product.product_images.each do |image|
@@ -87,3 +91,4 @@
                        
 
   .footer
+
