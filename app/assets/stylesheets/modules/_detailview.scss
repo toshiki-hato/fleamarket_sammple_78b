@@ -48,20 +48,20 @@
         &__body {
           object-fit: cover;
           height: 346px;
-          ul {
-            display: flex;
-            position: relative;
-          }
-          li { 
-            display: flex;
-            flex-direction: column;
-            width: 560px;
-            align-items: center;
-            margin: 0 auto;
-            img{
-              height: 300px;
-            }
-          }
+          // ul {
+          //   display: flex;
+          //   position: relative;
+          // }
+          // li { 
+          //   display: flex;
+          //   flex-direction: column;
+          //   width: 560px;
+          //   align-items: center;
+          //   margin: 0 auto;
+          //   img{
+          //     height: 300px;
+          //   }
+          // }
         }
       }    
       &__price {
