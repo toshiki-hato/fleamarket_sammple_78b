@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_card, except: [:buy, :pay]
 
   def index
-    @products = Product.all.includes(:product_images).limit(4)
+    @products = Product.all.includes(:product_images).limit(4).shuffle
   end
 
   def show
@@ -48,7 +49,41 @@ class ProductsController < ApplicationController
     end
   end
 
+  require 'payjp'
+
   def buy
+    #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
+    @product = Product.find(params[:id])
+    if card.blank?
+      #登録された情報がない場合にカード登録画面に移動
+      redirect_to new_credit_card_path
+    elsif @product.order == "購入済"
+      redirect_to root_path
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    amount: Product.find(1).price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: card.customer_id, #顧客ID
+    currency: 'jpy', #日本円
+  )
+  redirect_to action: 'done' #完了画面に移動
+  end
+
+  def done
+    @product = Product.find(params[:id])
+    @product.order = "購入済"
+    @product.buyer_id = current_user.id
+    @product.save
+
   end
 
   private
@@ -72,5 +107,8 @@ class ProductsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+  def set_card
+    card = CreditCard.where(user_id: current_user.id).first
   end
 end
