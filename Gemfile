@@ -89,3 +89,4 @@ gem 'ancestry'
 gem 'font-awesome-sass'
 
 gem 'payjp'
+
