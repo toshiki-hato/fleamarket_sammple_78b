@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @products = Product.all.includes(:product_images).limit(4).shuffle
+    @products = Product.all.includes(:product_images).limit(4)
   end
 
   def show
