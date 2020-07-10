@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all.includes(:product_images).limit(4)
+    @products = Product.all.includes(:product_images).limit(4).shuffle
   end
 
   def show
