@@ -9,8 +9,8 @@
         = link_to "#" , class: "mypage-nav-list-setting-item" do
           発送元・お届け先住所変更
       %li
-        = link_to new_user_credit_card_path(current_user), class: "mypage-nav-list-setting-item" do
-          クレジットカード登録
+        = form_tag(pay_credit_card_index_path, method: :post, class: "mypage-nav-list-setting-item") do
+          %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "クレジットカード登録" ,"data-key" => "pk_test_9c125a68657dbbb541788e64",class: "mypage-nav-list-setting-item--font"}
       %li
         = link_to "#" , class: "mypage-nav-list-setting-item" do
           メール/パスワード

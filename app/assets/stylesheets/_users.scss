@@ -38,6 +38,13 @@
           color: #333;
           text-decoration: none;
           border: solid 1px #eee;
+          &--font{
+            background-image: none;
+            background-color: white;
+            border: none;
+            color: black;
+            
+          }
         }
       }
     }
