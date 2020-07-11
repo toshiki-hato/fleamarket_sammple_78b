@@ -117,22 +117,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .Delete-btn {
-                @include btnSet;
-                // font-size: 24px;
-                // display: block;
-                // height: 40px;
-                // width: 500px;
-                background-color: red;
-      // color: white;
+    .Delete-btn {    
+      font-size: 24px;
+      display: block;
+      height: 40px;
+      width: 500px;
+      background-color: red;
+      color: white;
     }
     .Edit-btn {
-      // font-size: 24px;
-      // display: block;
-      // height: 40px;
-      // width: 500px;
+      font-size: 24px;
+      display: block;
+      height: 40px;
+      width: 500px;
       background-color: blue;
-      // color: white;
+      color: white;
       margin-top: 10px;
     }
   }
