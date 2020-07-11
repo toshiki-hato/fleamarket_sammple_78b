@@ -128,17 +128,14 @@
 }
 
 .photo__box{
-  text-align: center;
-  display: flex;
+  float: left;
+  margin-right: 15px;
   .photo__innner{
     background-color: #d3d3d3;
-    width: 560px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
     .main__image{
-      height: 300px;
+      width: 610px;
+      height: 400px;
+      margin: 10px 10px 10px 10px;
       object-fit: cover;
     }
     ul{
@@ -146,9 +143,10 @@
       flex-wrap: wrap;
       width: 300px;
       .image__list{
+        margin-left: 9px;
         width: 60px;
         height: 60px;
-        object-fit: cover;        
+        object-fit: cover;
       }
     }
   }
