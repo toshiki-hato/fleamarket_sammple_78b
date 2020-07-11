@@ -42,6 +42,13 @@
       .form-field {
         padding: 40px;
         background-color: white;
+        .js-file_group{
+          display: flex;
+          .js-remove{
+            font-size: 16px;
+            color: red;
+          }
+        }
 
         .Image {
           &__label {
@@ -69,14 +76,6 @@
               display: flex;
               justify-content: center;
               align-items: center;
-            }
-          }
-
-          &__box {
-            .js-file_group {
-              .js-file {
-                display: none;
-              }
             }
           }
         }
@@ -218,12 +217,3 @@
     text-decoration: none ;
   }
 }
-
-.file-btn{
-  display: none;
-}
-
-.image-btn{
-  color: red;
-}
-
