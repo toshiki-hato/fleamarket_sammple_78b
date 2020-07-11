@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :user do
-    association :credit_card
     nickname                 { "abeabeabe" }
     email                    { "kkk@gmail.com" }
     password                 { "hogehoge" }
@@ -21,5 +20,4 @@ FactoryBot.define do
     condominuium_name        { "00000000" }
     phone_number             { "00000000" }
   end
-
 end

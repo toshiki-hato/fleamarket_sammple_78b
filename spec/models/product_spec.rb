@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe Product do
   describe '#create' do
     # 1. 全項目が存在すれば登録できること

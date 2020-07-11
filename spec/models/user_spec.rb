@@ -68,13 +68,13 @@ describe User do
     it "is invalid without an password" do
       user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password]).to include("を入力してください", "は7文字以上で入力してください")
+      expect(user.errors[:password]).to include("は7文字以上で入力してください")
     end
 
     it "is invalid without a password_confirmation although with a password" do
-      user = build(:user, password_confirmation: nil)
+      user = build(:user, encrypted_password: nil)
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
+      expect(user.errors[:encrypted_password]).to include("は7文字以上で入力してください")
     end
 
     it "is invalid without an send_first_name" do
@@ -124,13 +124,5 @@ describe User do
       user.valid?
       expect(user.errors[:address]).to include("を入力してください")
     end
-
-    # 10. first_nameが半角であれば登録できないこと
-    it "is invalid with a first_name hankaku " do
-      user = build(:user, first_name: "aaaaa")
-      user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
-    end
-
   end
 end
