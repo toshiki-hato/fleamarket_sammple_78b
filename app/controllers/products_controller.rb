@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "削除が完了しました。"
       redirect_to root_url
     else
-      flash[:notice] = "削除できませんでした。"
+      flash[:alert] = "削除できませんでした。"
       redirect_to root_url
     end
   end
@@ -54,11 +54,13 @@ class ProductsController < ApplicationController
   def buy
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     @product = Product.find(params[:id])
-    if @card.blank?
+    if @card.nil?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to users_path(current_user.id)
+      redirect_to user_path(current_user.id)
+      flash[:alert] = "カードが登録されていません。"
     elsif @product.order == "購入済"
       redirect_to root_path
+      flash[:alert] = "購入済みです。"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得
