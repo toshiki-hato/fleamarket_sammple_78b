@@ -2,7 +2,7 @@
   .Header__inner
     .Topheader
       .Topheader__logo
-        = link_to image_tag('logo/logo.png', id:"logo.png")
+        = link_to image_tag('logo/logo.png', id:"logo.png"), root_path
       .Topheader__searchBox
         %form{action: "#", method: "get"}
           %input{name: "utf8", type: "hidden", value: ""}/
