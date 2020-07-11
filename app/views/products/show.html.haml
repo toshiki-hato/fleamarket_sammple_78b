@@ -1,17 +1,7 @@
+
 .Wrapper
   .Top
     = render "header"
-  .Btnbox
-    %button.Delete-btn
-      %span
-        削除
-        - if user_signed_in? && current_user.id == @product.user_id
-          = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn" 
-    %button.Edit-btn
-      %span
-        編集
-        - if user_signed_in? && current_user.id == @product.user_id
-          = link_to "編集する", edit_product_path(@product.id),method: :edit,class:"product-details-edit__btn"
   .Body
     .Main
       .Product
@@ -19,12 +9,15 @@
           %h1.Product__name
             =@product.name
           .Product__descriptionbox
-            .Product__descriptionbox__body
-              %ul
+            .photo__box
+              %ul.photo__innner
                 %li
-                  -@product.product_images.each do |image|
-                    =image_tag image.image.url
-              
+                  = image_tag @product.product_images.first.image.url, class: "main__image"
+                  %ul
+                    -@product.product_images.each do |image|
+                      %li
+                        =image_tag image.image.url, class: "image__list"
+                          
             -#       %ul
             -#         %li
             -#           -@product.product_images.each do |image|
@@ -86,3 +79,9 @@
                        
 
   .footer
+    - if user_signed_in? && current_user.id == @product.user_id
+      = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
+      = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
+    - if user_signed_in? && current_user.id != @product.user_id
+      = link_to "購入する", buy_product_path, method: :delete,class:"product-details-buy__btn" 
+    
