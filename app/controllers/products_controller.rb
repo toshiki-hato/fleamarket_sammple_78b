@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to new_credit_card_path
+      redirect_to users_path(current_user.id)
     elsif @product.order == "購入済"
       redirect_to root_path
     else
@@ -71,7 +71,7 @@ class ProductsController < ApplicationController
   def pay
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-    amount: Product.find(1).price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    amount: Product.find(params[:id]).price, #支払金額を入力（itemテーブル等に紐づけても良い）
     customer: @card.customer_id, #顧客ID
     currency: 'jpy', #日本円
   )
