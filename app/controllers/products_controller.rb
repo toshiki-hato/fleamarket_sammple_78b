@@ -8,8 +8,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product= Product.find(params[:id])
   end
-
+  
   def new
     if user_signed_in?
       @product= Product.new
