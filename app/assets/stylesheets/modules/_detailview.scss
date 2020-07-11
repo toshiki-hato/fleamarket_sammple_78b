@@ -149,3 +149,26 @@
 .as{
   height: 300px;
 }
+
+.photo__box{
+  float: left;
+  margin-right: 15px;
+  .photo__innner{
+    background-color: #d3d3d3;
+    .main__image{
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+    ul{
+      display: flex;
+      flex-wrap: wrap;
+      width: 300px;
+      .image__list{
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+      }
+    }
+  }
+}
