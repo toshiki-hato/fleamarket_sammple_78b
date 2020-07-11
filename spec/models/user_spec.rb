@@ -20,13 +20,13 @@ describe User do
       user = create(:user)
       another_user = build(:user, email: user.email)
       another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
+      expect(another_user.errors[:email]).to include("はすでに存在します")
     end
     
     it "is invalid without an email" do
       user = build(:user, email: nil)
       user.valid?
-      expect(user.errors[:email]).to include("を入力してください", "はすでに存在します")
+      expect(user.errors[:email]).to include("を入力してください", "は不正な値です")
     end
 
     it "is invalid without an first_name" do
