@@ -7,8 +7,8 @@ FactoryBot.define do
     shipping_expenses {Faker::Number}
     send_from {Faker::Name.name}
     lead_time {Faker::Date}
-    association :user
-    association :category
+    user
+    category
     after(:build) do |product|
       product.product_images << build(:product_images, product: product)
     end 
@@ -22,7 +22,7 @@ FactoryBot.define do
     shipping_expenses {Faker::Number}
     send_from {Faker::Name.name}
     lead_time {Faker::Date}
-    association :user
-    association :category
+    user
+    category
   end
 end
