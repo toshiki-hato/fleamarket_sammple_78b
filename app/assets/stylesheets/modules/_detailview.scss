@@ -10,20 +10,7 @@
   height: 100px;
   background-color: white;
 }
-.Btnbox {
-  text-align: end;
-  padding-right: 180px;
-  .Delete-btn {
-    background-color: red;
-    color: white;
-    width: 60px;
-  }
-  .Edit-btn {
-    background-color: aqua;
-    color: white;
-    width: 60px;
-  }
-}
+
 .Body { 
   padding: 40px;
   margin: 0 auto;
@@ -45,25 +32,55 @@
 
       &__descriptionbox {
         margin: 16px 0 0;
-        &__body {
-          object-fit: cover;
-          height: 346px;
-          ul {
-            display: flex;
-            position: relative;
-          }
-          li { 
+
+        .photo__box{
+          text-align: center;
+          display: flex;
+          //margin-right: 15px;
+        
+          &__innner{
+            background-color: #d3d3d3;
+            width: 560px;
             display: flex;
             flex-direction: column;
-            width: 560px;
             align-items: center;
             margin: 0 auto;
-            img{
+            .main__image{
+              //width: 300px;
               height: 300px;
+              object-fit: cover;
+            }
+            ul{
+              display: flex;
+              flex-wrap: wrap;
+              width: 300px;
+              .image__list{
+                width: 60px;
+                height: 60px;
+                object-fit: cover;        
+              }
             }
           }
-        }
-      }    
+        }  
+      }
+        // &__body {
+        //   object-fit: cover;
+        //   height: 346px;
+        //   ul {
+        //     display: flex;
+        //     position: relative;
+        //   }
+        //   li { 
+        //     display: flex;
+        //     flex-direction: column;
+        //     width: 560px;
+        //     align-items: center;
+        //     margin: 0 auto;
+        //     img{
+        //       height: 300px;
+        //     }
+        //   }
+        // }  
       &__price {
         font-size: 46px;
         font-weight: bold;
@@ -76,7 +93,7 @@
     }    
     button{
       color: white;
-      background-color: red;
+      background-color: blue;
       display: block;
       width: 100%;
       font-size: 24px;
@@ -125,24 +142,66 @@
 
 .footer {
   width: 100%;
-  height: 150px;
+  height: 50px;
+  // .Btnbox {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   .Delete-btn {    
+  //     font-size: 24px;
+  //     display: block;
+  //     height: 40px;
+  //     width: 500px;
+  //     background-color: red;
+  //     color: white;
+  //   }
+  //   .Edit-btn {
+  //     font-size: 24px;
+  //     display: block;
+  //     height: 40px;
+  //     width: 500px;
+  //     background-color: blue;
+  //     color: white;
+  //     margin-top: 10px;
+  //   }
+  // }
 }
 
+// @mixin btnSet {
+//   font-size: 24px;
+//   display: block;
+//   height: 40px;
+//   width: 500px;
+//   color: white;
+// }
 
-.as{
-  height: 300px;
-}
+// .as{
+//   height: 300px;
+// }
 
 .photo__box{
+
   float: left;
   margin-right: 15px;
   height: 100%;
   width: 100%;
+
+  // text-align: center;
+  // display: flex;
+  // //margin-right: 15px;
+
   .photo__innner{
     background-color: #d3d3d3;
+    width: 560px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
     .main__image{
+
       width: 620px;
       height: 400px;
+
       object-fit: cover;
     }
     ul{
@@ -153,7 +212,8 @@
         width: 60px;
         height: 60px;
         margin-right: 7px;
-        object-fit: cover;
+        object-fit: cover;      
+
       }
     }
   }
