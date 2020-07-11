@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @card = CreditCard.where(user_id: current_user.id).first
   end
 
   def edit

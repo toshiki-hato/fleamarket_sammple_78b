@@ -1,9 +1,9 @@
 FactoryBot.define do
-
   factory :user do
     nickname                 { "abeabeabe" }
     email                    { "kkk@gmail.com" }
-    encrypted_password    { "hogehoge" }
+    password                 { "hogehoge" }
+    encrypted_password       { "hogehoge" }
     first_name               { "やまだ" }
     last_name                { "やまだ" }
     first_name_phonetic      { "やまだ" }
@@ -20,5 +20,4 @@ FactoryBot.define do
     condominuium_name        { "00000000" }
     phone_number             { "00000000" }
   end
-
 end

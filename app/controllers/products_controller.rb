@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
-  before_action :move_to_index, except: [:index, :show]
-  before_action :set_card, except: [:buy, :pay]
+  before_action :move_to_index, except: [:index, :show, :new]
+  before_action :set_card, only: [:buy, :pay]
 
   def index
     @products = Product.all.includes(:product_images).limit(4).shuffle
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "削除が完了しました。"
       redirect_to root_url
     else
-      flash[:notice] = "削除できませんでした。"
+      flash[:alert] = "削除できませんでした。"
       redirect_to root_url
     end
   end
@@ -55,25 +55,27 @@ class ProductsController < ApplicationController
   def buy
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     @product = Product.find(params[:id])
-    if card.blank?
+    if @card.nil?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to new_credit_card_path
+      redirect_to user_path(current_user.id)
+      flash[:alert] = "カードが登録されていません。"
     elsif @product.order == "購入済"
       redirect_to root_path
+      flash[:alert] = "購入済みです。"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
   def pay
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-    amount: Product.find(1).price, #支払金額を入力（itemテーブル等に紐づけても良い）
-    customer: card.customer_id, #顧客ID
+    amount: Product.find(params[:id]).price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: @card.customer_id, #顧客ID
     currency: 'jpy', #日本円
   )
   redirect_to action: 'done' #完了画面に移動
@@ -110,6 +112,6 @@ class ProductsController < ApplicationController
     redirect_to action: :index unless user_signed_in?
   end
   def set_card
-    card = CreditCard.where(user_id: current_user.id).first
+    @card = CreditCard.where(user_id: current_user.id).first
   end
 end
