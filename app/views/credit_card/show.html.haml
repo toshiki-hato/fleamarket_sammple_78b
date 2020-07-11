@@ -1,11 +1,23 @@
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-= form_tag(delete_credit_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
-  %input{ type: "hidden", name: "card_id", value: "" }
-  %button 削除する
-= link_to "Mypageへ", user_path
+.Card-delete
+  .head
+    = link_to image_tag("logo/logo.png", alt:"FURIMA", class: 'logo'), root_path
+  .Card-delete__box
+    .Card
+      .Card__name
+        %label 登録クレジットカード情報
+      .Card__number
+        カード番号
+        %br/
+        = "**** **** **** " + @default_card_information.last4
+      .Card__date
+        %label 有効期限
+        %br/
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " 月/ " + exp_year
+        年
+      = form_tag(delete_credit_card_index_path,method: :post, id: 'charge-form',  name: "inputForm") do
+        %input{ type: "hidden", name: "card_id", value: "" }
+        %button{type: "submit", class:'Delete-btn'}  削除する
+      .Mypage-back
+        = link_to "マイページ", user_path, class:"Mypage-btn"
