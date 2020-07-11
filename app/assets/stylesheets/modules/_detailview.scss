@@ -1,6 +1,13 @@
 * {
   box-sizing: border-box;
 }
+@mixin btnSet {
+  height: 40px;
+  width: 500px;
+  padding-top: 10px;
+  color: white;
+}
+
  .Wrapper {
   display: flex;
   flex-direction: column;
@@ -36,7 +43,7 @@
         .photo__box{
           text-align: center;
           display: flex;
-          //margin-right: 15px;
+          margin-left: 15px;
         
           &__innner{
             background-color: #d3d3d3;
@@ -44,16 +51,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0 auto;
+            
             .main__image{
-              //width: 300px;
               height: 300px;
               object-fit: cover;
+              margin: 10px 10px 10px 10px;
             }
             ul{
               display: flex;
               flex-wrap: wrap;
-              width: 300px;
+              width: 400px;
               .image__list{
                 width: 60px;
                 height: 60px;
@@ -129,34 +136,25 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  .product-details-delete__btn{
-    background-color: red;
-    color: white;
-    height: 40px;
-    width: 500px;
-    padding: 10px;
+  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
+  .product-details-delete__btn {
+    @include btnSet; 
+      background-color: red;
   }
   .product-details-edit__btn {
-    background-color: blue;
-    color: white;
-    height: 40px;
-    width: 500px;
-    padding: 10px;
-    margin-top: 10px;
+    @include btnSet; 
+      background-color: blue;
+      margin-top: 10px;
   }
-    
-
-  
-  @mixin btnSet {
-    height: 40px;
-    width: 500px;
-    padding-top: 10px;
-    color: white;
+  .product-details-buy__btn {
+    @include btnSet; 
+      background-color: blue;
+      margin-top: 10px;
   }
 }
-
-
-
 
 .photo__box{
   float: left;
@@ -164,7 +162,7 @@
   .photo__innner{
     background-color: #d3d3d3;
     .main__image{
-      width: 610px;
+      width: 560px;
       height: 400px;
       margin: 10px 10px 10px 10px;
       object-fit: cover;
@@ -172,7 +170,7 @@
     ul{
       display: flex;
       flex-wrap: wrap;
-      width: 300px;
+      width: 400px;
       .image__list{
         margin-left: 9px;
         width: 60px;
