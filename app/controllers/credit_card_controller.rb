@@ -34,12 +34,12 @@ class CreditCardController < ApplicationController
       customer.delete
       @card.delete
     end
-      redirect_to  user_path
+      redirect_to  user_path(current_user.id)
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
     if @card.blank?
-      redirect_to user_path
+      redirect_to user_path(current_user.id)
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
