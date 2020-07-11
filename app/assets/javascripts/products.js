@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', ()=> {
                     <input class="js-file" type="file"
                     name="product[product_images_attributes][${num}][image]"
                     id="product_images_attributes_${num}_image"><br>
-                    <button class="js-remove">削除</button>
+                    <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
