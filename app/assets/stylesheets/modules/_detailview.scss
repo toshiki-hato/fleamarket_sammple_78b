@@ -8,16 +8,15 @@
   color: white;
 }
 
- .Wrapper {
+.Wrapper {
   display: flex;
   flex-direction: column;
   background-color: #f5f5f5;
-}  
-.Header {
-  height: 100px;
+} 
+.Top{
+  height: 120px;
   background-color: white;
-}
-
+} 
 .Body { 
   padding: 40px;
   margin: 0 auto;
