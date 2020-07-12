@@ -1,6 +1,6 @@
 
 .Wrapper
-  .Top
+  .Top-box
     = render "header"
   .Body
     .Main
@@ -32,7 +32,7 @@
                 %tr
                   %th 出品者
                   %td
-                    =@product.name
+                    =@product.user.nickname
                 %tr
                   %th カテゴリー
                   %td 
