@@ -17,17 +17,13 @@
                     -@product.product_images.each do |image|
                       %li
                         =image_tag image.image.url, class: "image__list"
+                        
           .Product__price
             ¥
             %span=@product.price
             .Product__price__description
               %span（税込）
               %span (送料込み)
-          %button
-            .Buy-btn
-            %span 
-              - if user_signed_in? && current_user.id != @product.user_id
-                = link_to "購入する", buy_product_path(params[:id]), method: :get, class:"product-details-buy__btn" 
           .Product-description__box
             =@product.description
           .Product-description__main
@@ -69,5 +65,5 @@
       = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
       = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
     - if user_signed_in? && current_user.id != @product.user_id
-      = link_to "購入する", buy_product_path, method: :delete,class:"product-details-buy__btn" 
+      = link_to "購入する", buy_product_path, method: :get,class:"product-details-buy__btn" 
     
