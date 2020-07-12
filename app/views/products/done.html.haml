@@ -1,6 +1,37 @@
-%h2 購入が完了しました！
-= @product.name
-%br
-= @product.price
-%br
-= link_to "ホームページへ", products_path
+.Buy_complete
+  .head
+    = link_to image_tag("logo/logo.png", alt:"FURIMA", class: 'logo'), root_path
+  .Buy_complete__box
+    .Buy
+      .Buy_image
+        = image_tag @product.product_images.first.image.url, size: "100x100"
+      .Buy_text.Buy_complete
+  .head
+    = link_to image_tag("logo/logo.png", alt:"FURIMA", class: 'logo'), root_path
+  .Buy_complete__box
+    .Buy
+      .Buy__image
+        = image_tag @product.product_images.first.image.url, size: "150x150"
+      .Buy__text
+        %label 購入が完了ました！ 
+      .Buy__name 
+        %label 商品名
+        %br
+        = @product.name
+        %br
+      .Buy__price
+        %label 価格
+        %br
+        = @product.price
+        %br
+
+      = link_to "ホームページへ", root_path, class: "Back__btn"
+        %label 購入が完了しました！
+      .Buy_name 
+        = @product.name
+        %br
+      .Buy_price
+        = @product.price
+        %br
+      .Back_btn
+        = link_to "ホームページへ", products_path
