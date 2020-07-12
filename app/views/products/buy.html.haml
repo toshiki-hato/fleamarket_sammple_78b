@@ -1,58 +1,53 @@
-%h2 購入を確定しますか？
-= @product.name
-%br
-= @product.price
-%br
-%h3 支払い方法
-- if @default_card_information.blank?
-  %br /
-- else
-  -#以下カード情報を表示
-  = "**** **** **** " + @default_card_information.last4
-  - exp_month = @default_card_information.exp_month.to_s
-  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-  = exp_month + " / " + exp_year
-%br
-= form_tag(action: :pay, method: :post) do
-  %button 購入する
--# .Body
--#   .Top
--#     = link_to image_tag("logo/logo.png", alt:"FURIMA", class: 'logo'), root_path
--#   .Buy-main 
--#     .Buy-main__buy-item
--#       .Buy-main__buy-item__head 購入内容の確認
--#       .Buy-item
--#         .Buy-item__image
--#           画像
--#         .Buy-item__details
--#           .Buy-item__details__title
--#             タイトル
--#           .Buy-item__details__money
--#             送料込み(税込)
--#       .Buy-content
--#         .Buy-content__box
--#           支払い金額
--#           .Buy-content
--#             .Buy-content__money
--#               金額
--#         .Buy-content__box
--#           支払方法
--#           .Buy-content
--#             .Buy-content__credit
--#               クレジット情報
--#               %br カード番号など
--#         .Buy-content__box
--#           配送先
--#           .Buy-content
--#             .Buy-content__postal-code
--#               郵便番号
--#             .Buy-content__address
--#             都道府県
--#             市町村
--#             番地
--#             マンション
--#             .Buy-content__name
--#               苗字
--#               名前
--#           = submit_tag("購入する", class:"Purchase-btn")
--# 上記コメントアウトは機能ベースで作ったビューに作成ずみの綺麗なビューを結合するため仮置き
+.Wrapper
+  .Top
+    = render "header"
+  .Buy_body
+    .Check_purchase
+      = @product.name
+      の購入を確定しますか？
+    .Product_info
+      .Product_info__image
+        = image_tag @product.product_images.first.image.url, size: "200x200"
+      .Product_info__detail
+        %table{ class: "Product_info__detail__table"}
+          %tbody
+            %tr
+              %th{width: 140} 値段
+              %td{width: 200}
+                = @product.price
+            %tr
+              %th カテゴリー
+              %td 
+                =@product.category.name  
+            %tr
+              %th 商品の状態
+              %td 
+                =@product.status
+            %tr
+              %th 配送料の負担
+              %td
+                =@product.shipping_expenses
+            %tr
+              %th 配送元地域
+              %td
+                =@product.send_from
+            %tr
+              %th 発送の目安
+              %td 
+                =@product.lead_time
+      .Product_info__submit
+        .Product_info__submit__Card_info
+        - if @default_card_information.blank?
+          %br /
+        - else
+          登録クレジットカード情報
+          %br
+          = "**** **** **** " + @default_card_information.last4
+          %br
+          有効期限：
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+          = form_tag(action: :pay, method: :post) do
+            %button{border: 1, class: "Product_info__submit__Card_info--btn"} 購入する 
+

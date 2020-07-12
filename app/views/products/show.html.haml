@@ -17,7 +17,7 @@
                     -@product.product_images.each do |image|
                       %li
                         =image_tag image.image.url, class: "image__list"
-
+                        
           .Product__price
             ¥
             %span=@product.price
