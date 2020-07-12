@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_card, only: [:buy, :pay]
 
   def index
-    @products = Product.all.includes(:product_images).limit(4).shuffle
+    @products = Product.all.includes(:product_images).order("RAND()").limit(4)
   end
 
   def show

@@ -17,20 +17,6 @@
                     -@product.product_images.each do |image|
                       %li
                         =image_tag image.image.url, class: "image__list"
-                          
-            -#       %ul
-            -#         %li
-            -#           -@product.product_images.each do |image|
-            -#             =image_tag image.image.url
-            -#       %ul
-            -#         %li
-            -#           -@product.product_images.each do |image|
-            -#             =image_tag image.image.url
-            -#       %ul
-            -#         %li
-            -#       %ul
-            -#         %li
-
           .Product__price
             ¥
             %span=@product.price
