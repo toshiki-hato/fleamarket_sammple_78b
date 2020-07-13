@@ -100,6 +100,12 @@
                           0
                       %p (税込
                       = product.order
+                  -if product.buyer_id.present? 
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
+                  - else
+                    
   %section.Pickupproduct-brand
     %h2.Pickupproduct__head ピックアップブランド
     .Pickupproduct__productbox
