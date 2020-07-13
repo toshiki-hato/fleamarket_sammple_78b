@@ -38,12 +38,14 @@
         font-size: 18px;
       }
     }
+    .Back__btn{
+      color: white;
+      background-color: #3CCACE;
+      text-decoration: none;
+      display: inline-block;
+      padding: 12px 40px;
+    }
   }
 }
 
 
-.Back__btn{
-  margin-bottom: 18px;
-  text-decoration: none;
-  color: black;
-}

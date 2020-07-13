@@ -6,7 +6,7 @@
       .Buy__image
         = image_tag @product.product_images.first.image.url, size: "150x150"
       .Buy__text
-        %label 購入が完了ました！
+        %label 購入が完了しました！
       .Buy__name
         %label 商品名
         %br
@@ -16,5 +16,5 @@
         %label 価格
         %br
         = @product.price
-        %br
-      = link_to "ホームページへ", root_path, class: "Back__btn"
+        %label 円
+      = link_to "トップページ", root_path, class: "Back__btn"
