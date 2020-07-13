@@ -86,7 +86,7 @@ class ProductsController < ApplicationController
     @product.order = "購入済"
     @product.buyer_id = current_user.id
     @product.save
-
+    @product.update( buyer_id: current_user.id)
   end
 
   private
