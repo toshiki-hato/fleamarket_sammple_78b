@@ -51,8 +51,7 @@
                   %span.listing-default--require 必須
                   .listing-select-wrapper
                     .listing-select-wrapper__box
-                      = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-                      
+                      = f.select :category, @category_parent_array, {}, {class: 'Product__details--category--field', id: 'parent_category'}
               .Product__details--category-label
                 %label カテゴリー
                 %span 必須
