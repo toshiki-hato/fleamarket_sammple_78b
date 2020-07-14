@@ -21,7 +21,6 @@
             = f.fields_for :product_images do |image|
               .js-file_group{data:{index: "#{image.index}"}}
                 = image.file_field :image, class: 'js-file'
-                = image.hidden_field :image_cache
                 %button.js-remove 削除
               - if @product.persisted?
                 = image.check_box :_destroy, data:{index: image.index }, class: 'hidden-destroy'
