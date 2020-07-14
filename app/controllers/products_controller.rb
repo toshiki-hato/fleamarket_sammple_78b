@@ -34,11 +34,12 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @product.update(product_params)
     if @product.update(product_params)
       redirect_to root_path
     else
-        @product.product_images = Product.find(params[:id]).product_images
-        render :edit
+      @product.product_images = Product.find(params[:id]).product_images
+      render :edit
     end
   end
 
