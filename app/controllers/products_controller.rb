@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_url
     else
+      @product.product_images.new
       render :new
     end
   end
@@ -36,7 +37,8 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to root_path
     else
-      render "edit"
+        @product.product_images = Product.find(params[:id]).product_images
+        render :edit
     end
   end
 
