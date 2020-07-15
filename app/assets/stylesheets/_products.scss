@@ -334,6 +334,13 @@
       }
     }
   }
-
+  .hidden-content {
+    .hidden-field {
+      display: none;
+    }
+    .label-box {
+      display: none;
+    }
+  }
 
 }
