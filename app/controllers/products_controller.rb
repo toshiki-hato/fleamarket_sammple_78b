@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  #before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, except: [:index, :show, :new]
   before_action :set_card, only: [:buy, :pay]
 
