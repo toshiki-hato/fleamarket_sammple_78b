@@ -117,9 +117,8 @@ class ProductsController < ApplicationController
                                     :send_from, 
                                     :lead_time,
                                     :category_id,
-                                    :order,
                                     product_images_attributes: [:image, :_destroy, :id])
-                             .merge(user_id: current_user.id)
+                             .merge(user_id: current_user.id, order: "出品中")
   end
 
   def set_product
