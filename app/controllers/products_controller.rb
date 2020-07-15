@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, except: [:index, :show, :new]
   before_action :set_card, only: [:buy, :pay]
 
@@ -47,6 +47,24 @@ class ProductsController < ApplicationController
     else
       flash[:alert] = "削除できませんでした。"
       redirect_to root_url
+    end
+  end
+
+  def search_child
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def search_grandchild
+    respond_to do |format|
+      format.html
+      format.json do
+        @grandchildren = Category.find(params[:child_id]).children
+      end
     end
   end
 
@@ -99,9 +117,8 @@ class ProductsController < ApplicationController
                                     :send_from, 
                                     :lead_time,
                                     :category_id,
-                                    :order,
                                     product_images_attributes: [:image, :_destroy, :id])
-                             .merge(user_id: current_user.id)
+                             .merge(user_id: current_user.id, order: "出品中")
   end
 
   def set_product

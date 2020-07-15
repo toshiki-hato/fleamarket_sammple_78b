@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       post 'pay'
       get 'done'
     end
+    collection do
+      get 'search_child', defaults: { format: 'json' }
+      get 'search_grandchild', defaults: { format: 'json' }
+    end
   end
   resources :credit_card, only: [:new, :show] do
     collection do

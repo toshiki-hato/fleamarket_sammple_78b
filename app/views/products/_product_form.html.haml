@@ -42,25 +42,27 @@
                 %span 必須
               = f.text_area :description, class: 'Product__explanation--field'
           %hr.Borderline
-          .Product__details
-            %p.Product__details--label 商品の詳細
-            .Product__details--select-field
-              .Product__details--category-label
+          .product-details
+          %h3.Product__details--label 商品の詳細
+          .product-details__form
+            .product-details__form__category
+              .Product__details--category-label 
                 %label カテゴリー
                 %span 必須
-              = f.collection_select :category_id, CategoryForm.all, :id, :name,{}, {class: "Product__details--category--field"}
-              .Product__details--brand-inputbase
-                .Product__details--brand-label
-                  %label ブランド
-                  %span 任意
-                .Product__details--input
-                  %input{name: "brandName", placlder: "", type: "text", class: 'Product__details--input--field'}
-              .Product__details--condition-selectbase
-                %div{:name => "itemCondition"}
-                  .Product__details--condition-label
-                    %label 商品の状態
-                    %span 必須
-                  = f.collection_select :status, Status.all, :id, :name ,{}, {class: "Product__details--category--field"}   
+              .select--wrap{id: "category__box--parent"}
+                = f.collection_select :category_id, Category.all.limit(13), :id, :name,{prompt:"選択してください"},{class:"select--wrap-cat1__default-category1", id: "parent_form"}
+            .Product__details--brand-inputbase
+              .Product__details--brand-label
+                %label ブランド
+                %span 任意
+              .Product__details--input
+                %input{name: "brandName", placlder: "", type: "text", class: 'Product__details--input--field'}
+            .Product__details--condition-selectbase
+              %div{:name => "itemCondition"}
+                .Product__details--condition-label
+                  %label 商品の状態
+                  %span 必須
+                = f.collection_select :status, Status.all, :id, :name ,{}, {class: "Product__details--category--field"}   
           %hr.Borderline
             .Delivery
               %p.Delivery__label 配送について
@@ -94,6 +96,5 @@
                 .Sales-profit__label 販売利益
                 %span —
           .Editend-buttons
-            = f.hidden_field :order, value: "出品中"
             = f.submit '出品する', class: 'Forms__Submit'
           .Back もどる
