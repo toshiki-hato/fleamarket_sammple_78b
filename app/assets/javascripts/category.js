@@ -8,12 +8,12 @@ $(document).on('turbolinks:load', function () {
     }
 
     // 子カテゴリーの表示作成
-    function appendChildrenBox(insertHTML) {
+    function appendChildrenBox(insertHTML, parentValue) {
       var childSelectHtml = '';
       childSelectHtml = `
                        <div class='select--wrap' id= 'category__box--children'>
                          <select class="select--wrap-cat1__default-category1" id="child_form" name="product[category_id]">
-                           <option value="---" data-category="---">---</option>
+                           <option value="${parentValue}" data-category="">---</option>
                            ${insertHTML}
                          </select>
                        </div>
@@ -22,12 +22,12 @@ $(document).on('turbolinks:load', function () {
     }
 
     // 孫カテゴリーの表示作成
-    function appendGrandchildrenBox(insertHTML) {
+    function appendGrandchildrenBox(insertHTML, childValue) {
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `
                             <div class='select--wrap' id= 'category__box--grandchildren'>
                               <select class="select--wrap-cat1__default-category1" id="grandchild_form" name="product[category_id]">
-                                <option value="---" data-category="---">---</option>
+                                <option value="${childValue}" data-category="">---</option>
                                 ${insertHTML}
                               </select>
                             </div>
@@ -39,8 +39,6 @@ $(document).on('turbolinks:load', function () {
     $("#parent_form").on("change", function () {
       var parentValue = document.getElementById("parent_form").value;
       if (parentValue != "---") {
-        $('#category__box--children').remove();
-        $('#category__box--grandchildren').remove();
         $.ajax({
           url: '/products/search_child',
           type: 'GET',
@@ -49,15 +47,12 @@ $(document).on('turbolinks:load', function () {
           },
           dataType: 'json'
         })
-
           .done(function (children) {
-            $('#category__box--children').remove();
-            $('#category__box--grandchildren').remove();
             var insertHTML = '';
             children.forEach(function (child) {
               insertHTML += appendOption(child);
             });
-            appendChildrenBox(insertHTML);
+            appendChildrenBox(insertHTML, parentValue);
           })
           .fail(function () {
             alert('カテゴリーを入力して下さい');
@@ -80,13 +75,12 @@ $(document).on('turbolinks:load', function () {
           },
           dataType: 'json'
         })
-
           .done(function (grandchildren) {
             var insertHTML = '';
             grandchildren.forEach(function (grandchild) {
               insertHTML += appendOption(grandchild);
             });
-            appendGrandchildrenBox(insertHTML);
+            appendGrandchildrenBox(insertHTML, childValue);
           })
           .fail(function () {
             alert('カテゴリーを入力して下さい');
