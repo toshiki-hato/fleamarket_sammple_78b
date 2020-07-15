@@ -42,32 +42,27 @@
                 %span 必須
               = f.text_area :description, class: 'Product__explanation--field'
           %hr.Borderline
-          .Product__details
-            %p.Product__details--label 商品の詳細
-            .Product__details--select-field
-              .listing-form-box
-                .listing-product-detail__category
-                  = f.label 'カテゴリー', class: 'listing-default__label'
-                  %span.listing-default--require 必須
-                  .listing-select-wrapper
-                    .listing-select-wrapper__box
-                      = f.select :category, @category_parent_array, {}, {class: 'Product__details--category--field', id: 'parent_category'}
-              .Product__details--category-label
-                %label カテゴリー
-                %span 必須
-              = f.collection_select :category_id, CategoryForm.all, :id, :name,{}, {class: "Product__details--category--field"}
-              .Product__details--brand-inputbase
-                .Product__details--brand-label
-                  %label ブランド
-                  %span 任意
-                .Product__details--input
-                  %input{name: "brandName", placlder: "", type: "text", class: 'Product__details--input--field'}
-              .Product__details--condition-selectbase
-                %div{:name => "itemCondition"}
-                  .Product__details--condition-label
-                    %label 商品の状態
-                    %span 必須
-                  = f.collection_select :status, Status.all, :id, :name ,{}, {class: "Product__details--category--field"}   
+          .product-details
+          %h3.product-details__name 商品の詳細
+          .product-details__form
+            .product-details__form__category
+              %h3.product-details__form__category__name
+                カテゴリー
+              %span.form--caution 必須
+              .select--wrap{id: "category__box--parent"}
+                = f.collection_select :category_id, Category.all.limit(13), :id, :name,{prompt:"---"},{class:"select--wrap-cat1__default-category1", id: "parent_form"}
+            .Product__details--brand-inputbase
+              .Product__details--brand-label
+                %label ブランド
+                %span 任意
+              .Product__details--input
+                %input{name: "brandName", placlder: "", type: "text", class: 'Product__details--input--field'}
+            .Product__details--condition-selectbase
+              %div{:name => "itemCondition"}
+                .Product__details--condition-label
+                  %label 商品の状態
+                  %span 必須
+                = f.collection_select :status, Status.all, :id, :name ,{}, {class: "Product__details--category--field"}   
           %hr.Borderline
             .Delivery
               %p.Delivery__label 配送について
