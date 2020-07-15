@@ -12,30 +12,25 @@
               %label 出品画像
               %span.Image__label--need 必須 
             %p.Image__max 最大10枚までアップロードできます
-            .Image__field
-          .Image_box{id: "image-box"}
-            .Image_box--flex
-              .Image_box--flex__list{id: "previews"}
-                - if @product.persisted?
-                
-                  - @product.product_images.each_with_index do |image, i|
-                    = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
-                    = image.file_field :image, class: 'js-file', id: "product_images_attributes_#{@product.product_images.count}_image"
-                  %button.js-remove 削除
-              .label-content
-                %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
-                  %pre.label-box__text-visible クリックしてファイルをアップロード
-            = f.fields_for :product_images do |image|
-              .js-file_group{data:{index: "#{image.index}"}}
-                = image.file_field :image, class: 'js-file', id: "product_images_attributes_#{@product.product_images.count}_image"
-                %button.js-remove 削除
-              - if @product.persisted?
-                = image.check_box :_destroy, data:{index: image.index }, class: 'hidden-destroy'
-            #image-box
-            - if @product.persisted?
-              .js-file_group{data: {index: "#{@product.product_images.count}"}}
-                = file_field_tag :image, name: "product_images_attributes_#{@product.product_images.count}_image", class: 'js-file input'
-                %button.js-remove 削除
+            .sell__block__form
+              .sell__block__form__upload
+                %h3.sell__block__form__upload__head
+                  出品画像
+                  %span.require 必須
+                %p 最大5枚までアップロードできます
+                .post__drop__box__container
+                  .prev-content
+                  .label-content
+                    %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                      %pre.label-box__text-visible クリックしてファイルをアップロード
+                  .hidden-content
+                    = f.fields_for :images do |i|
+                      = i.file_field :image, class: "hidden-field"
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+
           %hr.Borderline
           .Product__nameandexplanation
             .Product__name
