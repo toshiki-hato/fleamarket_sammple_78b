@@ -39,6 +39,8 @@ $(document).on('turbolinks:load', function () {
     $("#parent_form").on("change", function () {
       var parentValue = document.getElementById("parent_form").value;
       if (parentValue != "---") {
+        $('#category__box--children').remove();
+        $('#category__box--grandchildren').remove();
         $.ajax({
           url: '/products/search_child',
           type: 'GET',
@@ -47,7 +49,10 @@ $(document).on('turbolinks:load', function () {
           },
           dataType: 'json'
         })
+
           .done(function (children) {
+            $('#category__box--children').remove();
+            $('#category__box--grandchildren').remove();
             var insertHTML = '';
             children.forEach(function (child) {
               insertHTML += appendOption(child);
@@ -75,6 +80,7 @@ $(document).on('turbolinks:load', function () {
           },
           dataType: 'json'
         })
+
           .done(function (grandchildren) {
             var insertHTML = '';
             grandchildren.forEach(function (grandchild) {
