@@ -49,7 +49,6 @@ $(document).on('turbolinks:load', function () {
           },
           dataType: 'json'
         })
-
           .done(function (children) {
             $('#category__box--children').remove();
             $('#category__box--grandchildren').remove();
@@ -72,6 +71,7 @@ $(document).on('turbolinks:load', function () {
     $(".product-details__form__category").on("change", "#child_form", function () {
       var childValue = $('#child_form option:selected').data('category');
       if (childValue != "---") {
+        $('#category__box--grandchildren').remove();
         $.ajax({
           url: '/products/search_grandchild',
           type: 'GET',
@@ -80,8 +80,8 @@ $(document).on('turbolinks:load', function () {
           },
           dataType: 'json'
         })
-
           .done(function (grandchildren) {
+            $('#category__box--grandchildren').remove();
             var insertHTML = '';
             grandchildren.forEach(function (grandchild) {
               insertHTML += appendOption(grandchild);
