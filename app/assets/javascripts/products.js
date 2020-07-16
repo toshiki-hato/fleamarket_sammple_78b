@@ -107,7 +107,7 @@
           labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
           $('.label-content').css('width', labelWidth);
         }
-    
+        
         // プレビューの追加
         $(document).on('change', '.hidden-field', function() {
           setLabel();
