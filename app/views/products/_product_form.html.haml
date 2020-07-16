@@ -20,6 +20,16 @@
                 %p 最大5枚までアップロードできます
                 .post__drop__box__container
                   .prev-content
+                    - @product.product_images.each do |image|
+                      .preview-box
+                        .upper-box
+                          = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                        .lower-box
+                          .update-box
+                            %label{id: "label-box--1", class: "aaa", for: "product_images_attributes_1_image"} 編集
+                          .delete-box
+                            .delete-btn
+                              %span 削除
                   .label-content
                     %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
                       %pre.label-box__text-visible クリックしてファイルをアップロード
@@ -27,10 +37,10 @@
                     = f.fields_for :product_images do |i|
                       - i.file_field :image, class: "hidden-field"
                       %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][0][image]", id: "product_images_attributes_0_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][1][image]", id: "item_images_attributes_1_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][2][image]", id: "item_images_attributes_2_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][3][image]", id: "item_images_attributes_3_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][4][image]", id: "item_images_attributes_4_image" }
+                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][1][image]", id: "product_images_attributes_1_image" }
+                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][2][image]", id: "product_images_attributes_2_image" }
+                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][3][image]", id: "product_images_attributes_3_image" }
+                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][4][image]", id: "product_images_attributes_4_image" }
 
           %hr.Borderline
           .Product__nameandexplanation
