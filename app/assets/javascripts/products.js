@@ -172,7 +172,7 @@
             }
             setLabel(count);
             if(id < 5){
-              $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
+              $('.label-box').attr({id: `label-box--${id}`,for: `product_product_images_attributes_${id}_image`});
     
             }
           } else {
@@ -190,7 +190,7 @@
             //ラベルのidとforの値を変更
             //削除したプレビューのidによって、ラベルのidを変更する
             if(id < 5){
-              $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
+              $('.label-box').attr({id: `label-box--${id}`,for: `product_product_images_attributes_${id}_image`});
             }
           }
         });

@@ -27,10 +27,11 @@
                           .delete-box{id:"delete-btn_#{i}"}
                             .delete-btn
                               %spna 削除
-                             
+                  
                   .label-content
-                    %label{for: "product_images_attributes_#{@product.product_images.length}_image", class: "label-box", id: "label-box--#{@product.product_images.length}"}
-                      %pre.label-box__text-visible クリックしてファイルをアップロード
+                    - if @product.product_images.length !=5
+                      %label{for: "product_images_attributes_#{@product.product_images.length}_image", class: "label-box", id: "label-box--#{@product.product_images.length}"}
+                        %pre.label-box__text-visible クリックしてファイルをアップロード
                   .hidden-content
                     = f.fields_for :product_images do |i|
                       = i.file_field :image, class: "hidden-field"
@@ -106,4 +107,4 @@
             = f.hidden_field :order, value: "出品中"
             = f.submit '編集する', class: 'Form__Submit'
           .Back
-            = link_to "もどる", product_path(@product.id), method: :get, class:"back-btn" 
+            = link_to "もどる", products_path(@product.id), method: :get, class:"back-btn" 
