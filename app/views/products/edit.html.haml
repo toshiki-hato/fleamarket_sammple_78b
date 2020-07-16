@@ -11,13 +11,10 @@
             .Image__label
               %label 出品画像
               %span.Image__label--need 必須 
-            %p.Image__max 最大10枚までアップロードできます
+            %p.Image__max 最大5枚までアップロードできます
             .sell__block__form
               .sell__block__form__upload
                 %h3.sell__block__form__upload__head
-                  出品画像
-                  %span.require 必須
-                %p 最大5枚までアップロードできます
                 .post__drop__box__container
                   .prev-content
                     - @product.product_images.each_with_index do |image, i|
