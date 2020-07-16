@@ -209,12 +209,27 @@
   margin-top: 40px;
 }
 
+.Edit-buttons {
+  input {
+    display: flex;
+    justify-content: center;
+    width:360px;
+    height: 40px;
+    color: white;
+    background-color: blue;
+    margin-left: 135px;
+  }
+}
+
+
 .Back {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   .back-btn{
     text-decoration: none ;
+    font-weight: bold;
+    color: black;
   }
 }
 
