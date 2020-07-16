@@ -20,18 +20,8 @@
                 %p 最大5枚までアップロードできます
                 .post__drop__box__container
                   .prev-content
-                    - @product.product_images.each_with_index do |image, i|
-                      .preview-box{id:"preview-box__#{i}"}
-                        .upper-box
-                          = image_tag image.image.url, width: "112", height: "112", alt: "preview"
-                        .lower-box
-                          .update-box
-                            %label{id: "label-box--#{i}", class: "aaa", for: "product_images_attributes_#{i}_image"} 編集
-                          .delete-box
-                            .delete-btn
-                              %span 削除
                   .label-content
-                    %label{for: "product_images_attributes_#{@product.product_images.length}_image", class: "label-box", id: "label-box--#{@product.product_images.length}"}
+                    %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
                       %pre.label-box__text-visible クリックしてファイルをアップロード
                   .hidden-content
                     = f.fields_for :product_images do |i|
