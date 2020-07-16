@@ -36,13 +36,10 @@
                       %pre.label-box__text-visible クリックしてファイルをアップロード
                   .hidden-content
                     = f.fields_for :product_images do |i|
-                      - i.file_field :image, class: "hidden-field"
+                      = i.file_field :image, class: "hidden-field"
                       = i.check_box:_destroy, class: "hidden-checkbox"
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][0][image]", id: "product_images_attributes_0_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][1][image]", id: "product_images_attributes_1_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][2][image]", id: "product_images_attributes_2_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][3][image]", id: "product_images_attributes_3_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][4][image]", id: "product_images_attributes_4_image" }
+                    - @product.product_images.length.upto(4) do |i|
+                      %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
 
           %hr.Borderline
           .Product__nameandexplanation
