@@ -42,7 +42,7 @@
 //     }
 //   });
 
-//   $('#image-box').on('click', '.js-remove', function() {
+//   $('').on('click', '.js-remove', function() {
 //     const targetIndex = $(this).parent().data('index');
 //     // 該当indexを振られているチェックボックスを取得する
 //     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
@@ -57,27 +57,7 @@
 //   });
 // });
 
-// $(document).on('turbolinks:load', function(){
-//   $(function(){
 
-//     //プレビューのhtmlを定義
-//     function buildHTML(count) {
-//       var html = `<div class="preview-box" id="preview-box__${count}">
-//                     <div class="upper-box">
-//                       <img src="" alt="preview">
-//                     </div>
-//                     <div class="lower-box">
-//                       <div class="update-box">
-//                       <input class="hidden-field" id="product_images_attributes_${count}_image" name="product[product_images_attributes][${count}][image]" type="file">編集</input>
-                       
-//                       </div>
-//                       <div class="delete-box" id="delete_btn_${count}">
-//                         <span>削除</span>
-//                       </div>
-//                     </div>
-//                   </div>`
-//       return html;
-//     }
     $(document).on('turbolinks:load', function(){
       $(function(){
     
@@ -89,7 +69,7 @@
                         </div>
                         <div class="lower-box">
                           <div class="update-box">
-                            <label class="aaa" for="product_images_attributes_${count}_image" id="label-box--1">編集</label>
+                            <label class="aaa" for="product_images_attributes_${count}_image" id="label-box--${count}">編集</label>
                           </div>
                           <div class="delete-box" id="delete_btn_${count}">
                             <span>削除</span>

@@ -26,16 +26,18 @@
                           = image_tag image.image.url, width: "112", height: "112", alt: "preview"
                         .lower-box
                           .update-box
-                            %label{id: "label-box--#{i}", class: "aaa", for: "product_images_attributes_#{i}_image"} 編集
-                          .delete-box
+                            %label{id: "label-box--#{i}", class: "label-box", for: "product_images_attributes_#{i}_image"} 編集
+                          .delete-box{id:"delete-btn_#{i}"}
                             .delete-btn
-                              %span 削除
+                              %spna 削除
+                             
                   .label-content
                     %label{for: "product_images_attributes_#{@product.product_images.length}_image", class: "label-box", id: "label-box--#{@product.product_images.length}"}
                       %pre.label-box__text-visible クリックしてファイルをアップロード
                   .hidden-content
                     = f.fields_for :product_images do |i|
                       - i.file_field :image, class: "hidden-field"
+                      = i.check_box:_destroy, class: "hidden-checkbox"
                       %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][0][image]", id: "product_images_attributes_0_image" }
                       %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][1][image]", id: "product_images_attributes_1_image" }
                       %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][2][image]", id: "product_images_attributes_2_image" }
