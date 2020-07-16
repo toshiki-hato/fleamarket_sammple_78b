@@ -80,7 +80,6 @@
         }
     
         // 投稿編集時
-        //product/:i/editページへリンクした際のアクション=======================================
         if (window.location.href.match(/\/product\/\d+\/edit/)){
           //登録済み画像のプレビュー表示欄の要素を取得する
           var prevContent = $('.label-content').prev();
@@ -100,7 +99,6 @@
             $('.label-content').hide();
           }
         }
-        //=============================================================================
     
         // ラベルのwidth操作
         function setLabel() {
@@ -109,7 +107,7 @@
           labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
           $('.label-content').css('width', labelWidth);
         }
-    
+        
         // プレビューの追加
         $(document).on('change', '.hidden-field', function() {
           setLabel();
@@ -140,13 +138,9 @@
             if (count == 5) { 
               $('.label-content').hide();
             }
-    
-            //プレビュー削除したフィールドにdestroy用のチェックボックスがあった場合、チェックを外す=============
             if ($(`#product_images_attributes_${id}__destroy`)){
               $(`#product_images_attributes_${id}__destroy`).prop('checked',false);
-            } 
-            //=============================================================================
-    
+            }
             //ラベルのwidth操作
             setLabel();
             var prevContent = $('.label-content').prev();
@@ -165,13 +159,11 @@
           setLabel(count);
           var id = $(this).attr('id').replace(/[^0-9]/g, '');
           $(`#preview-box__${id}`).remove();
-    
-          //新規登録時と編集時の場合分け==========================================================
-    
+          
           //新規投稿時
           //削除用チェックボックスの有無で判定
-          if ($(`#product_images_attributes_${id}__destroy`).length == 0) {
-            //フォームの中身を削除 
+          if ($(`#product_images_attributes_${id}__destroy`).length == 1) {
+            //フォームの中身を削除
             $(`#product_images_attributes_${id}_image`).val("");
             var count = $('.preview-box').length;
             //5個めが消されたらラベルを表示
@@ -184,9 +176,10 @@
     
             }
           } else {
-    
+            
             //投稿編集時
-            $(`#product_images_attributes_${id}__destroy`).prop('checked',true);
+                
+            $(`#product_product_images_attributes_${id}__destroy`).prop('checked',true);
             //5個めが消されたらラベルを表示
             if (count == 4) {
               $('.label-content').show();
@@ -200,7 +193,6 @@
               $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
             }
           }
-          //=============================================================================
         });
       });
     });

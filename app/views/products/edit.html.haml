@@ -11,13 +11,10 @@
             .Image__label
               %label 出品画像
               %span.Image__label--need 必須 
-            %p.Image__max 最大10枚までアップロードできます
+            %p.Image__max 最大5枚までアップロードできます
             .sell__block__form
               .sell__block__form__upload
                 %h3.sell__block__form__upload__head
-                  出品画像
-                  %span.require 必須
-                %p 最大5枚までアップロードできます
                 .post__drop__box__container
                   .prev-content
                     - @product.product_images.each_with_index do |image, i|
@@ -26,7 +23,7 @@
                           = image_tag image.image.url, width: "112", height: "112", alt: "preview"
                         .lower-box
                           .update-box
-                            %label{id: "label-box--#{i}", class: "label-box__added", for: "product_images_attributes_#{i}_image"} 編集
+                            %label{id: "label-box--#{i}", class: "label-box__added", for: "product_product_images_attributes_#{i}_image"} 編集
                           .delete-box{id:"delete-btn_#{i}"}
                             .delete-btn
                               %spna 削除
@@ -36,13 +33,10 @@
                       %pre.label-box__text-visible クリックしてファイルをアップロード
                   .hidden-content
                     = f.fields_for :product_images do |i|
-                      - i.file_field :image, class: "hidden-field"
+                      = i.file_field :image, class: "hidden-field"
                       = i.check_box:_destroy, class: "hidden-checkbox"
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][0][image]", id: "product_images_attributes_0_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][1][image]", id: "product_images_attributes_1_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][2][image]", id: "product_images_attributes_2_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][3][image]", id: "product_images_attributes_3_image" }
-                      %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][4][image]", id: "product_images_attributes_4_image" }
+                    - @product.product_images.length.upto(4) do |i|
+                      %input{name: "product[product_images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
 
           %hr.Borderline
           .Product__nameandexplanation
