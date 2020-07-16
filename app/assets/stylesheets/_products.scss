@@ -209,19 +209,34 @@
   margin-top: 40px;
 }
 
+.Edit-buttons {
+  input {
+    display: flex;
+    justify-content: center;
+    width:360px;
+    height: 40px;
+    color: white;
+    background-color: blue;
+    margin-left: 135px;
+  }
+}
+
+
 .Back {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   .back-btn{
     text-decoration: none ;
+    font-weight: bold;
+    color: black;
   }
 }
 
 //投稿クリックエリアのCSS
 .label-content{
   margin-bottom: 10px;
-  width: 620px;
+  flex: 1;
   .label-box {
     display: block;
     border: 1px dashed #ccc;
@@ -244,7 +259,6 @@
       pointer-events: none;
       white-space: pre-wrap;
       word-wrap: break-word;
-      background-color: lightseagreen;
     }
   }
 }

@@ -143,6 +143,9 @@
             }
             //ラベルのwidth操作
             setLabel();
+            var prevContent = $('.label-content').prev();
+            labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+            $('.label-content').css('width', labelWidth);
             //ラベルのidとforの値を変更
             if(count < 5){
               $('.label-box').attr({id: `label-box--${count}`,for: `product_images_attributes_${count}_image`});

@@ -26,7 +26,7 @@
                           = image_tag image.image.url, width: "112", height: "112", alt: "preview"
                         .lower-box
                           .update-box
-                            %label{id: "label-box--#{i}", class: "label-box", for: "product_images_attributes_#{i}_image"} 編集
+                            %label{id: "label-box--#{i}", class: "label-box__added", for: "product_images_attributes_#{i}_image"} 編集
                           .delete-box{id:"delete-btn_#{i}"}
                             .delete-btn
                               %spna 削除
@@ -105,7 +105,8 @@
               .Sales-profit__field
                 .Sales-profit__label 販売利益
                 %span —
-          .Editend-buttons
+          .Edit-buttons
             = f.hidden_field :order, value: "出品中"
-            = f.submit '出品する', class: 'Forms__Submit'
-          .Back もどる
+            = f.submit '編集する', class: 'Form__Submit'
+          .Back
+            = link_to "もどる", product_path(@product.id), method: :get, class:"back-btn" 
