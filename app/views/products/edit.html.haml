@@ -28,7 +28,7 @@
                           .update-box
                             %label{id: "label-box--#{i}", class: "aaa", for: "product_images_attributes_#{i}_image"} 編集
                           .delete-box
-                            .delete-btn
+                            .delete-btn{id: "delete_btn_#{i}"}
                               %span 削除
                   .label-content
                     %label{for: "product_images_attributes_#{@product.product_images.length}_image", class: "label-box", id: "label-box--#{@product.product_images.length}"}

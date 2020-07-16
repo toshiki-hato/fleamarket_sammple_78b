@@ -221,7 +221,7 @@
 //投稿クリックエリアのCSS
 .label-content{
   margin-bottom: 10px;
-  width: 620px;
+  flex: 1;
   .label-box {
     display: block;
     border: 1px dashed #ccc;
@@ -244,7 +244,6 @@
       pointer-events: none;
       white-space: pre-wrap;
       word-wrap: break-word;
-      background-color: lightseagreen;
     }
   }
 }
