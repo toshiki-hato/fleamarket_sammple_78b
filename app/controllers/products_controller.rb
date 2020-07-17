@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
 
   def show
     @product= Product.find(params[:id])
+    @parents = Category.where(ancestry:nil)
   end
   
   def new
@@ -37,6 +38,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to root_path
     else
+      @product.product_images = Product.find(params[:id]).product_images
       render "edit"
     end
   end
