@@ -133,6 +133,7 @@
   .product-details-delete__btn {
     @include btnSet; 
       background-color: red;
+      margin-top: 10px;
   }
   .product-details-edit__btn {
     @include btnSet; 
@@ -142,7 +143,6 @@
   .product-details-buy__btn {
     @include btnSet; 
       background-color: blue;
-      margin-top: 10px;
   }
 }
 
