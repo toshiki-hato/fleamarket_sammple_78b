@@ -113,4 +113,4 @@
             = f.hidden_field :order, value: "出品中"
             = f.submit '編集する', class: 'Form__Submit'
           .Back
-            = link_to "もどる", products_path(@product.id), method: :get, class:"back-btn" 
+            = link_to "もどる", product_path(@product.id), method: :get, class:"back-btn" 
