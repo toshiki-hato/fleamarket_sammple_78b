@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   end
   
   def new
+    @product.product_images.new
     if user_signed_in?
       @product= Product.new
       @product.product_images.new

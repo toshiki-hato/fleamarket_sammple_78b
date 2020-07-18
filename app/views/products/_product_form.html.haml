@@ -23,6 +23,7 @@
                   .hidden-content
                     = f.fields_for :product_images do |i|
                       - i.file_field :image, class: "hidden-field"
+                      - array []
                       %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][0][image]", id: "product_images_attributes_0_image" }
                       %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][1][image]", id: "product_images_attributes_1_image" }
                       %input{class:"hidden-field", type: "file", name: "product[product_images_attributes][2][image]", id: "product_images_attributes_2_image" }
