@@ -21,9 +21,9 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    @product.save
-    if @prfoduct.save
+    @product= Product.new
+      @product.product_images.new
+    if @product.save
       redirect_to root_url
     else
       render :new
