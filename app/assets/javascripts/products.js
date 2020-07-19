@@ -9,7 +9,7 @@
                         </div>
                         <div class="lower-box">
                           <div class="update-box">
-                            <label class="aaa" for="product_images_attributes_${count}_image" id="label-box--${count}">編集</label>
+                            <label class="aaa" for="product_product_images_attributes_${count}_image" id="label-box--${count}">編集</label>
                           </div>
                           <div class="delete-box" id="delete_btn_${count}">
                             <span>削除</span>
@@ -54,7 +54,7 @@
           //hidden-fieldのidの数値のみ取得
           var id = $(this).attr('id').replace(/[^0-9]/g, '');
           //labelボックスのidとforを更新
-          $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
+          $('.label-box').attr({id: `label-box--${id}`,for: `product_product_images_attributes_${id}_image`});
           //選択したfileのオブジェクトを取得
           var file = this.files[0];
           var reader = new FileReader();
@@ -88,7 +88,7 @@
             $('.label-content').css('width', labelWidth);
             //ラベルのidとforの値を変更
             if(count < 5){
-              $('.label-box').attr({id: `label-box--${count}`,for: `product_images_attributes_${count}_image`});
+              $('.label-box').attr({id: `label-box--${count}`,for: `product_product_images_attributes_${count}_image`});
             }
           }
         });
@@ -104,7 +104,7 @@
           //削除用チェックボックスの有無で判定
           if ($(`#product_images_attributes_${id}__destroy`).length == 1) {
             //フォームの中身を削除
-            $(`#product_images_attributes_${id}_image`).val("");
+            $(`#product_product_images_attributes_${id}_image`).val("");
             var count = $('.preview-box').length;
             //5個めが消されたらラベルを表示
             if (count == 4) {

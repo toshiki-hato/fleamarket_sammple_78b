@@ -30,10 +30,10 @@
                   
                   .label-content
                     - if @product.product_images.length !=5
-                      %label{for: "product_images_attributes_#{@product.product_images.length}_image", class: "label-box", id: "label-box--#{@product.product_images.length}"}
+                      %label{for: "product_product_images_attributes_#{@product.product_images.length}_image", class: "label-box", id: "label-box--#{@product.product_images.length}"}
                         %pre.label-box__text-visible クリックしてファイルをアップロード
                     - else
-                      %label{for: "product_images_attributes_#{@product.product_images.length}_image", class: "label-box label_box--hide", id: "label-box--#{@product.product_images.length}"}
+                      %label{for: "pproduct_roduct_images_attributes_#{@product.product_images.length}_image", class: "label-box label_box--hide", id: "label-box--#{@product.product_images.length}"}
                         %pre.label-box__text-visible クリックしてファイルをアップロード
 
                   .hidden-content
@@ -41,7 +41,7 @@
                       = i.file_field :image, class: "hidden-field"
                       = i.check_box:_destroy, class: "hidden-checkbox"
                     - @product.product_images.length.upto(4) do |i|
-                      %input{name: "product[product_images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                      %input{name: "product[product_images_attributes][#{i}][image]", id: "product_product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
 
           %hr.Borderline
           .Product__nameandexplanation
