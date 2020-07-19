@@ -35,6 +35,13 @@ $(document).on('turbolinks:load', function(){
       $('.delete-box').each(function(index, box){
         $(box).attr('id', `delete_btn_${index}`);
       })
+      
+
+
+      console.log("投稿編集時");
+      console.log(a0.length);
+
+
       var count = $('.preview-box').length;
       //プレビューが5あるときは、投稿ボックスを消しておく
       if (count == 5) {
@@ -59,8 +66,12 @@ $(document).on('turbolinks:load', function(){
       }
       else{
         var id = a0[1];
+
       }
+      console.log("preview追加");
       a0.shift();
+      console.log(a0);
+      console.log("id", id)
 
       //labelボックスのidとforを更新
       $('.label-box').attr({id: `label-box--${id}`,for: `product_product_images_attributes_${id}_image`});
@@ -91,14 +102,20 @@ $(document).on('turbolinks:load', function(){
         if ($('.preview-box').length == 5) { 
           $('.label-content').hide();
         }
-        if ($(`#product_images_attributes_${id}__destroy`)){
-          $(`#product_images_attributes_${id}__destroy`).prop('checked',false);
+        if ($(`#product_product_images_attributes_${id}__destroy`)){
+          $(`#product_product_images_attributes_${id}__destroy`).prop('checked',false);
         }
         //ラベルのwidth操作
         setLabel();
         var prevContent = $('.label-content').prev();
         labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
         $('.label-content').css('width', labelWidth);
+        //ラベルのidとforの値を変更
+        // if(count < 5){
+        //   debugger
+        //   $('.label-box').attr({id: `label-box--${count}`,for: `product_images_attributes_${count}_image`});
+        //   debugger
+        // }
       }
     });
 
@@ -106,7 +123,13 @@ $(document).on('turbolinks:load', function(){
     $(document).on('click', '.delete-box', function() {
       //5個めが消されたらラベルを表示
       $('.label-content').show();
-      a0.unshift($(this).attr('id').replace(/[^0-9]/g, '')); 
+
+      console.log("画像の削除");
+      console.log($(this).attr('id').replace(/[^0-9]/g, ''));
+      a0.unshift($(this).attr('id').replace(/[^0-9]/g, ''));
+      console.log(a0);
+      
+      
       var count = $(this).attr('id');
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
