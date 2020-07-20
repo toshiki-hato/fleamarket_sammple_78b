@@ -59,8 +59,6 @@ $(document).on('turbolinks:load', function(){
         var id = a0[0];
         a0.shift();
       }
-      
-      console.log("id1", id);
       //labelボックスのidとforを更新Flabel
       $('.label-box').attr({id: `label-box--${id}`,for: `product_product_images_attributes_${id}_image`});
       //選択したfileのオブジェクトを取得
@@ -96,7 +94,6 @@ $(document).on('turbolinks:load', function(){
         $('.label-content').css('width', labelWidth);
         //ラベルのidとforの値を変更
         if(count < 5){
-          console.log("id2", id);
           $('.label-box').attr({id: `label-box--${count}`,for: `product_product_images_attributes_${count}_image`});
         }
       }
@@ -108,10 +105,7 @@ $(document).on('turbolinks:load', function(){
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
-
       a0.unshift(id);
-      console.log(a0);
-      
       //新規投稿時
       //削除用チェックボックスの有無で判定
       if ($(`#product_images_attributes_${id}__destroy`).length == 1) {
