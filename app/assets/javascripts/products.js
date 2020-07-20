@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function(){
   $(function(){
+    var a0 = []
 
     //プレビューのhtmlを定義
     function buildHTML(count) {
@@ -52,8 +53,13 @@ $(document).on('turbolinks:load', function(){
     $(document).on('change', '.hidden-field', function() {
       setLabel();
       //hidden-fieldのidの数値のみ取得
+      if(a0.length == 0){
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
-      //labelボックスのidとforを更新
+      }else{
+        var id = a0[0];
+        a0.shift();
+      }
+      //labelボックスのidとforを更新Flabel
       $('.label-box').attr({id: `label-box--${id}`,for: `product_product_images_attributes_${id}_image`});
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
@@ -99,7 +105,7 @@ $(document).on('turbolinks:load', function(){
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
-      
+      a0.unshift(id);
       //新規投稿時
       //削除用チェックボックスの有無で判定
       if ($(`#product_images_attributes_${id}__destroy`).length == 1) {
@@ -121,9 +127,7 @@ $(document).on('turbolinks:load', function(){
             
         $(`#product_product_images_attributes_${id}__destroy`).prop('checked',true);
         //5個めが消されたらラベルを表示
-        if (count == 4) {
           $('.label-content').show();
-        }
 
         //ラベルのwidth操作
         setLabel();
