@@ -64,7 +64,7 @@
                 %label カテゴリー
                 %span 必須
               .select--wrap{id: "category__box--parent"}
-                = f.collection_select :category_id, Category.all.limit(13), :id, :name,{prompt:"選択してください"},{class:"select--wrap-cat1__default-category1", id: "parent_form"}
+                = f.collection_select :category_id, Category.all.limit(13), :id, :name,{prompt:'---'},{class:"select--wrap-cat1__default-category1", id: "parent_form"}
             .Product__details--brand-inputbase
               .Product__details--brand-label
                 %label ブランド
@@ -76,7 +76,7 @@
                 .Product__details--condition-label
                   %label 商品の状態
                   %span 必須
-                = f.collection_select :status, Status.all, :id, :name ,{}, {class: "Product__details--category--field"}   
+                = f.collection_select :status, Status.all, :id, :name ,{prompt:'---'}, {class: "Product__details--category--field"}   
           %hr.Borderline
             .Delivery
               %p.Delivery__label 配送について
@@ -84,16 +84,16 @@
                 .Delivery__fee--label
                   %label 配送料の負担
                   %span 必須
-                = f.collection_select :shipping_expenses, ShippingExpenses.all, :id, :name,{}, {class: "Product__details--category--field"}
+                = f.collection_select :shipping_expenses, ShippingExpenses.all, :id, :name,{prompt:'---'}, {class: "Product__details--category--field"}
               .Delivery__area--select-field
                 %label 発送元の地域
                 %span 必須
-              = f.collection_select :send_from, Prefecture.all, :id, :name,{}, {class: "Product__details--category--field"}
+              = f.collection_select :send_from, Prefecture.all, :id, :name,{prompt:'---'}, {class: "Product__details--category--field"}
             .Shipping-days
               .Shipping-days__label
                 %label 発送までの日数
                 %span 必須
-              = f.collection_select :lead_time, LeadTime.all, :id, :name,{}, {class: "Product__details--category--field"}
+              = f.collection_select :lead_time, LeadTime.all, :id, :name,{prompt:'---'}, {class: "Product__details--category--field"}
           .Price
             %p.Price__range 価格（¥300〜9,999,999)
             .Price__fields
