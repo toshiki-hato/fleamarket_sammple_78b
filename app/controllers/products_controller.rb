@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   
   def new
     if user_signed_in?
-      @product= Product.new
+      @product = Product.new
       @product.product_images.new
     else
       redirect_to new_user_session_path
@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_url
     else
+      @product.product_images.new
       render :new
     end
   end
