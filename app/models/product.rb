@@ -5,15 +5,18 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images, allow_destroy: true
 
   belongs_to :user
-  belongs_to :category
-
+ 
+  validates :product_images, presence: true
+  
   validates :name,              length: { maximum: 40 }, presence: true
   validates :description,       length: { maximum: 1000 }, presence: true
-  validates :price,             numericality: { only_integr: true,greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+  belongs_to :category
   validates :status,            presence: true
   validates :shipping_expenses, presence: true
   validates :send_from,         presence: true
   validates :lead_time,         presence: true
+  validates :price,             numericality: { only_integr: true,greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+  
   validates_associated :product_images
-  validates :product_images, presence: true
+ 
 end
