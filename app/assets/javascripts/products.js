@@ -116,15 +116,12 @@ $(document).on('turbolinks:load', function(){
 
         }
       } else {
-        
         //投稿編集時
-            
         $(`#product_product_images_attributes_${id}__destroy`).prop('checked',true);
         //5個めが消されたらラベルを表示
         if (count == 4) {
           $('.label-content').show();
         }
-
         //ラベルのwidth操作
         setLabel();
         //ラベルのidとforの値を変更
