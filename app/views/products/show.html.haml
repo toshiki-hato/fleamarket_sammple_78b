@@ -35,8 +35,7 @@
                     =@product.user.nickname
                 %tr
                   %th カテゴリー
-                  %td 
-                    =@product.category.name
+                  %td
                     - @parents.each do |parent|
                       -if @product.category_id == parent.id
                         = parent.name
