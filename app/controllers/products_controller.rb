@@ -8,12 +8,12 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product= Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
   
   def new
     if user_signed_in?
-      @product= Product.new
+      @product = Product.new
       @product.product_images.new
     else
       redirect_to new_user_session_path
@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product= Product.new
+    @product = Product.new
       @product.product_images.new
     if @product.save
       redirect_to root_url
@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to root_path
     else
+      @product.product_images = Product.find(params[:id]).product_images
       render "edit"
     end
   end
