@@ -104,6 +104,7 @@ $(document).on('turbolinks:load', function(){
       var count = $('.preview-box').length;
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      $(`#product_product_images_attributes_${id}_image`).val("");
       $(`#preview-box__${id}`).remove();
       a0.unshift(id);
       //新規投稿時
