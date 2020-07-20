@@ -36,7 +36,25 @@
                 %tr
                   %th カテゴリー
                   %td 
-                    =@product.category.name  
+                    =@product.category.name
+                    - @parents.each do |parent|
+                      -if @product.category_id == parent.id
+                        = parent.name
+                        %br
+                      - parent.children.each do |child|
+                        -if @product.category_id == child.id
+                          = parent.name
+                          %br
+                          = child.name
+                          %br
+                        - child.children.each do |grandchild|
+                          -if @product.category_id == grandchild.id
+                            = parent.name
+                            %br
+                            = child.name
+                            %br
+                            = grandchild.name
+                            %br
                 %tr
                   %th ブランド
                   %td 
@@ -63,8 +81,8 @@
 
   .footer
     - if user_signed_in? && current_user.id == @product.user_id
-      = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
       = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
+      = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
     - if user_signed_in? && current_user.id != @product.user_id
       = link_to "購入する", buy_product_path, method: :get,class:"product-details-buy__btn" 
       = link_to "もどる", products_path(@product.id), method: :get, class:"back-btn"    
