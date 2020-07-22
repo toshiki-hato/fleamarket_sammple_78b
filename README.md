@@ -86,3 +86,5 @@
 
 ### Association
 - has_many :products
+
+# ハローワールド
